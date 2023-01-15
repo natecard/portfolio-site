@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+svg {
+  filter: drop-shadow(2px 7px 3px #00171f);
+}
+rect {
+  filter: drop-shadow(0px 4px 4px #00171f);
+}
