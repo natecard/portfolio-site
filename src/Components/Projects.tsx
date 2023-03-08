@@ -1,6 +1,6 @@
 export default function Projects() {
 	return (
-		<div className="flex flex-row">
+		<div className="flex flex-col">
 			<div className="project grow pt-16 pl-24">
 				<h2 className="pb-8 text-center text-5xl">Project Title 1</h2>
 				<img

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-svg {
+.boxsvg {
 	filter: drop-shadow(2px 7px 3px #00171f);
 }
 rect {
