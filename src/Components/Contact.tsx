@@ -50,10 +50,10 @@ export default function Contact() {
 	return (
 		<>
 			<div className="flex flex-col justify-center self-center">
-				<div className="paraText">
+				<p className="px-2 text-center">
 					If you are interested in having a conversation about working together or are looking for
 					more information, feel free to reach out through the form below.
-				</div>
+				</p>
 				<form ref={form} onSubmit={handleSubmit} className="flex flex-col self-center p-8">
 					<input
 						type="text"
@@ -61,7 +61,7 @@ export default function Contact() {
 						name="name"
 						value={formData.name}
 						onChange={handleChange}
-						className="border-black m-4 rounded border-2 py-3 pl-4 pr-40"
+						className="m-4 rounded border-2 border-black py-3 pl-4 pr-40"
 					/>
 					<input
 						type="email"
@@ -69,14 +69,14 @@ export default function Contact() {
 						name="email"
 						onChange={handleChange}
 						value={formData.email}
-						className="border-black m-4 rounded border-2 py-3 pl-4 pr-40"
+						className="m-4 rounded border-2 border-black py-3 pl-4 pr-40"
 					/>
 					<textarea
 						placeholder="Message"
 						name="message"
 						onChange={handleChange}
 						value={formData.message}
-						className="border-black m-4 rounded border-2 py-3 pl-4 pr-40"
+						className="m-4 rounded border-2 border-black py-3 pl-4 pr-40"
 					/>
 					<button
 						onSubmit={() => {
@@ -84,7 +84,7 @@ export default function Contact() {
 								recaptchaRef.current.execute();
 							}
 						}}
-						className="border-black m-4 rounded border-2 px-12 py-3"
+						className="m-4 rounded border-2 border-black px-12 py-3"
 					>
 						Submit
 					</button>
@@ -94,6 +94,11 @@ export default function Contact() {
 						sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
 					/>
 				</form>
+				<div className="hidden text-center text-sm hover:block">
+					This site is protected by reCAPTCHA and the Google
+					<a href="https://policies.google.com/privacy"> Privacy Policy</a> and
+					<a href="https://policies.google.com/terms"> Terms of Service</a> apply.
+				</div>
 			</div>
 		</>
 	);

@@ -6,7 +6,7 @@ import AboutMe from './Components/AboutMe';
 
 function App() {
 	return (
-		<div className="main">
+		<div className="max-w-screen">
 			<Header />
 			<AboutMe />
 			<Projects />

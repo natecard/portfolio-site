@@ -11,6 +11,7 @@
     "@emailjs/browser": "^3.10.0",
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.16",
+    "@icons-pack/react-simple-icons": "^7.1.0",
     "@vitejs/plugin-react": "^3.1.0",
     "daisyui": "^2.51.3",
     "email-js": "^2.0.2",

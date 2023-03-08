@@ -4,8 +4,8 @@ export default function AboutMe() {
 	return (
 		<Parallax speed={-10} translateY={[-100, 50]}>
 			<div>
-				<h1 className="text-6xl">About Me</h1>
-				<p className="text-xl">
+				<h1 className="text-center text-6xl">About Me</h1>
+				<p className="px-3 text-xl">
 					Hi!
 					<br />
 					My name is Nate, as a career-transitioning web developer, I have developed a range of
