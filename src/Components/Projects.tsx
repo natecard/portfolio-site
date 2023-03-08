@@ -1,23 +1,22 @@
 import { SiReact, SiTypescript, SiTailwindcss } from '@icons-pack/react-simple-icons';
+import image from '../img/subforuma.png';
+import { projects } from './Interfaces';
+import { Link } from 'react-router-dom';
 
-export default function Projects() {
+export default function Projects(props: projects) {
 	return (
-		<div className="flex flex-col px-2">
-			<div className="project grow pt-16">
-				<h2 className="pb-8 text-center text-5xl">Project Title 1</h2>
-				<img
-					className="projectImg bg-darkLiver h-80 w-80 items-center"
-					src="../img/subforuma.png"
-					alt="project screen shot"
-				/>
-				<div className="languageContainer flex flex-row">
-					<div className="m- language border-darkBlack bg-greyButton m-4 h-8 w-24 rounded-md border-2 text-center">
+		<div className="flex flex-col justify-center px-2">
+			<div className="flex grow flex-col pt-16">
+				<h2 className="pb-8 text-5xl">{props.title}</h2>
+				<img className="flex h-3/6 w-5/6" src={props.img} alt="project screen shot" />
+				<div className=" flex flex-row justify-center">
+					<div className="m-4 h-8 w-24 rounded-md">
 						<SiReact />
 					</div>
-					<div className="m- language border-darkBlack bg-greyButton m-4 h-8 w-24 rounded-md border-2 text-center">
+					<div className=" m-4 h-8 w-24 rounded-md">
 						<SiTypescript />
 					</div>
-					<div className="m- language border-darkBlack bg-greyButton m-4 h-8 w-24 rounded-md border-2 text-center">
+					<div className="m-4 h-8 w-24 rounded-md">
 						<SiTailwindcss />
 					</div>
 				</div>
@@ -28,9 +27,12 @@ export default function Projects() {
 					felis. Phasellus nunc lectus, tincidunt eu enim ut, pretium tristique metus. Cras rhoncus
 					justo mauris, vulputate commodo eros laoreet vitae...
 				</p>
-				<div className="readMore m- language border-darkBlack bg-darkLiver text-whiteish m-4 h-8 w-24 rounded-md border-2 text-center">
-					Read More
-				</div>
+				<button
+					Link={props.githubUrl}
+					className="text-whiteish h-8 w-2/6 rounded-md border-2 p-3 text-center align-middle"
+				>
+					Github Repo
+				</button>
 			</div>
 		</div>
 	);
