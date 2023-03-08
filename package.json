@@ -8,10 +8,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.10.0",
     "@vitejs/plugin-react": "^3.1.0",
     "email-js": "^2.0.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-google-recaptcha": "^2.1.0",
     "react-router-dom": "^6.8.0"
   },
   "devDependencies": {
@@ -19,6 +21,7 @@
     "@types/node": "18.11.0",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
+    "@types/react-google-recaptcha": "^2.1.5",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
     "@vitejs/plugin-react-swc": "3.0.1",
