@@ -65,7 +65,7 @@ function App() {
 					language3={'Tailwind'}
 					readme={portfolioReadMe}
 					githubUrl={'https://github.com/natecard/portfolio-site'}
-					liveDemo={''}
+					liveDemo={'https://portfolio-site-natecard.vercel.app/'}
 				/>
 			</div>
 			<div className=" mb-96 snap-center snap-always pb-96">
