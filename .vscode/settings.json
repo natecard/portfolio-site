@@ -9,5 +9,6 @@
 	"emmet.showSuggestionsAsSnippets": true,
 	"typescript.suggest.includeCompletionsForImportStatements": true,
 	"vsintellicode.typescript.completionsEnabled": true,
-	"path-intellisense.autoTriggerNextSuggestion": true
+	"path-intellisense.autoTriggerNextSuggestion": true,
+	"typescript.tsdk": "node_modules/typescript/lib"
 }
