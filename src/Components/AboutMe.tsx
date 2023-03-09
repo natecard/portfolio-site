@@ -20,21 +20,20 @@ export default function AboutMe() {
 					},
 					{ image: foreground, speed: -20 },
 				]}
-				className=" aspect-video"
+				className=" aspect-[4/3]"
 			/>
 			<div className=" mx-5  md:mx-20">
 				<p className="lg:mx-18 mt-20 px-2 text-2xl font-extralight subpixel-antialiased md:mx-14 lg:text-4xl">
-					Hi!
-					<br />
 					My name is Nate, as a former brewery owner, and now turned software engineer, I bring a
-					unique blend of communication, problem-solving, and technical expertise to the table. My
-					experience in the brewing, finance, and environmental positions taught me how to make
+					unique blend of communication, problem-solving, and technical expertise to the table.
+					<br />
+					<br />
+					My experience in the brewing, finance, and environmental industries taught me how to make
 					strategic decisions, work within a team, and a great set of problem solving skills.
 					<br />
 					<br /> Now as a web developer, I have further developed this range of skills that will
-					enable me to excel in this industry. These skills include troubleshooting,
-					problem-solving, identifying and understanding complex systems, communication, and
-					strategic thinking.
+					enable me to excel in tech. These skills include troubleshooting, problem-solving,
+					identifying and understanding complex systems, communication, and strategic thinking.
 				</p>
 			</div>
 		</div>

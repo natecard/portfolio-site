@@ -18,23 +18,23 @@ export default function Projects(props: projects) {
 					<Link to={`https://www.typescriptlang.org/`}>
 						<SiTypescript />
 					</Link>
-					<p>{props.language1}</p>
+					<h2>{props.language1}</h2>
 				</div>
 				<div className="flex flex-col items-center">
 					<Link to={`https://reactjs.org/`}>
 						<SiReact />
 					</Link>
-					<p>{props.language2}</p>
+					<h2>{props.language2}</h2>
 				</div>
 				<div className="flex flex-col items-center">
 					<Link to={`https://tailwindcss.com/`}>
 						<SiTailwindcss />
 					</Link>
-					<p>{props.language3}</p>
+					<h2>{props.language3}</h2>
 				</div>
 			</div>
-			<div className="flex flex-col items-center pt-4">
-				<p className="w-3/5 pb-8 text-lg">{props.readme}</p>
+			<div className="flex flex-col items-center py-8">
+				<div className="w-3/5 pb-8 text-lg">{props.readme}</div>
 				<button className="flex h-8 w-2/6 items-center justify-center rounded-md border-2 p-3 hover:bg-white hover:text-black md:w-48">
 					<Link to={props.githubUrl}> Github Repo</Link>
 				</button>
