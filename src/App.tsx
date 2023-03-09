@@ -6,6 +6,7 @@ import AboutMe from './Components/AboutMe';
 import { SiReact, SiTailwindcss, SiTypescript } from '@icons-pack/react-simple-icons';
 import Landing from './Components/Landing';
 import subforuma from './img/subforuma.png';
+import portfolio from './img/portfolio.png';
 import { ethosReadMe, portfolioReadMe, subforumaReadMe } from './projectReadMe';
 import ethos from './img/ethos.png';
 
@@ -20,16 +21,18 @@ function App() {
 				<AboutMe />
 			</div>
 			<div className=" snap-center snap-always pb-96">
-				<h1 className="pb-28 text-center text-8xl">My Projects</h1>
+				<h1 className="bg-gradient-to-r from-blue-400 to-red-600 bg-clip-text pb-28 text-center text-5xl font-extrabold text-transparent lg:text-8xl">
+					My Projects
+				</h1>
 				<Projects
 					title={'Subforuma'}
 					img={subforuma}
 					language1Icon={SiTypescript}
 					language1={'TypeScript'}
 					language2Icon={SiReact}
-					language2={'React'}
+					language2={'ReactJS'}
 					language3Icon={SiTailwindcss}
-					language3={'TailwindCSS'}
+					language3={'Tailwind'}
 					readme={subforumaReadMe}
 					githubUrl={'https://github.com/natecard/microblog'}
 					liveDemo={''}
@@ -42,9 +45,9 @@ function App() {
 					language1Icon={SiTypescript}
 					language1={'TypeScript'}
 					language2Icon={SiReact}
-					language2={'React'}
+					language2={'ReactJS'}
 					language3Icon={SiTailwindcss}
-					language3={'TailwindCSS'}
+					language3={'Tailwind'}
 					readme={ethosReadMe}
 					githubUrl={'https://github.com/natecard/FakeStore'}
 					liveDemo={''}
@@ -53,13 +56,13 @@ function App() {
 			<div className=" mb-96 snap-center snap-always pb-96">
 				<Projects
 					title={'Portfolio'}
-					img={''}
+					img={portfolio}
 					language1Icon={SiTypescript}
 					language1={'TypeScript'}
 					language2Icon={SiReact}
-					language2={'React'}
+					language2={'ReactJS'}
 					language3Icon={SiTailwindcss}
-					language3={'TailwindCSS'}
+					language3={'Tailwind'}
 					readme={portfolioReadMe}
 					githubUrl={'https://github.com/natecard/portfolio-site'}
 					liveDemo={''}
