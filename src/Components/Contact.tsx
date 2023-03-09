@@ -49,7 +49,7 @@ export default function Contact() {
 	}
 	return (
 		<>
-			<div className="flex flex-col justify-center self-center">
+			<div className="snap flex flex-col justify-center self-center">
 				<p className="px-2 text-center">
 					If you are interested in having a conversation about working together or are looking for
 					more information, feel free to reach out through the form below.

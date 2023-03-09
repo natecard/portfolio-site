@@ -14,6 +14,9 @@ module.exports = {
 				secondary: '#bdbbbe',
 				background: '#1d161f',
 			},
+			backgroundImage: {
+				'gradient-conic': 'conic-gradient(var(--conic-position), var(--tw-gradient-stops))',
+			},
 		},
 	},
 	plugins: [require('daisyui')],

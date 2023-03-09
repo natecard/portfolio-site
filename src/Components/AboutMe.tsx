@@ -1,9 +1,9 @@
-import { Parallax } from 'react-scroll-parallax';
+import { ScrollParallax } from 'react-just-parallax';
 
 export default function AboutMe() {
 	return (
-		<Parallax speed={-10} translateY={[-100, 50]}>
-			<div>
+		<ScrollParallax>
+			<div className=" mt-96 mb-96 snap-y snap-mandatory overflow-hidden bg-secondary pb-96 pt-96">
 				<h1 className="text-center text-6xl">About Me</h1>
 				<p className="px-3 text-xl">
 					Hi!
@@ -14,6 +14,6 @@ export default function AboutMe() {
 					communication, and strategic thinking.
 				</p>
 			</div>
-		</Parallax>
+		</ScrollParallax>
 	);
 }

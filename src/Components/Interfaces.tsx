@@ -7,3 +7,9 @@ export interface projects {
 	readme: string;
 	githubUrl: string;
 }
+export interface LandingProps {
+	className: string;
+}
+export interface AboutMeProps {
+	className: string;
+}
