@@ -1,11 +1,15 @@
 export interface projects {
 	title: string;
 	img: string;
-	language1: unknown;
-	language2: unknown;
-	language3: unknown;
+	language1: string;
+	language2: string;
+	language3: string;
+	language1Icon: unknown;
+	language2Icon: unknown;
+	language3Icon: unknown;
 	readme: string;
 	githubUrl: string;
+	liveDemo: string;
 }
 export interface LandingProps {
 	className: string;

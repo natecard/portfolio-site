@@ -5,48 +5,62 @@ import Footer from './Components/Footer';
 import AboutMe from './Components/AboutMe';
 import { SiReact, SiTailwindcss, SiTypescript } from '@icons-pack/react-simple-icons';
 import Landing from './Components/Landing';
+import subforuma from './img/subforuma.png';
+import ethos from './img/ethos.png';
 
 function App() {
 	return (
-		<div className=" max-w-screen snap-y">
+		<div className=" max-w-full snap-y">
 			<Header />
-			<div className=" mb-96 snap-center snap-always pb-96">
-				<Landing className="" />
+			<div className="snap-y snap-center snap-always">
+				<Landing />
 			</div>
-			<div className=" mb-96 snap-center snap-always pb-96">
+			<div className="-mt-48 snap-center snap-always pb-96">
 				<AboutMe />
 			</div>
-			<div className=" mb-96 snap-center snap-always pb-96">
+			<div className=" snap-center snap-always pb-96">
 				<Projects
 					title={'Subforuma'}
-					img={''}
-					language1={SiTypescript}
-					language2={SiReact}
-					language3={SiTailwindcss}
+					img={subforuma}
+					language1Icon={SiTypescript}
+					language1={'TypeScript'}
+					language2Icon={SiReact}
+					language2={'React'}
+					language3Icon={SiTailwindcss}
+					language3={'TailwindCSS'}
 					readme={''}
 					githubUrl={'https://github.com/natecard/microblog'}
+					liveDemo={''}
 				/>
 			</div>
 			<div className=" mb-96 snap-center snap-always pb-96">
 				<Projects
 					title={'Ethos'}
-					img={''}
-					language1={SiTypescript}
-					language2={SiReact}
-					language3={SiTailwindcss}
+					img={ethos}
+					language1Icon={SiTypescript}
+					language1={'TypeScript'}
+					language2Icon={SiReact}
+					language2={'React'}
+					language3Icon={SiTailwindcss}
+					language3={'TailwindCSS'}
 					readme={''}
 					githubUrl={'https://github.com/natecard/FakeStore'}
+					liveDemo={''}
 				/>
 			</div>
 			<div className=" mb-96 snap-center snap-always pb-96">
 				<Projects
 					title={'Portfolio'}
 					img={''}
-					language1={SiTypescript}
-					language2={SiReact}
-					language3={SiTailwindcss}
+					language1Icon={SiTypescript}
+					language1={'TypeScript'}
+					language2Icon={SiReact}
+					language2={'React'}
+					language3Icon={SiTailwindcss}
+					language3={'TailwindCSS'}
 					readme={''}
 					githubUrl={'https://github.com/natecard/portfolio-site'}
+					liveDemo={''}
 				/>
 			</div>
 			<div className=" mb-96 snap-center snap-always pb-96">
