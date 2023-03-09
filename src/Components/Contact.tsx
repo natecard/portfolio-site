@@ -49,19 +49,19 @@ export default function Contact() {
 	}
 	return (
 		<>
-			<div className="snap flex flex-col justify-center self-center">
-				<p className="px-2 text-center">
+			<div className="snap flex flex-col justify-center">
+				<p className="px-2 lg:text-2xl lg:px-24 text-center">
 					If you are interested in having a conversation about working together or are looking for
 					more information, feel free to reach out through the form below.
 				</p>
-				<form ref={form} onSubmit={handleSubmit} className="flex flex-col self-center p-8">
+				<form ref={form} onSubmit={handleSubmit} className="flex flex-col items-center">
 					<input
 						type="text"
 						placeholder="Name"
 						name="name"
 						value={formData.name}
 						onChange={handleChange}
-						className="md:w-5/12 w-1/2 m-4 rounded border-2 border-black px-3 py-3"
+						className="md:w-5/12 w-3/4 rounded border-2 border-black m-4 p-2"
 					/>
 					<input
 						type="email"
@@ -69,14 +69,14 @@ export default function Contact() {
 						name="email"
 						onChange={handleChange}
 						value={formData.email}
-						className="md:w-5/12 w-1/2 m-4 rounded border-2 border-black py-3"
+						className="md:w-5/12 w-3/4 rounded border-2 border-black m-4 p-2"
 					/>
 					<textarea
 						placeholder="Message"
 						name="message"
 						onChange={handleChange}
 						value={formData.message}
-						className="md:w-5/12 w-1/2 m-4 rounded border-2 border-black py-3"
+						className="md:w-5/12 w-3/4 rounded border-2 border-black m-4 p-2"
 					/>
 					<button
 						onSubmit={() => {

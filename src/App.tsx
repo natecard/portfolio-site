@@ -21,7 +21,7 @@ function App() {
 				<AboutMe />
 			</div>
 			<div className=" snap-center snap-always pb-96">
-				<h1 className="bg-gradient-to-r from-blue-400 to-red-600 bg-clip-text pb-28 text-center text-5xl font-extrabold text-transparent lg:text-8xl">
+				<h1 className="bg-gradient-to-r from-blue-400 to-red-600 bg-clip-text pb-28 text-center text-7xl font-extrabold text-transparent lg:text-8xl">
 					My Projects
 				</h1>
 				<Projects
@@ -38,7 +38,7 @@ function App() {
 					liveDemo={'https://microblog-lzyn1xfyg-natecard.vercel.app/'}
 				/>
 			</div>
-			<div className=" mb-96 snap-center snap-always pb-96">
+			<div className=" snap-center snap-always pb-96">
 				<Projects
 					title={'Ethos'}
 					img={ethos}
@@ -68,7 +68,7 @@ function App() {
 					liveDemo={'https://portfolio-site-natecard.vercel.app/'}
 				/>
 			</div>
-			<div className=" mb-96 snap-center snap-always pb-96">
+			<div className=" snap-center snap-always pb-96">
 				<Contact />
 			</div>
 			<Footer />

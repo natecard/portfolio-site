@@ -20,7 +20,10 @@ export default function Header() {
 				<a className="btn-ghost btn text-xl uppercase">Nathan Card</a>
 			</div>
 			<div className="navbar-end pr-3">
-				<button onClick={downloadResume} className="p-4 text-white">
+				<button
+					onClick={downloadResume}
+					className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-2xl font-bold text-transparent hover:animate-pulse"
+				>
 					Resume
 				</button>
 			</div>

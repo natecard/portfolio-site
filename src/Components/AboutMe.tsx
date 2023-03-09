@@ -31,9 +31,16 @@ export default function AboutMe() {
 					My experience in the brewing, finance, and environmental industries taught me how to make
 					strategic decisions, work within a team, and a great set of problem solving skills.
 					<br />
-					<br /> Now as a web developer, I have further developed this range of skills that will
-					enable me to excel in tech. These skills include troubleshooting, problem-solving,
-					identifying and understanding complex systems, communication, and strategic thinking.
+					<br />
+					Now as a web developer, I have further developed this range of skills that will enable me
+					to excel in tech. These skills include troubleshooting, problem-solving, identifying and
+					understanding complex systems, communication, and strategic thinking.
+					<br />
+					<br />
+					I am looking to work as either a Front End or Full Stack developer, and look forward to
+					working with a great team to move their product forward.
+					<br />
+					<br />
 				</p>
 			</div>
 		</div>
