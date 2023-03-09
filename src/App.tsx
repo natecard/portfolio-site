@@ -13,14 +13,14 @@ function App() {
 	return (
 		<div className=" max-w-full snap-y">
 			<Header />
-			<div className="h-screen snap-y snap-center snap-always">
+			<div className="min-h-screen snap-y snap-center snap-always">
 				<Landing />
 			</div>
 			<div className="-mt-48 snap-center snap-always pb-96">
 				<AboutMe />
 			</div>
 			<div className=" snap-center snap-always pb-96">
-				<h1 className="text-center text-6xl">My Projects</h1>
+				<h1 className="pb-28 text-center text-8xl">My Projects</h1>
 				<Projects
 					title={'Subforuma'}
 					img={subforuma}
