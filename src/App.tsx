@@ -35,7 +35,7 @@ function App() {
 					language3={'Tailwind'}
 					readme={subforumaReadMe}
 					githubUrl={'https://github.com/natecard/microblog'}
-					liveDemo={''}
+					liveDemo={'https://microblog-lzyn1xfyg-natecard.vercel.app/'}
 				/>
 			</div>
 			<div className=" mb-96 snap-center snap-always pb-96">
@@ -50,7 +50,7 @@ function App() {
 					language3={'Tailwind'}
 					readme={ethosReadMe}
 					githubUrl={'https://github.com/natecard/FakeStore'}
-					liveDemo={''}
+					liveDemo={'https://natecard.github.io/FakeStore/'}
 				/>
 			</div>
 			<div className=" mb-96 snap-center snap-always pb-96">
