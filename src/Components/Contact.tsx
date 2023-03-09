@@ -61,7 +61,7 @@ export default function Contact() {
 						name="name"
 						value={formData.name}
 						onChange={handleChange}
-						className="m-4 rounded border-2 border-black py-3 pl-4 pr-40"
+						className="m-4 rounded border-2 border-black px-3 py-3"
 					/>
 					<input
 						type="email"
@@ -69,14 +69,14 @@ export default function Contact() {
 						name="email"
 						onChange={handleChange}
 						value={formData.email}
-						className="m-4 rounded border-2 border-black py-3 pl-4 pr-40"
+						className="m-4 rounded border-2 border-black py-3"
 					/>
 					<textarea
 						placeholder="Message"
 						name="message"
 						onChange={handleChange}
 						value={formData.message}
-						className="m-4 rounded border-2 border-black py-3 pl-4 pr-40"
+						className="m-4 rounded border-2 border-black py-3"
 					/>
 					<button
 						onSubmit={() => {
@@ -84,7 +84,7 @@ export default function Contact() {
 								recaptchaRef.current.execute();
 							}
 						}}
-						className="m-4 rounded border-2 border-black px-12 py-3"
+						className="m-4 rounded border-2 border-black px-12 py-3 hover:bg-secondary hover:text-black"
 					>
 						Submit
 					</button>

@@ -7,7 +7,7 @@ export interface projects {
 	language1Icon: unknown;
 	language2Icon: unknown;
 	language3Icon: unknown;
-	readme: string;
+	readme: JSX.Element;
 	githubUrl: string;
 	liveDemo: string;
 }

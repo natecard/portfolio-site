@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function Projects(props: projects) {
 	return (
-		<div className="flex flex-col ">
+		<div className="mx-2 flex flex-col rounded-lg bg-white/20 backdrop-blur-lg md:mx-12 ">
 			<div className="flex flex-col items-center">
 				<h2 className="pb-8 text-5xl">{props.title}</h2>
 				<img
