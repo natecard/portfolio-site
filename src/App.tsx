@@ -9,21 +9,39 @@ import subforuma from './img/subforuma.png';
 import portfolio from './img/portfolio.png';
 import { ethosReadMe, portfolioReadMe, subforumaReadMe } from './projectReadMe';
 import ethos from './img/ethos.png';
+import background from './img/bg-landing.png';
+import foreground from './img/foreground-landing.png';
+import { ParallaxBanner } from 'react-scroll-parallax';
 
 function App() {
 	return (
 		<div className=" max-w-full snap-y">
 			<Header />
-			<div className="min-h-screen snap-y snap-center snap-always">
+			<div className="min-h-screen snap-y snap-center snap-always pb-36">
 				<Landing />
 			</div>
 			<div className="-mt-48 snap-center snap-always pb-96">
 				<AboutMe />
 			</div>
 			<div className=" snap-center snap-always pb-96">
-				<h1 className="bg-gradient-to-r from-blue-400 to-red-600 bg-clip-text pb-28 text-center text-7xl font-extrabold text-transparent lg:text-8xl">
-					My Projects
-				</h1>
+				<ParallaxBanner
+					layers={[
+						{ image: background, speed: -40 },
+						{
+							speed: -40,
+							children: (
+								<div className="absolute inset-0 flex justify-center pt-44 md:pt-72">
+									<h1 className="bg-gradient-to-r from-blue-400 to-red-600 bg-clip-text pb-28 text-center text-7xl font-extrabold text-transparent lg:text-8xl">
+										My Projects
+									</h1>
+								</div>
+							),
+						},
+						{ image: foreground, speed: -20 },
+					]}
+					className=" aspect-[7/3]"
+				/>
+
 				<Projects
 					title={'Subforuma'}
 					img={subforuma}
