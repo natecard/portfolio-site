@@ -1,4 +1,3 @@
-import resume from '../../Nathan Card - Software Engineer.pdf';
 export default function Header() {
 	function downloadResume() {
 		fetch('../../Nathan Card - Software Engineer.pdf')
@@ -22,7 +21,7 @@ export default function Header() {
 			<div className="navbar-end pr-3">
 				<button
 					onClick={downloadResume}
-					className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-2xl font-bold text-transparent hover:animate-pulse"
+					className="from-purple-400 to-pink-600 text-2xl font-bold text-white hover:scale-150 hover:bg-gradient-to-r hover:bg-clip-text hover:pr-4 hover:text-transparent"
 				>
 					Resume
 				</button>

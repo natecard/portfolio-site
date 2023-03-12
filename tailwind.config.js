@@ -17,6 +17,31 @@ module.exports = {
 			backgroundImage: {
 				'gradient-conic': 'conic-gradient(var(--conic-position), var(--tw-gradient-stops))',
 			},
+			keyframes: {
+				typing: {
+					'0%': {
+						width: '0%',
+						visibility: 'hidden',
+					},
+					'70%': {
+						width: '100%',
+					},
+					'100%': {
+						width: '100%',
+					},
+				},
+				blink: {
+					'50%': {
+						borderColor: 'transparent',
+					},
+					'100%': {
+						borderColor: 'white',
+					},
+				},
+			},
+			animation: {
+				typing: 'typing 7s steps(70) infinite alternate, blink .7s infinite',
+			},
 		},
 	},
 	plugins: [require('daisyui')],
