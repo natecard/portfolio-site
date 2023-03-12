@@ -21,6 +21,7 @@ export default function Contact() {
 			emailjs.send('service_50qkrsk', 'contact_form', formParams).then(
 				(result) => {
 					console.log(result.text);
+					alert('Success! Message received.');
 				},
 				(error) => {
 					console.log(error.text);
@@ -50,7 +51,7 @@ export default function Contact() {
 	return (
 		<>
 			<div className="snap flex flex-col justify-center">
-				<p className="px-2 lg:text-2xl lg:px-24 text-center">
+				<p className="px-2 text-center md:px-12 lg:px-24 lg:text-2xl">
 					If you are interested in having a conversation about working together or are looking for
 					more information, feel free to reach out through the form below.
 				</p>
@@ -61,7 +62,7 @@ export default function Contact() {
 						name="name"
 						value={formData.name}
 						onChange={handleChange}
-						className="md:w-5/12 w-3/4 rounded border-2 border-black m-4 p-2"
+						className="m-4 w-3/4 rounded border-2 border-black p-2 md:w-5/12"
 					/>
 					<input
 						type="email"
@@ -69,14 +70,14 @@ export default function Contact() {
 						name="email"
 						onChange={handleChange}
 						value={formData.email}
-						className="md:w-5/12 w-3/4 rounded border-2 border-black m-4 p-2"
+						className="m-4 w-3/4 rounded border-2 border-black p-2 md:w-5/12"
 					/>
 					<textarea
 						placeholder="Message"
 						name="message"
 						onChange={handleChange}
 						value={formData.message}
-						className="md:w-5/12 w-3/4 rounded border-2 border-black m-4 p-2"
+						className="m-4 w-3/4 rounded border-2 border-black p-2 md:w-5/12"
 					/>
 					<button
 						onSubmit={() => {

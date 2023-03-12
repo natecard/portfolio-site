@@ -5,23 +5,44 @@ import foreground from '../img/foreground-landing.png';
 export default function AboutMe() {
 	return (
 		<div>
-			<ParallaxBanner
-				layers={[
-					{ image: background, speed: -40 },
-					{
-						speed: -10,
-						children: (
-							<div className="absolute inset-0 flex justify-center pt-80 md:pt-80">
-								<h1 className="bg-gradient-to-l from-blue-400 to-red-400 bg-clip-text text-8xl font-extrabold text-transparent lg:text-8xl">
-									About Me
-								</h1>
-							</div>
-						),
-					},
-					{ image: foreground, speed: -1 },
-				]}
-				className="aspect-[3/2] min-h-screen"
-			/>
+			{window.innerWidth < 805 ? (
+				<ParallaxBanner
+					layers={[
+						{ image: background, speed: -40 },
+						{
+							speed: -50,
+							children: (
+								<div className="absolute inset-0 flex justify-center pt-80 md:pt-96">
+									<h1 className="bg-gradient-to-l from-blue-400 to-red-400 bg-clip-text text-5xl font-extrabold text-transparent lg:text-8xl">
+										About Me
+									</h1>
+								</div>
+							),
+						},
+						{ image: foreground, speed: -25 },
+					]}
+					className=" aspect-[5/2]"
+				/>
+			) : (
+				<ParallaxBanner
+					layers={[
+						{ image: background, speed: -40 },
+						{
+							speed: -45,
+							easing: 'easeOutQuad',
+							children: (
+								<div className="absolute inset-0 flex justify-center pt-80">
+									<h1 className="bg-gradient-to-l from-blue-400 to-red-400 bg-clip-text text-6xl font-extrabold text-transparent lg:text-8xl">
+										About Me
+									</h1>
+								</div>
+							),
+						},
+						{ image: foreground, speed: -15, easing: 'easeOutCirc' },
+					]}
+					className=" aspect-[5/3]"
+				/>
+			)}
 			<div className=" mx-5  md:mx-20">
 				<p className="lg:mx-18 mt-20 px-2 text-2xl font-extralight subpixel-antialiased md:mx-14 lg:text-4xl">
 					My name is Nate, as a former brewery owner, and now turned software engineer, I bring a

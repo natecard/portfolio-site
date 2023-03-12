@@ -20,28 +20,49 @@ function App() {
 			<div className="min-h-screen snap-y snap-center snap-always pb-36">
 				<Landing />
 			</div>
-			<div className="-mt-48 snap-center snap-always pb-96">
+			<div className="my-48 snap-center snap-always">
 				<AboutMe />
 			</div>
-			<div className=" snap-center snap-always pb-96">
+			<div className="snap-center snap-always py-24">
 				<div className="shadow-yellow bg-gradient-to-b from-transparent to-background pb-4 shadow-inner">
-					<ParallaxBanner
-						layers={[
-							{ image: background, speed: -40 },
-							{ image: foreground, speed: -20 },
-							{
-								speed: -10,
-								children: (
-									<div className="absolute inset-0 flex justify-center pt-44 md:pt-72">
-										<h1 className="bg-gradient-to-r from-blue-400 to-red-600 bg-clip-text pb-28 text-center text-4xl font-extrabold text-transparent md:text-7xl lg:text-8xl">
-											My Projects
-										</h1>
-									</div>
-								),
-							},
-						]}
-						className="aspect-[3/3] shadow-inner shadow-yellow-600"
-					/>
+					{window.innerWidth < 805 ? (
+						<ParallaxBanner
+							layers={[
+								{ image: background, speed: -40 },
+								{
+									speed: -50,
+									children: (
+										<div className="absolute inset-0 flex justify-center pt-80 md:pt-96">
+											<h1 className="bg-gradient-to-l from-blue-400 to-red-400 bg-clip-text text-5xl font-extrabold text-transparent lg:text-8xl">
+												My Projects
+											</h1>
+										</div>
+									),
+								},
+								{ image: foreground, speed: -25 },
+							]}
+							className=" aspect-[5/2]"
+						/>
+					) : (
+						<ParallaxBanner
+							layers={[
+								{ image: background, speed: -40 },
+								{
+									speed: -45,
+									easing: 'easeOutQuad',
+									children: (
+										<div className="absolute inset-0 flex justify-center pt-80">
+											<h1 className="bg-gradient-to-l from-blue-400 to-red-400 bg-clip-text text-6xl font-extrabold text-transparent lg:text-8xl">
+												My Projects{' '}
+											</h1>
+										</div>
+									),
+								},
+								{ image: foreground, speed: -15, easing: 'easeOutCirc' },
+							]}
+							className=" aspect-[5/3]"
+						/>
+					)}
 				</div>
 
 				<Projects
@@ -58,7 +79,7 @@ function App() {
 					liveDemo={'https://microblog-lzyn1xfyg-natecard.vercel.app/'}
 				/>
 			</div>
-			<div className=" snap-center snap-always pb-96">
+			<div className="snap-center snap-always py-24">
 				<Projects
 					title={'Ethos'}
 					img={ethos}
@@ -73,7 +94,7 @@ function App() {
 					liveDemo={'https://natecard.github.io/FakeStore/'}
 				/>
 			</div>
-			<div className=" mb-96 snap-center snap-always pb-96">
+			<div className="snap-center snap-always py-24">
 				<Projects
 					title={'Portfolio'}
 					img={portfolio}
@@ -88,7 +109,7 @@ function App() {
 					liveDemo={'https://portfolio-site-natecard.vercel.app/'}
 				/>
 			</div>
-			<div className=" snap-center snap-always pb-96">
+			<div className=" snap-center snap-always pb-48">
 				<Contact />
 			</div>
 			<Footer />
