@@ -11,7 +11,7 @@ export default function Landing() {
 					</span>
 					<span className=" text-5xl lg:text-8xl">.</span>
 					<br />
-					I'm a web developer.
+					I'm a software developer.
 				</h1>
 			) : (
 				<div className=" absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2">
@@ -21,7 +21,7 @@ export default function Landing() {
 							<span className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-5xl font-extrabold text-transparent motion-safe:animate-pulse lg:text-6xl xl:text-7xl">
 								Nate Card
 							</span>
-							. I'm a web developer.
+							. I'm a software developer.
 						</h1>
 					</div>
 				</div>

@@ -24,46 +24,7 @@ function App() {
 				<AboutMe />
 			</div>
 			<div className="snap-center snap-always py-24">
-				<div className="shadow-yellow bg-gradient-to-b from-transparent to-background pb-4 shadow-inner">
-					{window.innerWidth < 805 ? (
-						<ParallaxBanner
-							layers={[
-								{ image: background, speed: -40 },
-								{
-									speed: -50,
-									children: (
-										<div className="absolute inset-0 flex justify-center pt-80 md:pt-96">
-											<h1 className="bg-gradient-to-l from-blue-400 to-red-400 bg-clip-text text-5xl font-extrabold text-transparent lg:text-8xl">
-												My Projects
-											</h1>
-										</div>
-									),
-								},
-								{ image: foreground, speed: -25 },
-							]}
-							className=" aspect-[5/2]"
-						/>
-					) : (
-						<ParallaxBanner
-							layers={[
-								{ image: background, speed: -40 },
-								{
-									speed: -45,
-									easing: 'easeOutQuad',
-									children: (
-										<div className="absolute inset-0 flex justify-center pt-80">
-											<h1 className="bg-gradient-to-l from-blue-400 to-red-400 bg-clip-text text-6xl font-extrabold text-transparent lg:text-8xl">
-												My Projects{' '}
-											</h1>
-										</div>
-									),
-								},
-								{ image: foreground, speed: -15, easing: 'easeOutCirc' },
-							]}
-							className=" aspect-[5/3]"
-						/>
-					)}
-				</div>
+				<div className="shadow-yellow bg-gradient-to-b from-transparent to-background pb-4 shadow-inner"></div>
 
 				<Projects
 					title={'Subforuma'}

@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 export const subforumaReadMe = (
 	<div>
-		<h3 className="text-2xl lg:text-4xl">Features</h3>
+		<h3 className="text-xl lg:text-2xl">Features</h3>
 		<div>
-			<ul className="list-inside list-disc pt-3 lg:text-3xl">
+			<ul className="list-inside list-disc pt-3 lg:text-xl">
 				<li>Toggle dark / light theme based on system theme</li>
 				<li>Create, reply, like public posts</li>
 				<li>PostgreSQL database and realtime functions</li>
@@ -14,7 +14,7 @@ export const subforumaReadMe = (
 			</ul>
 		</div>
 		<div>
-			<p className="pt-3 lg:pt-6 lg:text-3xl">
+			<p className="pt-3 lg:pt-6 lg:text-xl">
 				For Google Sign In, I used Supabase Auth. This allowed for a good base to pull user data and
 				display profile pictures, display names, etc to build out the basic "tweets" The PostgreSQL
 				database from Supabase gave me the ability to build my own SQL functions to render the
@@ -28,9 +28,9 @@ export const subforumaReadMe = (
 
 export const ethosReadMe = (
 	<div>
-		<h3 className="text-2xl lg:text-4xl">Features</h3>
+		<h3 className="text-xl lg:text-2xl">Features</h3>
 		<div>
-			<ul className="list-inside list-disc pt-3 lg:text-3xl">
+			<ul className="list-inside list-disc pt-3 lg:text-xl">
 				<li>Responsive design</li>
 				<li>Fully featured shopping cart</li>
 				<li>API fetch for product rendering </li>
@@ -38,9 +38,9 @@ export const ethosReadMe = (
 			</ul>
 		</div>
 		<div>
-			<p className="pt-3 lg:pt-6 lg:text-3xl">
-				I built an ecommerce site to utilize the recently released Shopify Mock Store API This was
-				built using React, TypeScript, and CSS done using TailwindCSS. It is an ecommerce store with
+			<p className="pt-3 lg:pt-6 lg:text-xl">
+				I built an ecommerce site template for freelance ecommerce store work. For the items I used
+				the recently released Shopify Mock Store API. It is a fully functional ecommerce store with
 				landing page, store page, individual item pages/modals, and shopping cart.
 			</p>
 		</div>
@@ -48,9 +48,9 @@ export const ethosReadMe = (
 );
 export const portfolioReadMe = (
 	<div>
-		<h3 className="text-2xl lg:text-4xl">Features</h3>
+		<h3 className="text-xl lg:text-2xl">Features</h3>
 		<div>
-			<ul className="list-inside list-disc pt-3 lg:text-3xl">
+			<ul className="list-inside list-disc pt-3 lg:text-xl">
 				<li>Toggle dark / light theme based on system theme</li>
 				<li>Responsive design</li>
 				<li>Google Invisible Recaptcha</li>
@@ -59,7 +59,7 @@ export const portfolioReadMe = (
 			</ul>
 		</div>
 		<div>
-			<p className="pt-3 lg:pt-6 lg:text-3xl">
+			<p className="pt-3 lg:pt-6 lg:text-xl">
 				This was built to showcase some of my projects that I have completed. Using TypeScript,
 				React, TailwindCSS for the CSS. I tried using some new to me packages to help make something
 				a little more design forward than other projects I have completed in the past.
