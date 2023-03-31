@@ -9,9 +9,6 @@ import subforuma from './img/subforuma.png';
 import portfolio from './img/portfolio.png';
 import { ethosReadMe, portfolioReadMe, subforumaReadMe } from './projectReadMe';
 import ethos from './img/ethos.png';
-import background from './img/bg-landing.png';
-import foreground from './img/foreground-landing.png';
-import { ParallaxBanner } from 'react-scroll-parallax';
 
 function App() {
 	return (
@@ -24,7 +21,7 @@ function App() {
 				<AboutMe />
 			</div>
 			<div className="snap-center snap-always py-24">
-				<div className="shadow-yellow bg-gradient-to-b from-transparent to-background pb-4 shadow-inner"></div>
+				<h2 className="pb-8 text-center text-6xl font-semibold">Projects</h2>
 
 				<Projects
 					title={'Subforuma'}

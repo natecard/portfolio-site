@@ -6,7 +6,7 @@ import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 export default function Projects(props: projects) {
 	return (
 		<div className="mx-2 flex flex-col rounded-lg bg-white/10 backdrop-blur-lg md:mx-12 ">
-			<h2 className="py-8 text-center text-5xl font-semibold md:text-6xl">{props.title}</h2>
+			<h2 className="py-8 text-center text-3xl font-semibold md:text-5xl">{props.title}</h2>
 			<div className="flex items-center">
 				{window.innerWidth < 805 ? (
 					<ParallaxBanner style={{ aspectRatio: '5/3' }}>
