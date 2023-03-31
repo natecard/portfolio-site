@@ -44,22 +44,26 @@ export default function AboutMe() {
 				/>
 			)}
 			<div className=" mx-5  md:mx-20">
-				<p className="lg:mx-18 mt-20 px-2 text-2xl font-extralight subpixel-antialiased md:mx-14 lg:text-4xl">
-					My name is Nate, as a former brewery owner, and now turned software engineer, I bring a
-					unique blend of communication, problem-solving, and technical expertise to the table.
+				<p className="mt-20 px-2 text-2xl font-extralight subpixel-antialiased md:mx-14 lg:mx-24 lg:text-3xl">
+					Hi there! My name is Nate I’m a software developer who loves creating innovative solutions
+					that make a positive impact on products. As an entrepreneur, I was always fascinated by
+					how technology can transform our lives and solve complex problems. That’s what motivated
+					me to pursue a career in software development.
 					<br />
 					<br />
-					My experience in the brewing, finance, and environmental industries taught me how to make
-					strategic decisions, work within a team, and a great set of problem solving skills.
+					I learned Full Stack Development through The Odin Project, an open source coding
+					curriculum that taught me everything I needed to know to build awesome websites and apps.
+					I learned skills like React, JavaScript, HTML, CSS, and Node.js.
 					<br />
 					<br />
-					Now as a web developer, I have further developed this range of skills that will enable me
-					to excel in tech. These skills include troubleshooting, problem-solving, identifying and
-					understanding complex systems, communication, and strategic thinking.
+					Before becoming a software developer, I co-founded Wild Card Brewing Co., a craft brewery
+					that produces high-quality beers with local ingredients and innovative recipes. I also
+					worked as a finance coordinator and a waste auditor at MASS Environmental Services Inc., a
+					leading provider of waste diversion and recycling solutions in Canada.
 					<br />
 					<br />
-					I am looking to work as either a Front End or Full Stack developer, and look forward to
-					working with a great team to move their product forward.
+					I am currently looking to work as either a Front End or Full Stack developer, and look
+					forward to working with a great team to move their product forward.
 					<br />
 					<br />
 				</p>

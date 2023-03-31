@@ -39,19 +39,19 @@ export default function Projects(props: projects) {
 					<Link to={`https://www.typescriptlang.org/`}>
 						{window.innerWidth < 540 ? <SiTypescript size={24} /> : <SiTypescript size={48} />}
 					</Link>
-					<h2 className="text-xl md:text-2xl">{props.language1}</h2>
+					<h2 className="text-lg md:text-xl">{props.language1}</h2>
 				</div>
 				<div className="flex flex-col items-center">
 					<Link to={`https://reactjs.org/`}>
 						{window.innerWidth < 540 ? <SiReact size={24} /> : <SiReact size={48} />}
 					</Link>
-					<h2 className="text-xl md:text-2xl">{props.language2}</h2>
+					<h2 className="text-lg md:text-xl">{props.language2}</h2>
 				</div>
 				<div className="flex flex-col items-center">
 					<Link to={`https://tailwindcss.com/`}>
 						{window.innerWidth < 540 ? <SiTailwindcss size={24} /> : <SiTailwindcss size={48} />}
 					</Link>
-					<h2 className="text-xl md:text-2xl">{props.language3}</h2>
+					<h2 className="text-lg md:text-xl">{props.language3}</h2>
 				</div>
 			</div>
 			<div className="flex flex-col items-center py-8">

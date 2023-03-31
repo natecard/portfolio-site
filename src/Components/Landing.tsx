@@ -16,9 +16,9 @@ export default function Landing() {
 			) : (
 				<div className=" absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2">
 					<div className=" w-full animate-typing overflow-hidden whitespace-nowrap border-r-2 border-black font-mono text-xl font-semibold text-white">
-						<h1 className="text-3xl uppercase leading-loose xl:text-5xl">
+						<h1 className="text-2xl uppercase leading-loose xl:text-4xl">
 							Hi, I'm{' '}
-							<span className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-5xl font-extrabold text-transparent motion-safe:animate-pulse lg:text-6xl xl:text-7xl">
+							<span className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-4xl font-extrabold text-transparent motion-safe:animate-pulse lg:text-5xl xl:text-7xl">
 								Nate Card
 							</span>
 							. I'm a software developer.
