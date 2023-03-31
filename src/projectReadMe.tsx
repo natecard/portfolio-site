@@ -53,7 +53,7 @@ export const portfolioReadMe = (
 			<ul className="list-inside list-disc pt-3 lg:text-xl">
 				<li>Toggle dark / light theme based on system theme</li>
 				<li>Responsive design</li>
-				<li>Google Invisible Recaptcha</li>
+				<li>Google Recaptcha</li>
 				<li>Instant contact form</li>
 				<li>Parallax scrolls</li>
 			</ul>

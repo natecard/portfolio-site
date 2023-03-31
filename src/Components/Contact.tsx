@@ -1,7 +1,7 @@
 import { useState, useRef, createRef } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import emailjs from '@emailjs/browser';
-
+// Contact form
 export default function Contact() {
 	const [formData, setFormData] = useState({
 		name: '',
@@ -47,6 +47,9 @@ export default function Contact() {
 			const token = await recaptchaRef.current.executeAsync(); //executeAsync executes the captcha and awaits the result if user input is required.
 			token && sendEmail(token); //when the token is ready, the actual submit function is called
 		}
+	}
+	function scrollToTop() {
+		window.scrollTo(0, 0);
 	}
 	return (
 		<>
@@ -101,7 +104,7 @@ export default function Contact() {
 					<a href="https://policies.google.com/terms"> Terms of Service</a> apply.
 				</div>
 				<div className="center-align">
-					<a href="https://www.natecard.dev">
+					<button onClick={scrollToTop}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -116,7 +119,7 @@ export default function Contact() {
 								d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
 							/>
 						</svg>
-					</a>
+					</button>
 				</div>
 			</div>
 		</>
