@@ -42,7 +42,7 @@ export default function Header() {
 			</div>
 			<div className="navbar-end pr-3">
 				<button className="from-purple-400 to-pink-600 text-2xl font-bold text-white hover:scale-150 hover:bg-gradient-to-r hover:bg-clip-text hover:pr-4 hover:text-transparent">
-					<a href={pdf} download="Nathan Card Resume.pdf">
+					<a href={pdf} download="Nathan_Card_Resume.pdf">
 						Resume
 					</a>
 				</button>

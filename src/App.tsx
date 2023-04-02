@@ -9,6 +9,7 @@ import subforuma from './img/subforuma.png';
 import portfolio from './img/portfolio.png';
 import { ethosReadMe, portfolioReadMe, subforumaReadMe } from './projectReadMe';
 import ethos from './img/ethos.png';
+import Skills from './Components/Skills';
 
 function App() {
 	return (
@@ -17,8 +18,12 @@ function App() {
 			<div className="min-h-screen snap-y snap-center snap-always pb-36">
 				<Landing />
 			</div>
+
 			<div className="my-48 snap-center snap-always">
 				<AboutMe />
+			</div>
+			<div className="my-48 snap-center snap-always">
+				<Skills />
 			</div>
 			<div className="snap-center snap-always py-24">
 				<h2 className="pb-8 text-center text-6xl font-semibold">Projects</h2>
