@@ -1,3 +1,4 @@
+'use client';
 import { useState, useRef, createRef } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import emailjs from '@emailjs/browser';
@@ -95,7 +96,7 @@ export default function Contact() {
 					<ReCAPTCHA
 						ref={recaptchaRef}
 						size="invisible"
-						sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+						sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
 					/>
 				</form>
 				<div className="hidden text-center text-sm hover:block">

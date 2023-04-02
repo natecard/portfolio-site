@@ -1,6 +1,7 @@
 import { SiReact, SiTypescript, SiTailwindcss } from '@icons-pack/react-simple-icons';
 import { projects } from './Interfaces';
-import { Link } from 'react-router-dom';
+import Image from 'next/image';
+import Link from 'next/link';
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 
 export default function Projects(props: projects) {
@@ -36,19 +37,19 @@ export default function Projects(props: projects) {
 			</div>
 			<div className=" mt-4 flex flex-row justify-evenly">
 				<div className="flex flex-col items-center">
-					<Link to={`https://www.typescriptlang.org/`}>
+					<Link href={`https://www.typescriptlang.org/`}>
 						{window.innerWidth < 540 ? <SiTypescript size={24} /> : <SiTypescript size={48} />}
 					</Link>
 					<h2 className="text-lg md:text-xl">{props.language1}</h2>
 				</div>
 				<div className="flex flex-col items-center">
-					<Link to={`https://reactjs.org/`}>
+					<Link href={`https://reactjs.org/`}>
 						{window.innerWidth < 540 ? <SiReact size={24} /> : <SiReact size={48} />}
 					</Link>
 					<h2 className="text-lg md:text-xl">{props.language2}</h2>
 				</div>
 				<div className="flex flex-col items-center">
-					<Link to={`https://tailwindcss.com/`}>
+					<Link href={`https://tailwindcss.com/`}>
 						{window.innerWidth < 540 ? <SiTailwindcss size={24} /> : <SiTailwindcss size={48} />}
 					</Link>
 					<h2 className="text-lg md:text-xl">{props.language3}</h2>
@@ -58,10 +59,10 @@ export default function Projects(props: projects) {
 				<div className="w-3/5 pb-8">{props.readme}</div>
 				<div className="flex flex-row">
 					<button className="m-4 flex h-8 w-3/6 items-center justify-center rounded-md border-2 p-3 hover:bg-white hover:text-black md:w-48 lg:p-5 lg:text-2xl">
-						<Link to={props.githubUrl}> Code</Link>
+						<Link href={props.githubUrl}> Code</Link>
 					</button>
 					<button className="m-4 flex h-8 w-3/6 items-center justify-center rounded-md border-2 p-3 hover:bg-white hover:text-black md:w-48 lg:p-5 lg:text-2xl">
-						<Link to={props.liveDemo}>Demo</Link>
+						<Link href={props.liveDemo}>Demo</Link>
 					</button>
 				</div>
 			</div>

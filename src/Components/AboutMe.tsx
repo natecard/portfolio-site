@@ -1,7 +1,6 @@
 import { ParallaxBanner } from 'react-scroll-parallax';
-import background from '../img/bg-landing.png';
-import foreground from '../img/foreground-landing.png';
-
+import foreground from '../../img/foreground-landing.png';
+import background from '../../img/bg-landing.png';
 export default function AboutMe() {
 	return (
 		<div>

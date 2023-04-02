@@ -1,8 +1,9 @@
 import { IconType } from '@icons-pack/react-simple-icons';
+import { StaticImageData } from 'next/image';
 
 export interface projects {
 	title: string;
-	img: string;
+	img: StaticImageData;
 	language1: string;
 	language2: string;
 	language3: string;

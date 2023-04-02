@@ -1,15 +1,15 @@
-import Header from './Components/Header';
-import Contact from './Components/Contact';
-import Projects from './Components/Projects';
-import Footer from './Components/Footer';
-import AboutMe from './Components/AboutMe';
+import Header from '../Components/Header';
+import Contact from '../Components/Contact';
+import Projects from '../Components/Projects';
+import Footer from '../Components/Footer';
+import AboutMe from '../Components/AboutMe';
 import { SiReact, SiTailwindcss, SiTypescript } from '@icons-pack/react-simple-icons';
-import Landing from './Components/Landing';
-import subforuma from './img/subforuma.png';
-import portfolio from './img/portfolio.png';
-import { ethosReadMe, portfolioReadMe, subforumaReadMe } from './projectReadMe';
-import ethos from './img/ethos.png';
-import Skills from './Components/Skills';
+import Landing from '../Components/Landing';
+import subforuma from '../../img/subforuma.png';
+import portfolio from '../../img/portfolio.png';
+import { ethosReadMe, portfolioReadMe, subforumaReadMe } from '../projectReadMe';
+import ethos from '../../img/ethos.png';
+import Skills from '../Components/Skills';
 
 function App() {
 	return (
