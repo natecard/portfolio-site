@@ -19,7 +19,7 @@ export default function Header() {
 			<div className="navbar-start">
 				<a className="flex flex-row items-center p-4" href="http://www.github.com/natecard">
 					<svg
-						className="fill-font"
+						className="fill-font hover:scale-125 hover:fill-red-500"
 						xmlns="http://www.w3.org/2000/svg"
 						width="28"
 						height="28"
@@ -30,7 +30,7 @@ export default function Header() {
 				</a>
 				<a href="http://www.linkedin.com/in/nathan-card-dev">
 					<svg
-						className="fill-font"
+						className="fill-font  hover:scale-125 hover:fill-red-500"
 						xmlns="http://www.w3.org/2000/svg"
 						width="24"
 						height="24"
@@ -41,7 +41,7 @@ export default function Header() {
 				</a>
 			</div>
 			<div className="navbar-end pr-3">
-				<button className="from-purple-400 to-pink-600 text-2xl font-bold text-white hover:scale-150 hover:bg-gradient-to-r hover:bg-clip-text hover:pr-4 hover:text-transparent">
+				<button className="from-purple-400 to-pink-600 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:pr-4 hover:text-transparent">
 					<a href={pdf} download="Nathan_Card_Resume.pdf">
 						Resume
 					</a>
