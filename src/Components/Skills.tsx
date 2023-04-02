@@ -18,31 +18,93 @@ import {
 	SiVitess,
 	SiNpm,
 	SiFirebase,
+	SiMongodb,
 } from '@icons-pack/react-simple-icons';
 export default function Skills() {
 	return (
 		<section className="mx-20 text-center">
-			<h1 className="text-4xl">Skills</h1>
-			<div className=" grid grid-cols-3 justify-items-center gap-10">
-				<SiCss3 size={72} />
-				<SiHtml5 size={72} />
-				<SiReact size={72} />
-				<SiTypescript size={72} />
-				<SiJavascript size={72} />
-				<SiNextdotjs size={72} />
-				<SiTailwindcss size={72} />
-				<SiGit size={72} />
-				<SiPostgresql size={72} />
-				<SiNodedotjs size={72} />
-				<SiJson size={72} />
-				<SiJest size={72} />
-				<SiGooglecloud size={72} />
-				<SiRedux size={72} />
-				<SiWebpack size={72} />
-				<SiVite size={72} />
-				<SiVitess size={72} />
-				<SiNpm size={72} />
-				<SiFirebase size={72} />
+			<h1 className="my-20 text-4xl">Skills</h1>
+			<div className=" grid grid-cols-4 items-center justify-items-center gap-10">
+				<div className="flex flex-col items-center">
+					<SiHtml5 size={54} className="my-5" />
+					<h3>HTML5</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiCss3 size={54} className="my-5" />
+					<h3>CSS3</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiTypescript size={54} className="my-5" />
+					<h3>TypeScript</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiReact size={54} className="my-5" />
+					<h3>React.js</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiJavascript size={54} className="my-5" />
+					<h3>JavaScript</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiNextdotjs size={54} className="my-5" />
+					<h3>Next.js</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiTailwindcss size={54} className="my-5" />
+					<h3>TailwindCSS</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiGit size={54} className="my-5" />
+					<h3>Git</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiPostgresql size={54} className="my-5" />
+					<h3>PostgreSQL</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiMongodb size={54} className="my-5" />
+					<h3>MongoDB</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiNodedotjs size={54} className="my-5" />
+					<h3>Node.js</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiJson size={54} className="my-5" />
+					<h3>JSON</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiJest size={54} className="my-5" />
+					<h3>Jest</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiGooglecloud size={54} className="my-5" />
+					<h3>Google Cloud</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiRedux size={54} className="my-5" />
+					<h3>Redux</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiWebpack size={54} className="my-5" />
+					<h3>Webpack</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiVite size={54} className="my-5" />
+					<h3>Vite.js</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiVitess size={54} className="my-5" />
+					<h3>Vitess</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiNpm size={54} className="my-5" />
+					<h3>NPM</h3>
+				</div>
+				<div className="flex flex-col items-center">
+					<SiFirebase size={54} className="my-5" />
+					<h3>Firebase</h3>
+				</div>
 			</div>
 		</section>
 	);
