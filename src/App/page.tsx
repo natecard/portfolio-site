@@ -6,10 +6,10 @@ const Footer = lazy(() => import('./components/Footer'));
 const AboutMe = lazy(() => import('./components/AboutMe'));
 import { SiReact, SiTailwindcss, SiTypescript } from '@icons-pack/react-simple-icons';
 import Landing from './components/Landing';
-import subforuma from '../../img/subforuma.png';
-import portfolio from '../../img/portfolio.png';
+import subforuma from '@/img/subforuma.png';
+import portfolio from '@/img/portfolio.png';
 import { ethosReadMe, portfolioReadMe, subforumaReadMe } from '../projectReadMe';
-import ethos from '../../img/ethos.png';
+import ethos from '@/img/ethos.png';
 import Skills from './components/Skills';
 
 function App() {

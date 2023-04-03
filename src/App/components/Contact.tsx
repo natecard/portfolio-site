@@ -93,11 +93,14 @@ export default function Contact() {
 					>
 						Submit
 					</button>
-					<ReCAPTCHA
-						ref={recaptchaRef}
-						size="invisible"
-						sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-					/>
+
+					{process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
+						<ReCAPTCHA
+							ref={recaptchaRef}
+							size="invisible"
+							sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+						/>
+					)}
 				</form>
 				<div className="hidden text-center text-sm hover:block">
 					This site is protected by reCAPTCHA and the Google
