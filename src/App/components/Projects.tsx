@@ -11,27 +11,13 @@ export default function Projects(props: projects) {
 			<div className="flex items-center">
 				{window.innerWidth < 805 ? (
 					<ParallaxBanner style={{ aspectRatio: '5/3' }}>
-						<ParallaxBannerLayer
-							image={props.img}
-							// shouldAlwaysCompleteAnimation={true}
-							// shouldDisableScalingTranslations={true}
-							translateY={[-40, 0, 'easeOutCubic']}
-							// easing={'easeOut'}
-							// speed={-20}
-							// expanded={true}
-						/>
+						<ParallaxBannerLayer translateY={[-40, 0, 'easeOutCubic']} />
+						<Image src={props.img} alt={`Screenshot of project ${props.title}`} />
 					</ParallaxBanner>
 				) : (
 					<ParallaxBanner style={{ aspectRatio: '5/3' }}>
-						<ParallaxBannerLayer
-							image={props.img}
-							// shouldAlwaysCompleteAnimation={true}
-							// shouldDisableScalingTranslations={true}
-							translateY={[-40, 0, 'easeOutCubic']}
-							// easing={'easeOut'}
-							// speed={-20}
-							// expanded={true}
-						/>
+						<ParallaxBannerLayer translateY={[-40, 0, 'easeOutCubic']} />
+						<Image src={props.img} alt={`Screenshot of project ${props.title}`} />
 					</ParallaxBanner>
 				)}
 			</div>

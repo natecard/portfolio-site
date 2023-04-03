@@ -2,7 +2,7 @@ import './globals.css';
 
 export const metadata = {
 	title: 'Nate Card Portfolio',
-	description: 'Next13 App for Portfolio Site',
+	description: 'Next13 app for Portfolio Site',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

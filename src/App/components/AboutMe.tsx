@@ -1,46 +1,43 @@
-import { ParallaxBanner } from 'react-scroll-parallax';
+import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
+import Image from 'next/image';
 import foreground from '../../img/foreground-landing.png';
 import background from '../../img/bg-landing.png';
 export default function AboutMe() {
 	return (
 		<div>
 			{window.innerWidth < 805 ? (
-				<ParallaxBanner
-					layers={[
-						{ image: background, speed: -40 },
-						{
-							speed: -50,
-							children: (
-								<div className="absolute inset-0 flex justify-center pt-80 md:pt-96">
-									<h1 className="bg-gradient-to-l from-blue-400 to-red-400 bg-clip-text text-5xl font-extrabold text-transparent lg:text-8xl">
-										About Me
-									</h1>
-								</div>
-							),
-						},
-						{ image: foreground, speed: -25 },
-					]}
-					className=" aspect-[5/2]"
-				/>
+				<ParallaxBanner className=" aspect-[5/2]">
+					<ParallaxBannerLayer speed={-40}>
+						<Image src={background} alt="night sky" />
+					</ParallaxBannerLayer>
+					<ParallaxBannerLayer speed={-50}>
+						<div className="absolute inset-0 flex justify-center pt-80 md:pt-96">
+							<h1 className="bg-gradient-to-l from-blue-400 to-red-400 bg-clip-text text-5xl font-extrabold text-transparent lg:text-8xl">
+								About Me
+							</h1>
+						</div>
+					</ParallaxBannerLayer>
+					<ParallaxBannerLayer speed={-25}>
+						<Image src={foreground} alt="desert dunes" />
+					</ParallaxBannerLayer>
+				</ParallaxBanner>
 			) : (
-				<ParallaxBanner
-					layers={[
-						{ image: background, speed: -40 },
-						{
-							speed: -45,
-							easing: 'easeOutQuad',
-							children: (
-								<div className="absolute inset-0 flex justify-center pt-80">
-									<h1 className="bg-gradient-to-l from-blue-400 to-red-400 bg-clip-text text-6xl font-extrabold text-transparent lg:text-8xl">
-										About Me
-									</h1>
-								</div>
-							),
-						},
-						{ image: foreground, speed: -15, easing: 'easeOutCirc' },
-					]}
-					className=" aspect-[5/3]"
-				/>
+				<ParallaxBanner className=" aspect-[5/3]">
+					<ParallaxBannerLayer speed={-40}>
+						<Image src={background} alt="night sky" />
+					</ParallaxBannerLayer>
+					<ParallaxBannerLayer speed={-45} easing={'easeOutQuad'}>
+						<div className="absolute inset-0 flex justify-center pt-80">
+							<h1 className="bg-gradient-to-l from-blue-400 to-red-400 bg-clip-text text-6xl font-extrabold text-transparent lg:text-8xl">
+								About Me
+							</h1>
+						</div>
+					</ParallaxBannerLayer>
+
+					<ParallaxBannerLayer easing={'easeOutCirc'} speed={-15}>
+						<Image src={foreground} alt="desert dunes" />
+					</ParallaxBannerLayer>
+				</ParallaxBanner>
 			)}
 			<div className=" mx-5  md:mx-20">
 				<p className="mt-20 px-2 text-2xl font-extralight leading-10 subpixel-antialiased md:mx-14 lg:mx-24 lg:text-3xl">
