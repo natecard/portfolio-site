@@ -1,8 +1,9 @@
+'use client';
 /* eslint-disable react/no-unescaped-entities */
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 import Image from 'next/image';
-import foreground from '@/img/foreground-landing.png';
-import background from '@/img/bg-landing.png';
+import foreground from '../img/foreground-landing.png';
+import background from '../img/bg-landing.png';
 export default function AboutMe() {
 	return (
 		<div>

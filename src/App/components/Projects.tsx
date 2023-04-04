@@ -1,3 +1,4 @@
+'use client';
 import { SiReact, SiTypescript, SiTailwindcss } from '@icons-pack/react-simple-icons';
 import { projects } from './Interfaces';
 import Image from 'next/image';
@@ -5,11 +6,13 @@ import Link from 'next/link';
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 
 export default function Projects(props: projects) {
+	const isMobile = typeof window !== 'undefined' && window.innerWidth <= 800;
+	const isSmallMobile = typeof window !== 'undefined' && window.innerWidth <= 800;
 	return (
 		<div className="mx-2 flex flex-col rounded-lg bg-white/10 backdrop-blur-lg md:mx-12 ">
 			<h2 className="py-8 text-center text-3xl font-semibold md:text-5xl">{props.title}</h2>
 			<div className="flex items-center">
-				{window.innerWidth < 805 ? (
+				{isMobile ? (
 					<ParallaxBanner style={{ aspectRatio: '5/3' }}>
 						<ParallaxBannerLayer translateY={[-40, 0, 'easeOutCubic']} />
 						<Image src={props.img} alt={`Screenshot of project ${props.title}`} />
@@ -24,19 +27,19 @@ export default function Projects(props: projects) {
 			<div className=" mt-4 flex flex-row justify-evenly">
 				<div className="flex flex-col items-center">
 					<Link href={`https://www.typescriptlang.org/`}>
-						{window.innerWidth < 540 ? <SiTypescript size={24} /> : <SiTypescript size={48} />}
+						{isSmallMobile ? <SiTypescript size={24} /> : <SiTypescript size={48} />}
 					</Link>
 					<h2 className="text-lg md:text-xl">{props.language1}</h2>
 				</div>
 				<div className="flex flex-col items-center">
 					<Link href={`https://reactjs.org/`}>
-						{window.innerWidth < 540 ? <SiReact size={24} /> : <SiReact size={48} />}
+						{isSmallMobile ? <SiReact size={24} /> : <SiReact size={48} />}
 					</Link>
 					<h2 className="text-lg md:text-xl">{props.language2}</h2>
 				</div>
 				<div className="flex flex-col items-center">
 					<Link href={`https://tailwindcss.com/`}>
-						{window.innerWidth < 540 ? <SiTailwindcss size={24} /> : <SiTailwindcss size={48} />}
+						{isSmallMobile ? <SiTailwindcss size={24} /> : <SiTailwindcss size={48} />}
 					</Link>
 					<h2 className="text-lg md:text-xl">{props.language3}</h2>
 				</div>
