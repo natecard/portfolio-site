@@ -1,6 +1,5 @@
 import { IconType } from '@icons-pack/react-simple-icons';
 import { StaticImageData } from 'next/image';
-
 export interface projects {
 	title: string;
 	img: StaticImageData;

@@ -1,9 +1,10 @@
 'use client';
 /* eslint-disable react/no-unescaped-entities */
 export default function Landing() {
+	const isMobile = typeof window !== 'undefined' && window.innerWidth <= 800;
 	return (
 		<div className=" flex min-h-screen items-center justify-center">
-			{window.innerWidth < 805 ? (
+			{isMobile ? (
 				<h1 className="text-3xl uppercase md:text-4xl">
 					Hi, I'm
 					<br />

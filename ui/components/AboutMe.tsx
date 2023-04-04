@@ -2,12 +2,13 @@
 /* eslint-disable react/no-unescaped-entities */
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 import Image from 'next/image';
-import foreground from '../img/foreground-landing.png';
-import background from '../img/bg-landing.png';
+import foreground from '../../public/img/foreground-landing.png';
+import background from '../../public/img/bg-landing.png';
 export default function AboutMe() {
+	const isMobile = typeof window !== 'undefined' && window.innerWidth <= 800;
 	return (
 		<div>
-			{window.innerWidth < 805 ? (
+			{/* {isMobile ? (
 				<ParallaxBanner className=" aspect-[5/2]">
 					<ParallaxBannerLayer speed={-40}>
 						<Image src={background} alt="night sky" />
@@ -40,7 +41,7 @@ export default function AboutMe() {
 						<Image src={foreground} alt="desert dunes" />
 					</ParallaxBannerLayer>
 				</ParallaxBanner>
-			)}
+			)} */}
 			<div className=" mx-5  md:mx-20">
 				<p className="mt-20 px-2 text-2xl font-extralight leading-10 subpixel-antialiased md:mx-14 lg:mx-24 lg:text-3xl">
 					Hi there! My name is Nate I'm a software developer who loves creating innovative solutions

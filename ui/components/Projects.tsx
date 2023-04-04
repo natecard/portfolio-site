@@ -1,8 +1,8 @@
 'use client';
 import { SiReact, SiTypescript, SiTailwindcss } from '@icons-pack/react-simple-icons';
 import { projects } from './Interfaces';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 
 export default function Projects(props: projects) {
@@ -12,7 +12,7 @@ export default function Projects(props: projects) {
 		<div className="mx-2 flex flex-col rounded-lg bg-white/10 backdrop-blur-lg md:mx-12 ">
 			<h2 className="py-8 text-center text-3xl font-semibold md:text-5xl">{props.title}</h2>
 			<div className="flex items-center">
-				{isMobile ? (
+				{/* {isMobile ? (
 					<ParallaxBanner style={{ aspectRatio: '5/3' }}>
 						<ParallaxBannerLayer translateY={[-40, 0, 'easeOutCubic']} />
 						<Image src={props.img} alt={`Screenshot of project ${props.title}`} />
@@ -22,7 +22,7 @@ export default function Projects(props: projects) {
 						<ParallaxBannerLayer translateY={[-40, 0, 'easeOutCubic']} />
 						<Image src={props.img} alt={`Screenshot of project ${props.title}`} />
 					</ParallaxBanner>
-				)}
+				)} */}
 			</div>
 			<div className=" mt-4 flex flex-row justify-evenly">
 				<div className="flex flex-col items-center">
