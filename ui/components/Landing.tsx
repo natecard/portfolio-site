@@ -3,7 +3,7 @@
 export default function Landing() {
 	const isMobile = typeof window !== 'undefined' && window.innerWidth <= 800;
 	return (
-		<div className=" flex min-h-screen items-center justify-center">
+		<div className=" bg-gray-950 flex min-h-screen items-center justify-center">
 			{isMobile ? (
 				<h1 className="text-3xl uppercase md:text-4xl">
 					Hi, I'm

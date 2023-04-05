@@ -1,6 +1,6 @@
 export default function Header() {
 	return (
-		<div className="navbar text-background drop-shadow-lg">
+		<div className="bg-gray-950 navbar text-background drop-shadow-lg">
 			<div className="navbar-start">
 				<a className="flex flex-row items-center p-4" href="http://www.github.com/natecard">
 					<svg
