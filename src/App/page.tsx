@@ -1,16 +1,16 @@
 'use client';
 // import { lazy, Suspense } from 'react';
-import Header from '../../ui/components/Header';
-import Landing from '../../ui/components/Landing';
-import Projects from '../../ui/components/Projects';
-import Footer from '../../ui/components/Footer';
-import AboutMe from '../../ui/components/AboutMe';
-import Skills from '../../ui/components/Skills';
+import Header from '../components/Header';
+import Landing from '../components/Landing';
+import Projects from '../components/Projects';
+import Footer from '../components/Footer';
+import AboutMe from '../components/AboutMe';
+import Skills from '../components/Skills';
 import { SiReact, SiTailwindcss, SiTypescript } from '@icons-pack/react-simple-icons';
-import { ethosReadMe, portfolioReadMe, subforumaReadMe } from '../projectReadMe';
-import subforuma from './img/subforuma.png';
-import portfolio from './img/portfolio.png';
-import ethos from './img/ethos.png';
+import { ethosReadMe, portfolioReadMe, subforumaReadMe } from '../components/projectReadMe';
+import subforuma from '@/public/img/subforuma.png';
+import portfolio from '@/public/img/portfolio.png';
+import ethos from '@/public/img/ethos.png';
 
 function App() {
 	return (
@@ -31,7 +31,7 @@ function App() {
 
 				<Projects
 					title={'Subforuma'}
-					img={subforuma}
+					img={subforuma.toString()}
 					language1Icon={SiTypescript}
 					language1={'TypeScript'}
 					language2Icon={SiReact}
@@ -46,7 +46,7 @@ function App() {
 			<div className="snap-center snap-always py-24">
 				<Projects
 					title={'Ethos'}
-					img={ethos}
+					img={ethos.toString()}
 					language1Icon={SiTypescript}
 					language1={'TypeScript'}
 					language2Icon={SiReact}
@@ -61,7 +61,7 @@ function App() {
 			<div className="snap-center snap-always py-24">
 				<Projects
 					title={'Portfolio'}
-					img={portfolio}
+					img={portfolio.toString()}
 					language1Icon={SiTypescript}
 					language1={'TypeScript'}
 					language2Icon={SiReact}

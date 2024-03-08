@@ -8,7 +8,7 @@ export default function AboutMe() {
 			{window.innerWidth < 805 ? (
 				<ParallaxBanner
 					layers={[
-						{ image: background, speed: -40 },
+						{ image: background.toString(), speed: -40 },
 						{
 							speed: -50,
 							children: (
@@ -19,14 +19,14 @@ export default function AboutMe() {
 								</div>
 							),
 						},
-						{ image: foreground, speed: -25 },
+						{ image: foreground.toString(), speed: -25 },
 					]}
 					className=" aspect-[5/2]"
 				/>
 			) : (
 				<ParallaxBanner
 					layers={[
-						{ image: background, speed: -40 },
+						{ image: background.toString(), speed: -40 },
 						{
 							speed: -45,
 							easing: 'easeOutQuad',
@@ -38,7 +38,7 @@ export default function AboutMe() {
 								</div>
 							),
 						},
-						{ image: foreground, speed: -15, easing: 'easeOutCirc' },
+						{ image: foreground.toString(), speed: -15, easing: 'easeOutCirc' },
 					]}
 					className=" aspect-[5/3]"
 				/>
