@@ -9,9 +9,9 @@ import AboutMe from '../../ui/components/AboutMe';
 import Skills from '../../ui/components/Skills';
 import { SiReact, SiTailwindcss, SiTypescript } from '@icons-pack/react-simple-icons';
 import { ethosReadMe, portfolioReadMe, subforumaReadMe } from '../projectReadMe';
-import subforuma from '../../public/img/subforuma.png';
-import portfolio from '../../public/img/portfolio.png';
-import ethos from '../../public/img/ethos.png';
+import subforuma from '../../src/app/img/subforuma.png';
+import portfolio from '../../src/app/img/portfolio.png';
+import ethos from '../../src/app/img/ethos.png';
 
 function App() {
 	return (
@@ -47,7 +47,7 @@ function App() {
 			<div className="snap-center snap-always py-24">
 				<Projects
 					title={'Ethos'}
-					src={ethos}
+					img={ethos}
 					language1Icon={SiTypescript}
 					language1={'TypeScript'}
 					language2Icon={SiReact}
@@ -62,7 +62,7 @@ function App() {
 			<div className="snap-center snap-always py-24">
 				<Projects
 					title={'Portfolio'}
-					src={portfolio}
+					img={portfolio}
 					language1Icon={SiTypescript}
 					language1={'TypeScript'}
 					language2Icon={SiReact}
