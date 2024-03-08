@@ -1,4 +1,4 @@
-export default function Header() {
+const Header: React.FC = () => {
 	const resumeUrl = `${process.env.PUBLIC_URL}/pdf/Nathan_Card_Resume.pdf`;
 	return (
 		<div className="navbar text-background drop-shadow-lg">
@@ -39,4 +39,5 @@ export default function Header() {
 			</div>
 		</div>
 	);
-}
+};
+export default Header;

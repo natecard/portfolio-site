@@ -3,7 +3,7 @@ import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 import Image from 'next/image';
 import foreground from '@/public/img/foreground-landing.png';
 import background from '@/public/img/bg-landing.png';
-export default function Scroll() {
+const Scroll: React.FC = () => {
 	const isMobile = typeof window !== 'undefined' && window.innerWidth <= 800;
 	return (
 		<div>
@@ -42,4 +42,5 @@ export default function Scroll() {
 			)}
 		</div>
 	);
-}
+};
+export default Scroll;

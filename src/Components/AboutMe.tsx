@@ -2,7 +2,7 @@ import { ParallaxBanner } from 'react-scroll-parallax';
 import background from '@/public/img/bg-landing.png';
 import foreground from '@/public/img/foreground-landing.png';
 
-export default function AboutMe() {
+const AboutMe: React.FC = () => {
 	return (
 		<div>
 			{typeof window !== 'undefined' && window.innerWidth < 805 ? (
@@ -66,4 +66,5 @@ export default function AboutMe() {
 			</div>
 		</div>
 	);
-}
+};
+export default AboutMe;

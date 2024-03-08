@@ -1,9 +1,10 @@
+import React from 'react';
 import { SiReact, SiTypescript, SiTailwindcss } from '@icons-pack/react-simple-icons';
 import { projects } from './Interfaces';
 import Link from 'next/link';
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 
-export default function Projects(props: projects) {
+const Projects: React.FC<projects> = (props) => {
 	return (
 		<div className="mx-2 flex flex-col rounded-lg bg-white/10 backdrop-blur-lg md:mx-12 ">
 			<h2 className="py-8 text-center text-3xl font-semibold md:text-5xl">{props.title}</h2>
@@ -79,4 +80,5 @@ export default function Projects(props: projects) {
 			</div>
 		</div>
 	);
-}
+};
+export default Projects;

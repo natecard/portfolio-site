@@ -20,7 +20,7 @@ import {
 	SiPytest,
 	SiJupyter,
 } from '@icons-pack/react-simple-icons';
-export default function Skills() {
+const Skills: React.FC = () => {
 	const skillsIcons = {
 		Python: SiPython,
 		Pytorch: SiPytorch,
@@ -61,4 +61,5 @@ export default function Skills() {
 			</div>
 		</section>
 	);
-}
+};
+export default Skills;
