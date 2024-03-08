@@ -31,7 +31,7 @@ function App() {
 
 				<Projects
 					title={'Subforuma'}
-					img={subforuma.toString()}
+					img={subforuma.src}
 					language1Icon={SiTypescript}
 					language1={'TypeScript'}
 					language2Icon={SiReact}
@@ -46,7 +46,7 @@ function App() {
 			<div className="snap-center snap-always py-24">
 				<Projects
 					title={'Ethos'}
-					img={ethos.toString()}
+					img={ethos.src}
 					language1Icon={SiTypescript}
 					language1={'TypeScript'}
 					language2Icon={SiReact}
@@ -61,7 +61,7 @@ function App() {
 			<div className="snap-center snap-always py-24">
 				<Projects
 					title={'Portfolio'}
-					img={portfolio.toString()}
+					img={portfolio.src}
 					language1Icon={SiTypescript}
 					language1={'TypeScript'}
 					language2Icon={SiReact}
