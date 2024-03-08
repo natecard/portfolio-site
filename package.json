@@ -6,7 +6,10 @@
 		"devturbo": "next dev --turbo",
 		"dev": "TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"next dev\"",
 		"build": "tinacms build && tsc && next build",
-		"start": "next start"
+		"start": "next start",
+		"lint": "eslint . --ext .ts,.tsx && tsc",
+		"fix": "eslint . --ext .ts,.tsx --fix",
+		"format": "prettier --write ."
 	},
 	"dependencies": {
 		"@emailjs/browser": "^3.10.0",
