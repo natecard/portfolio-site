@@ -50,13 +50,16 @@ export default function AboutMe() {
 					Learning at the University of York.
 					<br />
 					<br />
-					I learned Full Stack Development through The Odin Project, an open source coding
-					curriculum that taught me everything I needed to know to build awesome websites and apps.
-					I learned skills like React, JavaScript, HTML, CSS, and Node.js.
+					My journey began learning Web Development through The Odin Project. I learned the basic
+					skills for Web Development like JavaScript, HTML, CSS, and Node.js. This opened my eyes to
+					the world of software development as a whole. I then decided to pursue a Master&rsquo;s
+					degree in Computer Science to expand on my knowledge, especially in the Machine Learning
+					and AI field.
 					<br />
 					<br />
-					I am currently looking to work as either a Front End or Full Stack developer, and look
-					forward to working with a great team to move their product forward.
+					Now my focus is on learning and developing my skills with Python, PyTorch, TensorFlow and
+					other ML related frameworks. I am currently focusing on GNNs and Computer Vision, but I am
+					eager to learn more about other fields in AI and ML.
 					<br />
 					<br />
 				</p>
