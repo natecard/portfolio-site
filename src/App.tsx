@@ -1,5 +1,4 @@
 import Header from './Components/Header';
-import Contact from './Components/Contact';
 import Projects from './Components/Projects';
 import Footer from './Components/Footer';
 import AboutMe from './Components/AboutMe';
@@ -72,9 +71,7 @@ function App() {
 					liveDemo={'https://portfolio-site-natecard.vercel.app/'}
 				/>
 			</div>
-			<div className=" snap-center snap-always pb-48">
-				<Contact />
-			</div>
+			<div className=" snap-center snap-always pb-48"></div>
 			<Footer />
 		</div>
 	);
