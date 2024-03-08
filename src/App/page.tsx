@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/App/page.tsx
 'use client';
 // import { lazy, Suspense } from 'react';
 import Header from '../../ui/components/Header';
@@ -7,6 +8,12 @@ import Projects from '../../ui/components/Projects';
 import Footer from '../../ui/components/Footer';
 import AboutMe from '../../ui/components/AboutMe';
 import Skills from '../../ui/components/Skills';
+=======
+import Header from './Components/Header';
+import Projects from './Components/Projects';
+import Footer from './Components/Footer';
+import AboutMe from './Components/AboutMe';
+>>>>>>> master:src/App.tsx
 import { SiReact, SiTailwindcss, SiTypescript } from '@icons-pack/react-simple-icons';
 import { ethosReadMe, portfolioReadMe, subforumaReadMe } from '../projectReadMe';
 import subforuma from '../../src/app/img/subforuma.png';
@@ -74,9 +81,7 @@ function App() {
 					liveDemo={'https://portfolio-site-natecard.vercel.app/'}
 				/>
 			</div>
-			<div className=" snap-center snap-always pb-48">
-				<Contact />
-			</div>
+			<div className=" snap-center snap-always pb-48"></div>
 			<Footer />
 			{/* </Suspense> */}
 		</div>
