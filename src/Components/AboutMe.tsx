@@ -1,11 +1,11 @@
 import { ParallaxBanner } from 'react-scroll-parallax';
-import background from '../img/bg-landing.png';
-import foreground from '../img/foreground-landing.png';
+import background from '@/public/img/bg-landing.png';
+import foreground from '@/public/img/foreground-landing.png';
 
 export default function AboutMe() {
 	return (
 		<div>
-			{window.innerWidth < 805 ? (
+			{typeof window !== 'undefined' && window.innerWidth < 805 ? (
 				<ParallaxBanner
 					layers={[
 						{ image: background.toString(), speed: -40 },

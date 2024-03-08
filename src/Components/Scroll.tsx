@@ -1,8 +1,8 @@
 'use client';
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 import Image from 'next/image';
-import foreground from '../../public/img/foreground-landing.png';
-import background from '../../public/img/bg-landing.png';
+import foreground from '@/public/img/foreground-landing.png';
+import background from '@/public/img/bg-landing.png';
 export default function Scroll() {
 	const isMobile = typeof window !== 'undefined' && window.innerWidth <= 800;
 	return (

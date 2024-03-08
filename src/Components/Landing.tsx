@@ -2,7 +2,7 @@
 export default function Landing() {
 	return (
 		<div className=" flex min-h-screen items-center justify-center">
-			{window.innerWidth < 805 ? (
+			{typeof window !== 'undefined' && window.innerWidth < 805 ? (
 				<h1 className="text-3xl uppercase md:text-4xl">
 					Hi, I'm
 					<br />

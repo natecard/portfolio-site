@@ -51,7 +51,7 @@ export default function Skills() {
 				{skills.map((skill) => {
 					const Icon = skillsIcons[skill as keyof typeof skillsIcons];
 					return Icon ? (
-						<div className="flex flex-col items-center">
+						<div className="flex flex-col items-center" key={skill}>
 							{' '}
 							<Icon size={54} className="my-5" key={skill} />
 							<h3>{skill}</h3>

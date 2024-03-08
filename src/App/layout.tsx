@@ -1,4 +1,5 @@
 import '../../styles/globals.css';
+import { Providers } from './providers';
 
 export const metadata = {
 	title: 'Nate Card Portfolio',
@@ -13,7 +14,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
-			<body className="bg-gray-950 text-gray-50">{children}</body>
+			<body className="bg-gray-950 text-gray-50">
+				<Providers>{children}</Providers>
+			</body>
 		</html>
 	);
 }
