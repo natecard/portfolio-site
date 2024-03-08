@@ -2,7 +2,7 @@ import { IconType } from '@icons-pack/react-simple-icons';
 
 export interface projects {
 	title: string;
-	img: StaticImageData;
+	img: string;
 	language1: string;
 	language2: string;
 	language3: string;
@@ -18,12 +18,4 @@ export interface LandingProps {
 }
 export interface AboutMeProps {
 	className: string;
-}
-export interface StaticImageData {
-	src: string;
-	height: number;
-	width: number;
-	blurDataURL?: string;
-	blurWidth?: number;
-	blurHeight?: number;
 }
