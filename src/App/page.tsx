@@ -1,16 +1,16 @@
 'use client';
 // import { lazy, Suspense } from 'react';
-import Header from '@/src/components/Header';
-import Landing from '@/src/components/Landing';
-import Projects from '@/src/components/Projects';
-import Footer from '@/src/components/Footer';
-import AboutMe from '@/src/components/AboutMe';
-import Skills from '@/src/components/Skills';
-import { ethosReadMe, portfolioReadMe, subforumaReadMe } from '@/src/components/projectReadMe';
+import Header from '@/components/Header';
+import Landing from '@/components/Landing';
+import Projects from '@/components/Projects';
+import Footer from '@/components/Footer';
+import AboutMe from '@/components/AboutMe';
+import Skills from '@/components/Skills';
+import { ethosReadMe, portfolioReadMe, subforumaReadMe } from '@/components/projectReadMe';
 import { SiReact, SiTailwindcss, SiTypescript } from '@icons-pack/react-simple-icons';
-import subforuma from '@/public/img/subforuma.png';
-import portfolio from '@/public/img/portfolio.png';
-import ethos from '@/public/img/ethos.png';
+import subforuma from './public/img/subforuma.png';
+import portfolio from './public/img/portfolio.png';
+import ethos from './public/img/ethos.png';
 
 function App() {
 	return (
