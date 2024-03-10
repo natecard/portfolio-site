@@ -5,6 +5,9 @@ module.exports = {
 		return config;
 	},
 	reactStrictMode: true,
+	experimental: {
+		appDir: path.join(__dirname, 'src/app'), // Specify the path to your 'app' directory
+	},
 	// typescript: {
 	// !! WARN !!
 	// Dangerously allow production builds to successfully complete even if
