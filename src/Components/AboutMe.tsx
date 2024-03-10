@@ -1,6 +1,6 @@
 import { ParallaxBanner } from 'react-scroll-parallax';
-import background from '@/public/img/bg-landing.png';
-import foreground from '@/public/img/foreground-landing.png';
+import background from '../../public/img/bg-landing.png';
+import foreground from '../../public/img/foreground-landing.png';
 
 const AboutMe: React.FC = () => {
 	return (

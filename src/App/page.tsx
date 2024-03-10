@@ -8,9 +8,9 @@ import AboutMe from '@/components/AboutMe';
 import Skills from '@/components/Skills';
 import { ethosReadMe, portfolioReadMe, subforumaReadMe } from '@/components/projectReadMe';
 import { SiReact, SiTailwindcss, SiTypescript } from '@icons-pack/react-simple-icons';
-import subforuma from './public/img/subforuma.png';
-import portfolio from './public/img/portfolio.png';
-import ethos from './public/img/ethos.png';
+import subforuma from '../../public/img/subforuma.png';
+import portfolio from '../../public/img/portfolio.png';
+import ethos from '../../public/img/ethos.png';
 
 function App() {
 	return (
