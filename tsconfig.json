@@ -35,7 +35,9 @@
 		"**/*.ts",
 		"**/*.tsx",
 		".next/types/**/*.ts",
-		"src"
+		"app",
+		"components",
+		"public"
 	],
 	"exclude": [
 		"node_modules"
