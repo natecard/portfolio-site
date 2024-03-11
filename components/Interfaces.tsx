@@ -19,3 +19,9 @@ export interface LandingProps {
 export interface AboutMeProps {
 	className: string;
 }
+// export interface PostProps {
+// 	title: string;
+// 	id: string;
+// 	body: string;
+// 	slug: string;
+// }
