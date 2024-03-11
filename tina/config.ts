@@ -49,6 +49,9 @@ export default defineConfig({
 						label: 'Content',
 					},
 				],
+				ui: {
+					router: ({ document }) => `/page/${document._sys.filename}`,
+				},
 			},
 			{
 				name: 'post',
