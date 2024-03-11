@@ -25,34 +25,34 @@ export default defineConfig({
 	// See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
 	schema: {
 		collections: [
-			{
-				name: 'page',
-				label: 'Pages',
-				path: 'content/pages',
-				format: 'json',
-				fields: [
-					{
-						type: 'string',
-						name: 'title',
-						label: 'Title',
-						isTitle: true,
-						required: true,
-					},
-					{
-						type: 'string',
-						name: 'heading',
-						label: 'Heading',
-					},
-					{
-						type: 'string',
-						name: 'content',
-						label: 'Content',
-					},
-				],
-				ui: {
-					router: ({ document }) => `/page/${document._sys.filename}`,
-				},
-			},
+			// {
+			// 	name: 'page',
+			// 	label: 'Pages',
+			// 	path: 'content/pages',
+			// 	format: 'json',
+			// 	fields: [
+			// 		{
+			// 			type: 'string',
+			// 			name: 'title',
+			// 			label: 'Title',
+			// 			isTitle: true,
+			// 			required: true,
+			// 		},
+			// 		{
+			// 			type: 'string',
+			// 			name: 'heading',
+			// 			label: 'Heading',
+			// 		},
+			// 		{
+			// 			type: 'string',
+			// 			name: 'content',
+			// 			label: 'Content',
+			// 		},
+			// 	],
+			// 	ui: {
+			// 		router: ({ document }) => `/page/${document._sys.basename}`,
+			// 	},
+			// },
 			{
 				name: 'post',
 				label: 'Posts',
@@ -66,6 +66,36 @@ export default defineConfig({
 						required: true,
 					},
 					{
+						type: 'string',
+						name: 'excerpt',
+						label: 'Excerpt',
+						required: true,
+					},
+					{
+						type: 'image',
+						name: 'coverImage',
+						label: 'Cover Image',
+						required: true,
+					},
+					{
+						type: 'datetime',
+						name: 'date',
+						label: 'Date',
+						required: true,
+					},
+					{
+						type: 'string',
+						name: 'author',
+						label: 'Author',
+						required: true,
+					},
+					{
+						type: 'string',
+						name: 'slug',
+						label: 'Slug',
+						required: true,
+					},
+					{
 						type: 'rich-text',
 						name: 'body',
 						label: 'Body',
@@ -73,7 +103,7 @@ export default defineConfig({
 					},
 				],
 				ui: {
-					router: ({ document }) => `/blog/post/${document._sys.filename}`,
+					router: ({ document }) => `/blog/post/${document._sys.basename}`,
 				},
 			},
 		],
