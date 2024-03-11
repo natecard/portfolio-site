@@ -26,34 +26,6 @@ export default defineConfig({
 	schema: {
 		collections: [
 			{
-				name: 'page',
-				label: 'Pages',
-				path: 'content/pages',
-				format: 'json',
-				fields: [
-					{
-						type: 'string',
-						name: 'title',
-						label: 'Title',
-						isTitle: true,
-						required: true,
-					},
-					{
-						type: 'string',
-						name: 'heading',
-						label: 'Heading',
-					},
-					{
-						type: 'string',
-						name: 'content',
-						label: 'Content',
-					},
-				],
-				ui: {
-					router: ({ document }) => `/page/${document._sys.filename}`,
-				},
-			},
-			{
 				name: 'post',
 				label: 'Posts',
 				path: 'blog/posts',
