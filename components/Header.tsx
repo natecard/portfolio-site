@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const Header: React.FC = () => {
 	const resumeUrl = `${process.env.PUBLIC_URL}/pdf/Nathan_Card_Resume.pdf`;
 	return (
@@ -27,11 +29,17 @@ const Header: React.FC = () => {
 				</a>
 			</div>
 			<div className="navbar-end pr-3">
-				<button className="from-purple-400 to-pink-600 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:pr-4 hover:text-transparent">
+				<Link
+					href="/blog"
+					className="from-purple-400 to-pink-600 pr-2 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent"
+				>
+					Blog
+				</Link>
+				<button className="from-purple-400 to-pink-600 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent">
 					<a
 						href={resumeUrl}
 						download="Nathan_Card_Resume.pdf"
-						className="from-purple-400 to-pink-600 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:pr-4 hover:text-transparent"
+						className="from-purple-400 to-pink-600 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent"
 					>
 						Resume
 					</a>

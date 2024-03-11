@@ -4,6 +4,9 @@ module.exports = {
 	// 	config.resolve.modules.push(path.resolve('./src'));
 	// 	return config;
 	// },
+	images: {
+		domains: ['assets.tina.io'],
+	},
 	reactStrictMode: true,
 	// basePath: '/'
 	// typescript: {
