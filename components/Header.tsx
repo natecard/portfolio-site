@@ -4,7 +4,31 @@ const Header: React.FC = () => {
 	const resumeUrl = `${process.env.PUBLIC_URL}/pdf/Nathan_Card_Resume.pdf`;
 	return (
 		<div className="navbar text-background drop-shadow-lg">
-			<div className="navbar-start">
+			<div className="navbar-start pl-3">
+				<Link
+					href="/"
+					className="from-purple-400 to-pink-600 pr-2 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent"
+				>
+					Home
+				</Link>
+				<Link
+					href="/blog"
+					className="from-purple-400 to-pink-600 pr-2 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent"
+				>
+					Blog
+				</Link>
+				<button className="from-purple-400 to-pink-600 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent">
+					<a
+						href={resumeUrl}
+						download="Nathan_Card_Resume.pdf"
+						className="from-purple-400 to-pink-600 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent"
+					>
+						Resume
+					</a>
+				</button>
+			</div>
+
+			<div className="navbar-end pr-3">
 				<a className="flex flex-row items-center p-4" href="http://www.github.com/natecard">
 					<svg
 						className="fill-font hover:scale-125 hover:fill-red-500"
@@ -27,23 +51,6 @@ const Header: React.FC = () => {
 						<path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
 					</svg>
 				</a>
-			</div>
-			<div className="navbar-end pr-3">
-				<Link
-					href="/blog"
-					className="from-purple-400 to-pink-600 pr-2 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent"
-				>
-					Blog
-				</Link>
-				<button className="from-purple-400 to-pink-600 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent">
-					<a
-						href={resumeUrl}
-						download="Nathan_Card_Resume.pdf"
-						className="from-purple-400 to-pink-600 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent"
-					>
-						Resume
-					</a>
-				</button>
 			</div>
 		</div>
 	);
