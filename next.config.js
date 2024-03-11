@@ -4,6 +4,14 @@ module.exports = {
 	// 	config.resolve.modules.push(path.resolve('./src'));
 	// 	return config;
 	// },
+	async rewrites() {
+		return [
+			{
+				source: '/admin',
+				destination: '/admin/index.html',
+			},
+		];
+	},
 	images: {
 		domains: ['assets.tina.io'],
 	},

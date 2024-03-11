@@ -43,11 +43,6 @@ export default defineConfig({
 						label: 'Body',
 						isBody: true,
 					},
-					{
-						type: 'image',
-						name: 'coverImage',
-						label: 'Cover Image',
-					},
 				],
 				ui: {
 					// This is an DEMO router. You can remove this to fit your site
