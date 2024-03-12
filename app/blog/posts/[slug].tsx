@@ -5,7 +5,7 @@ import { Post } from '@/tina/__generated__/types';
 import BlogPost from '@/components/BlogLayout';
 
 export default async function DisplayPost() {
-	const post = await client.queries.post({ relativePath: '/working.md' });
+	const post = await client.queries.post({ relativePath: '/working' });
 	return (
 		<div>
 			<Header />
