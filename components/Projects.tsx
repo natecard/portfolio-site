@@ -1,6 +1,6 @@
 import React from 'react';
 import { SiReact, SiTypescript, SiTailwindcss } from '@icons-pack/react-simple-icons';
-import { projects } from './Interfaces';
+import { projects } from '@/Interfaces';
 import Link from 'next/link';
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 

@@ -24,3 +24,14 @@ export interface BlogListProps {
 	id: string;
 	body: string;
 }
+
+export interface BlogLayoutProps {
+	id: string;
+	coverImage: string;
+	title: string;
+	author: string;
+	date: string;
+	excerpt: string;
+	body: string;
+	slug: string;
+}
