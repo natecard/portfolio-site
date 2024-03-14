@@ -1,20 +1,21 @@
-// import BlogList from '@/components/BlogList';
-// import { BlogListProps } from '@/components/Interfaces';
 import client from '@/tina/__generated__/client';
 import { Collection, Post, Node, Query } from '@/tina/__generated__/types';
 
 export default async function BlogMainPage() {
-	const post: Node & Post & { id: string } = await client.queries.post({
-		relativePath: '/working.md',
-	});
+	const postsResponse = await client.queries.postConnection();
+	postsResponse.data.postConnection.edges!.map((post) => console.log(post?.node?.title));
 	return (
 		<div>
-			{/* {post.map((post) => ( */}
-			<div id={post.id}>
-				<h1>{post.title}</h1>
-				<p>{post.body}</p>
-			</div>
-			{/* ))} */}
+			{postsResponse.data.postConnection.edges! ? (
+				postsResponse.data.postConnection.edges!.map((post) => (
+					<div key={JSON.stringify(post?.node?.id)}>
+						<h1>{JSON.stringify(post?.node?.title)}</h1>
+						<p>{JSON.stringify(post?.node?.excerpt)}</p>
+					</div>
+				))
+			) : (
+				<></>
+			)}
 		</div>
 	);
 }
