@@ -4,7 +4,7 @@ import { defineConfig } from 'tinacms';
 const branch =
 	process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || 'v2';
 
-export default defineConfig({
+const config = defineConfig({
 	branch,
 
 	// Get this from tina.io
@@ -22,7 +22,7 @@ export default defineConfig({
 			publicFolder: 'public',
 		},
 	},
-	// See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
+	// See docs on content modelling for more info on how to setup new content models: https://tina.io/docs/schema/
 	schema: {
 		collections: [
 			// {
@@ -77,12 +77,12 @@ export default defineConfig({
 						label: 'Cover Image',
 						required: true,
 					},
-					{
-						type: 'datetime',
-						name: 'date',
-						label: 'Date',
-						required: true,
-					},
+					// {
+					// 	type: 'datetime',
+					// 	name: 'date',
+					// 	label: 'Date',
+					// 	required: true,
+					// },
 					{
 						type: 'string',
 						name: 'author',
@@ -109,3 +109,4 @@ export default defineConfig({
 		],
 	},
 });
+export default config;
