@@ -20,17 +20,21 @@ export interface AboutMeProps {
 	className: string;
 }
 export interface BlogListProps {
-	title: string;
 	id: string;
+	title: string;
+	date: string;
+	author: string;
+	excerpt: string;
 	body: string;
+	slug: string;
 }
 
 export interface BlogLayoutProps {
 	id: string;
 	coverImage: string;
 	title: string;
-	author: string;
 	date: string;
+	author: string;
 	excerpt: string;
 	body: string;
 	slug: string;

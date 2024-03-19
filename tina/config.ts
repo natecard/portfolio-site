@@ -103,7 +103,7 @@ export default defineConfig({
 					},
 				],
 				ui: {
-					router: ({ document }) => `/blog/post/${document._sys.basename}`,
+					router: ({ document }) => `/blog/post/${document._sys.filename}`,
 				},
 			},
 		],
