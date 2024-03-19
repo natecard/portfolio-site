@@ -1,22 +1,31 @@
-import BlogPost from '@/components/BlogLayout';
-import client from '@/tina/__generated__/client';
-import { Collection, Post, Node, Query } from '@/tina/__generated__/types';
+import { BlogListProps } from '@/Interfaces';
+import BlogPostList from '@/components/BlogList';
+import { Post, PostConnection, PostConnectionEdges } from '@/tina/__generated__/types';
 import { useTina } from 'tinacms/dist/react';
 
-export default async function BlogMainPage(props) {
+export default async function BlogMainPage(props: { query: any; variables: any; data: any }) {
+	const { data } = useTina({
+		query: props.query,
+		variables: props.variables,
+		data: props.data,
+	});
 	return (
 		<div>
-			<BlogPost
-				key={props.id}
-				id={props.id!}
-				coverImage={props.coverImage!}
-				title={props.title!}
-				author={props.author!}
-				date={props.date!}
-				excerpt={props.excerpt!}
-				body={props.body!}
-				slug={props.slug!}
-			/>
+			{data.postConnection.edges?.map((node: any) => {
+				return (
+					<article key={node.id}>
+						<BlogPostList
+							title={node.title}
+							body={node.body}
+							author={node.author}
+							date={node.date}
+							excerpt={node.excerpt}
+							slug={node.slug}
+							id={node.id}
+						/>
+					</article>
+				);
+			})}
 		</div>
 	);
 }
