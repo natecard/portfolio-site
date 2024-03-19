@@ -1,4 +1,3 @@
-'use client';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import client from '@/tina/__generated__/client';
@@ -13,6 +12,7 @@ export default async function DisplayPost(props: { query: any; variables: any; d
 		variables: props.variables,
 		data: props.data,
 	});
+	console.log('Data received in DisplayPost component:', data);
 
 	return (
 		<div>
@@ -26,6 +26,8 @@ export default async function DisplayPost(props: { query: any; variables: any; d
 }
 export const getStaticPaths = async () => {
 	const connection = await client.queries.postConnection();
+	console.log('postConnection data:', connection.data); // Log the data returned by postConnection
+
 	return {
 		paths: connection.data.postConnection.edges!.map((post) => ({
 			params: { slug: post?.node?._sys.filename },
@@ -38,6 +40,8 @@ export const getStaticProps: GetStaticProps = async (x) => {
 	const tinaProps = await client.queries.post({
 		relativePath: `blog/posts/${x.params?.slug}`,
 	});
+	console.log('post data:', tinaProps.data); // Log the data returned by the post query
+
 	return {
 		props: {
 			data: tinaProps.data,

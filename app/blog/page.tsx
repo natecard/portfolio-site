@@ -1,6 +1,4 @@
-import { BlogListProps } from '@/Interfaces';
 import BlogPostList from '@/components/BlogList';
-import { Post, PostConnection, PostConnectionEdges } from '@/tina/__generated__/types';
 import { useTina } from 'tinacms/dist/react';
 
 export default async function BlogMainPage(props: { query: any; variables: any; data: any }) {
