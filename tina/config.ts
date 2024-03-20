@@ -77,12 +77,12 @@ const config = defineConfig({
 						label: 'Cover Image',
 						required: true,
 					},
-					// {
-					// 	type: 'datetime',
-					// 	name: 'date',
-					// 	label: 'Date',
-					// 	required: true,
-					// },
+					{
+						type: 'datetime',
+						name: 'date',
+						label: 'Date',
+						required: true,
+					},
 					{
 						type: 'string',
 						name: 'author',
@@ -103,7 +103,7 @@ const config = defineConfig({
 					},
 				],
 				ui: {
-					router: ({ document }) => `/blog/post/${document._sys.filename}`,
+					router: ({ document }) => `/blog/post/${document._sys.relativePath}`,
 				},
 			},
 		],

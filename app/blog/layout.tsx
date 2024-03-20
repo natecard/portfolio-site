@@ -4,9 +4,11 @@ import Header from '@/components/Header';
 export default function BlogLayout({ children }: React.PropsWithChildren<{}>) {
 	return (
 		<>
-			<Header />
-			<main>{children}</main>
-			<Footer />
+			<main className="h-screen">
+				<Header />
+				{children}
+				<Footer />
+			</main>
 		</>
 	);
 }

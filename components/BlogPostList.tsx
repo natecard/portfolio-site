@@ -1,16 +1,15 @@
-'use client';
 import { BlogListProps } from '@/Interfaces';
 
-const BlogPostList = (props: BlogListProps) => {
+function BlogPostList(props: BlogListProps) {
 	return (
-		<div>
+		<div className="">
 			<div key={props.id}>
 				<h2>{props.title}</h2>
 				<p>{props.author}</p>
-				<p>{props.body}</p>
+				<p>{props.excerpt}</p>
 			</div>
 		</div>
 	);
-};
+}
 
 export default BlogPostList;
