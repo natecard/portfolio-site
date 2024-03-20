@@ -1,29 +1,25 @@
-import BlogPostList from '@/components/BlogList';
-import { useTina } from 'tinacms/dist/react';
+'use client';
+import BlogPostList from '@/components/BlogPostList';
+import client from '@/tina/__generated__/client';
 
 export default async function BlogMainPage(props: { query: any; variables: any; data: any }) {
-	const { data } = useTina({
-		query: props.query,
-		variables: props.variables,
-		data: props.data,
-	});
+	const postsResponse = await client.queries.postConnection();
+	postsResponse.data.postConnection.edges!.map((post) => console.log(post?.node?.title));
+
 	return (
 		<div>
-			{data.postConnection.edges?.map((node: any) => {
-				return (
-					<article key={node.id}>
-						<BlogPostList
-							title={node.title}
-							body={node.body}
-							author={node.author}
-							date={node.date}
-							excerpt={node.excerpt}
-							slug={node.slug}
-							id={node.id}
-						/>
+			{postsResponse.data.postConnection.edges! ? (
+				postsResponse.data.postConnection.edges!.map((post) => (
+					<article key={post?.node?.id}>
+						<div key={post?.node?.id}>
+							<h1>{post?.node?.title}</h1>
+							<p>{post?.node?.excerpt}</p>
+						</div>
 					</article>
-				);
-			})}
+				))
+			) : (
+				<></>
+			)}
 		</div>
 	);
 }

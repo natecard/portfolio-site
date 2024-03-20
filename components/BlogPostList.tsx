@@ -1,3 +1,4 @@
+'use client';
 import { BlogListProps } from '@/Interfaces';
 
 const BlogPostList = (props: BlogListProps) => {
