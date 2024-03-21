@@ -103,7 +103,7 @@ const config = defineConfig({
 					},
 				],
 				ui: {
-					router: ({ document }) => `/blog/post/${document._sys.relativePath}`,
+					router: ({ document }) => `/blog/posts/${document._sys.filename}`,
 				},
 			},
 		],

@@ -1,9 +1,8 @@
 import { BlogListProps } from '@/Interfaces';
 import BlogPostList from '@/components/BlogPostList';
 import client from '@/tina/__generated__/client';
-import { PostConnectionEdges } from '@/tina/__generated__/types';
 
-export default async function BlogMainPage(props: { query: any; variables: any; data: any }) {
+export default async function BlogMainPage() {
 	const postsResponse = await client.queries.postConnection();
 	const { data } = postsResponse;
 	const posts = data.postConnection;
