@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 
 export default async function DisplayPost({ params }: { params: { slug: string } }) {
 	const { slug } = params;
-	const postsResponse = await client.queries.post({ relativePath: `${slug}.md` });
+	const postsResponse = await client.queries.post({ relativePath: `${slug}` });
 	const { data } = postsResponse;
 	const post = data.post;
 	return (
@@ -25,4 +25,12 @@ export default async function DisplayPost({ params }: { params: { slug: string }
 			</article>
 		</main>
 	);
+}
+
+export async function generateStaticParams() {
+	const results = await client.queries.postConnection();
+
+	return results.data.postConnection.edges!.map((edge) => ({
+		slug: edge!.node!.slug,
+	}));
 }
