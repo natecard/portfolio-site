@@ -2,6 +2,7 @@ import client from '@/tina/__generated__/client';
 import BlogPost from '@/components/BlogPost';
 import { BlogLayoutProps } from '@/Interfaces';
 import { usePathname } from 'next/navigation';
+import { renderBody } from '../../page';
 
 export default async function DisplayPost({ params }: { params: { slug: string } }) {
 	const { slug } = params;
@@ -14,7 +15,7 @@ export default async function DisplayPost({ params }: { params: { slug: string }
 				<BlogPost
 					key={post.id}
 					title={post.title}
-					// body={post.body}
+					body={renderBody(post.body)}
 					author={post.author}
 					date={post.date}
 					excerpt={post.excerpt}

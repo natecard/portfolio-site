@@ -15,7 +15,7 @@ export default async function BlogMainPage() {
 						id={post.node.id}
 						title={post.node.title}
 						author={post.node.author}
-						body={post.node.body}
+						body={renderBody(post.node.body)}
 						date={post.node.date}
 						excerpt={post.node.excerpt}
 						slug={post.node.slug}
@@ -29,7 +29,7 @@ export default async function BlogMainPage() {
 	);
 }
 
-function renderBody(body: any) {
+export function renderBody(body: any) {
 	// Check the type of content and render accordingly
 	switch (body.type) {
 		case 'root':

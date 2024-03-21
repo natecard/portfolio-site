@@ -9,7 +9,7 @@ export default function BlogPost(props: BlogLayoutProps) {
 			<h2>{props.author}</h2>
 			<h3>{props.date}</h3>
 			<p>{props.excerpt}</p>
-			{/* <p>{props.body}</p> */}
+			<p>{props.body}</p>
 			<p>{props.slug}</p>
 		</div>
 	);
