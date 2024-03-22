@@ -4,16 +4,16 @@ import Image from 'next/image';
 
 function BlogPostList(props: BlogListProps) {
 	return (
-		<div className="">
+		<div className="flex flex-col items-center p-5 ">
 			<div key={props.id}>
 				<Link href={`/blog/posts/${props.slug}`}>
-					<h2>{props.title}</h2>
+					<h2 className="prose">{props.title}</h2>
 				</Link>
 				{props.coverImage && (
-					<Image src={props.coverImage} alt={props.title} width={200} height={200} />
+					<Image className="" src={props.coverImage} alt={props.title} width={200} height={200} />
 				)}
 				<p>{props.author}</p>
-				<p>{props.excerpt}</p>
+				<p className="prose max-w-64 text-wrap">{props.excerpt}</p>
 			</div>
 		</div>
 	);
