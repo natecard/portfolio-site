@@ -100,6 +100,30 @@ const config = defineConfig({
 						name: 'body',
 						label: 'Body',
 						isBody: true,
+						templates: [
+							{
+								name: 'paragraph',
+								label: 'Paragraph',
+								fields: [
+									{
+										type: 'string',
+										name: 'text',
+										label: 'Text',
+									},
+								],
+							},
+							{
+								name: 'heading',
+								label: 'Heading',
+								fields: [
+									{
+										type: 'string',
+										name: 'text',
+										label: 'Text',
+									},
+								],
+							},
+						],
 					},
 				],
 				ui: {

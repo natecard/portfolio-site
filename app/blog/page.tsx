@@ -10,34 +10,24 @@ export default async function BlogMainPage() {
 	return (
 		<div className="">
 			{posts && posts.edges && posts.edges.length > 0 ? (
-				posts.edges?.map((post: any) => (
-					<BlogPostList
-						id={post.node.id}
-						title={post.node.title}
-						author={post.node.author}
-						body={renderBody(post.node.body)}
-						date={post.node.date}
-						excerpt={post.node.excerpt}
-						slug={post.node.slug}
-						key={post.node.id}
-					/>
-				))
+				posts.edges?.map((post: any) => {
+					console.log(post.node.slug);
+					return (
+						<BlogPostList
+							id={post.node.id}
+							title={post.node.title}
+							author={post.node.author}
+							date={post.node.date}
+							excerpt={post.node.excerpt}
+							slug={post.node.slug}
+							body={post.node.body}
+							key={post.node.id}
+						/>
+					);
+				})
 			) : (
 				<p>No posts available</p>
 			)}
 		</div>
 	);
-}
-
-export function renderBody(body: any) {
-	// Check the type of content and render accordingly
-	switch (body.type) {
-		case 'root':
-			// If it's a root type, render the children as paragraphs
-			return body.children.map((child: any, index: number) => <p key={index}>{child.text}</p>);
-		// Add cases for other types if necessary
-		default:
-			// Handle other types or unknown types
-			return null;
-	}
 }
