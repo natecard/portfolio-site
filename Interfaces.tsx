@@ -20,6 +20,7 @@ export interface AboutMeProps {
 	className: string;
 }
 export interface BlogListProps {
+	coverImage: string;
 	id: string;
 	title: string;
 	date: string;

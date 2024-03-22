@@ -22,6 +22,7 @@ export default async function BlogMainPage() {
 							slug={post.node.slug}
 							body={post.node.body}
 							key={post.node.id}
+							coverImage={post.node.coverImage}
 						/>
 					);
 				})
