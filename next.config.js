@@ -13,7 +13,7 @@ module.exports = {
 		];
 	},
 	images: {
-		remotePatterns: [{ protocol: 'http', hostname: 'assets.tina.io', port: '', pathname: '' }],
+		remotePatterns: [{ protocol: 'http', hostname: 'assets.tina.io' }],
 	},
 	reactStrictMode: true,
 	// basePath: '/'
