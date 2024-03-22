@@ -15,8 +15,7 @@ export default function BlogPost(props: BlogLayoutProps) {
 			<h2>{props.author}</h2>
 			<h3>{props.date}</h3>
 			<p>{props.excerpt}</p>
-			<TinaMarkdown content={[props.body] as TinaMarkdownContent[]} />{' '}
-			{/* Convert props.body to an array */}
+			<TinaMarkdown content={props.body} />
 			<p>{props.slug}</p>
 		</div>
 	);
