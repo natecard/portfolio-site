@@ -10,16 +10,24 @@ export default function BlogPost(props: BlogLayoutProps) {
 	};
 
 	return (
-		<div id={props.id}>
+		<div className="flex w-4/5 flex-col" id={props.id}>
 			{props.coverImage && (
-				<Image src={props.coverImage} alt={props.title} width={200} height={200} />
+				<Image
+					className=" self-center"
+					src={props.coverImage}
+					alt={props.title}
+					width={200}
+					height={200}
+				/>
 			)}
-			<h1 className=" text-6xl">{props.title}</h1>
-			<h2>{props.author}</h2>
-			<h3>{format(props.date, { date: 'full', time: 'short' })}</h3>
-			<p>{props.excerpt}</p>
+			<h1 className=" text-center text-6xl">{props.title}</h1>
+			<div className="flex w-5/6 flex-col">
+				<h2 className=" flex justify-end">{props.author}</h2>
+				<h3 className="flex justify-end">{format(props.date, { date: 'full', time: 'short' })}</h3>
+			</div>
+			<p className="text-3xl">{props.excerpt}</p>
 			<TinaMarkdown content={props.body} />
-			<p>{props.slug}</p>
+			<p>{`Tags: ${props.slug}`}</p>
 		</div>
 	);
 }
