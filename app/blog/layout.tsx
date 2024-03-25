@@ -4,9 +4,9 @@ import Header from '@/components/Header';
 export default function BlogLayout({ children }: React.PropsWithChildren<{}>) {
 	return (
 		<>
-			<main className="h-screen">
+			<main>
 				<Header />
-				{children}
+				<div className="flex min-h-screen flex-col items-center">{children}</div>
 				<Footer />
 			</main>
 		</>
