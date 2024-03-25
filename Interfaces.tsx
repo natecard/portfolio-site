@@ -27,7 +27,7 @@ export interface BlogListProps {
 	author: string;
 	excerpt: string;
 	body: [];
-	slug: string;
+	slug: string[];
 }
 
 export interface BlogLayoutProps {
@@ -38,5 +38,5 @@ export interface BlogLayoutProps {
 	author: string;
 	excerpt: string;
 	body: [];
-	slug: string;
+	slug: string[];
 }
