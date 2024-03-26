@@ -6,14 +6,11 @@ import { format } from '@formkit/tempo';
 import Link from 'next/link';
 
 export default function BlogPost(props: BlogLayoutProps) {
-	// const blog = (props: { body: string }) => {
-	// 	return <p>{props.body}</p>;
-	// };
 	let tags: string[] = [];
 	tags = props.tags.join(',').split(',');
 
 	return (
-		<div className="mx-auto flex w-4/5 flex-col items-center" id={props.id}>
+		<div className="mx-auto flex w-4/5 flex-col items-center pb-20" id={props.id}>
 			{props.coverImage && (
 				<Image
 					className=" self-center"
@@ -21,6 +18,7 @@ export default function BlogPost(props: BlogLayoutProps) {
 					alt={props.title}
 					width={200}
 					height={200}
+					loading="lazy"
 				/>
 			)}
 			<h1 className=" text-center text-6xl">{props.title}</h1>
@@ -37,16 +35,18 @@ export default function BlogPost(props: BlogLayoutProps) {
 			<div className="mx-auto w-full">
 				<TinaMarkdown content={props.body} />
 			</div>
-			<p>{`Tags:`}</p>
-			{Number(tags) > 2 ? (
-				props.tags.map((tag: string) => (
-					<Link key={props.id} href={`website/blog/${tag}`}>
-						{tag}
-					</Link>
-				))
-			) : (
-				<Link href={`${tags}`}>{tags}</Link>
-			)}
+			<div className="flex self-end pt-20">
+				<p>{`Tags:`}</p>
+				{Number(tags) > 2 ? (
+					props.tags.map((tag: string) => (
+						<Link key={props.id} href={`website/blog/${tag}`}>
+							{tag}
+						</Link>
+					))
+				) : (
+					<Link href={`${tags}`}>{tags}</Link>
+				)}
+			</div>
 		</div>
 	);
 }
