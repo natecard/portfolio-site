@@ -13,7 +13,7 @@ export default async function BlogMainPage() {
 			<div>
 				{posts && posts.edges && posts.edges.length > 0 ? (
 					posts.edges?.map((post: any) => {
-						console.log(post.node.slug);
+						console.log(post.node.tags);
 						return (
 							<BlogPostList
 								id={post.node.id}
@@ -21,7 +21,7 @@ export default async function BlogMainPage() {
 								author={post.node.author}
 								date={post.node.date}
 								excerpt={post.node.excerpt}
-								slug={post.node.slug}
+								tags={post.node.tags}
 								body={post.node.body}
 								key={post.node.id}
 								coverImage={post.node.coverImage}

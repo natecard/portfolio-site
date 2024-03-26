@@ -92,8 +92,14 @@ const config = defineConfig({
 					{
 						type: 'string',
 						name: 'slug',
-						label: 'Slug',
-						required: true,
+						label: 'slug',
+						required: false,
+					},
+					{
+						type: 'string',
+						name: 'tags',
+						label: 'tags',
+						required: false,
 					},
 					{
 						type: 'rich-text',
