@@ -6,7 +6,7 @@ excerpt: >-
 coverImage: /img/foreground-landing.png
 date: 2024-03-26T04:00:00.000Z
 author: Nathan Card
-slug: lorem
+slug: Lorem-Ipsum
 ---
 
 # Petit umeros fama surgit bos rubescere patremque

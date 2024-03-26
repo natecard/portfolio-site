@@ -22,6 +22,7 @@ export default async function BlogMainPage() {
 								date={post.node.date}
 								excerpt={post.node.excerpt}
 								tags={post.node.tags}
+								slug={post.node.slug}
 								body={post.node.body}
 								key={post.node.id}
 								coverImage={post.node.coverImage}

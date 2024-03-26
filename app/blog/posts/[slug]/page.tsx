@@ -4,7 +4,7 @@ import { BlogLayoutProps } from '@/Interfaces';
 
 export default async function DisplayPost({ params }: { params: { slug: string } }) {
 	const { slug } = params;
-	const postsResponse = await client.queries.post({ relativePath: `${slug}` });
+	const postsResponse = await client.queries.post({ relativePath: `${slug}.md` });
 	const { data } = postsResponse;
 	const post = data.post;
 	let tags: string[] = [];

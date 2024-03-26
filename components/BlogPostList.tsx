@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 function BlogPostList(props: BlogListProps) {
 	return (
-		<div className="flex flex-col items-center p-5 ">
+		<div className="flex flex-col items-center py-5 ">
 			<div key={props.id}>
 				<Link href={`/blog/posts/${props.slug}`}>
 					<h2 className="prose">{props.title}</h2>
