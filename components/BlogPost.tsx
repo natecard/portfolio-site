@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { BlogLayoutProps } from '@/Interfaces';
-import { TinaMarkdownContent } from 'tinacms/dist/rich-text'; // Import TinaMarkdownContent
 import { format } from '@formkit/tempo';
 import Link from 'next/link';
 
@@ -16,7 +15,7 @@ export default function BlogPost(props: BlogLayoutProps) {
 					className=" self-center"
 					src={props.coverImage}
 					alt={props.title}
-					width={200}
+					width={400}
 					height={200}
 					loading="lazy"
 				/>
