@@ -1,7 +1,7 @@
 import '@/styles/globals.css';
 import { Providers } from './providers';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-
+import { Analytics } from '@vercel/analytics/react';
 export const metadata = {
 	title: 'Nate Card Portfolio',
 	description: 'A collection of projects and blog posts by Nate Card',
@@ -19,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<Providers>
 					{children}
 					<SpeedInsights />
+					<Analytics />
 				</Providers>
 			</body>
 		</html>
