@@ -1,59 +1,16 @@
 import client from '@/tina/__generated__/client';
 import BlogPost from '@/components/BlogPost';
 import { BlogLayoutProps } from '@/Interfaces';
-import { useTina } from 'tinacms/dist/react';
 
-export default async function DisplayPost(
-	// { params }: { params: { slug: string } }
-	{ slug }: { slug: string },
-) {
-	// const { slug } = params;
-	// const postsResponse = await client.queries.post({ relativePath: `${slug}.md` });
-	// const { data } = postsResponse;
-	// const post = data.post;
-	// let tags: string[] = [];
-	// if (post.tags) {
-	// 	tags = post.tags.split(',');
-	// }
-	const { data } = useTina({
-		query: `
-			query post($relativePath: String!) {
-				post(relativePath: $relativePath) {
-					... on Document {
-						_sys {
-							filename
-							basename
-							breadcrumbs
-							path
-							relativePath
-							extension
-						}
-						id
-					}
-					...PostParts
-				}
-			}
-			
-			fragment PostParts on Post {
-				__typename
-				title
-				excerpt
-				coverImage
-				date
-				author
-				slug
-				body
-			}
-		`,
-		variables: { relativePath: `${slug}.md` },
-	});
-
+export default async function DisplayPost({ params }: { params: { slug: string } }) {
+	const { slug } = params;
+	const postsResponse = await client.queries.post({ relativePath: `${slug}.md` });
+	const { data } = postsResponse;
 	const post = data.post;
 	let tags: string[] = [];
 	if (post.tags) {
 		tags = post.tags.split(',');
 	}
-
 	return (
 		<main>
 			<article>
