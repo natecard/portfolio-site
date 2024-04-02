@@ -1,5 +1,5 @@
 import { HeartIcon } from '@heroicons/react/24/solid';
-export default function Footer() {
+const Footer: React.FC = () => {
 	return (
 		<div className=" flex flex-row justify-center">
 			<a className="flex flex-row items-center p-4" href="http://www.github.com/natecard">
@@ -20,4 +20,5 @@ export default function Footer() {
 			</a>
 		</div>
 	);
-}
+};
+export default Footer;

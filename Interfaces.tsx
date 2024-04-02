@@ -19,3 +19,26 @@ export interface LandingProps {
 export interface AboutMeProps {
 	className: string;
 }
+export interface BlogListProps {
+	coverImage: string;
+	id: string;
+	title: string;
+	date: string;
+	author: string;
+	excerpt: string;
+	body: [];
+	tags: string[];
+	slug: string;
+}
+
+export interface BlogLayoutProps {
+	id: string;
+	coverImage: string;
+	title: string;
+	date: string;
+	author: string;
+	excerpt: string;
+	body: [];
+	tags: string[];
+	slug: string;
+}

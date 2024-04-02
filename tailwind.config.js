@@ -1,8 +1,19 @@
+/** @type {import('tailwindcss').Config} */
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-	content: ['index.html', './src/**/*.{js,jsx,ts,tsx,html}'],
+	content: [
+		'index.html',
+		'./styles/*.css',
+		'./src/**/*.{js,ts,jsx,tsx}',
+		'./app/**/*.{js,ts,jsx,tsx}',
+		'./pages/**/*.{js,ts,jsx,tsx}',
+		'./components/**/*.{js,ts,jsx,tsx}',
+		'./ui/components/*.{js,ts,jsx,tsx}',
+		'./public/img/*.{js,ts,jsx,tsx}',
+	],
 	theme: {
 		extend: {
 			fontFamily: {

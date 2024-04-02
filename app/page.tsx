@@ -1,14 +1,16 @@
-import Header from './Components/Header';
-import Projects from './Components/Projects';
-import Footer from './Components/Footer';
-import AboutMe from './Components/AboutMe';
+'use client';
+// import { lazy, Suspense } from 'react';
+import Header from '@/components/Header';
+import Landing from '@/components/Landing';
+import Projects from '@/components/Projects';
+import Footer from '@/components/Footer';
+import AboutMe from '@/components/AboutMe';
+import Skills from '@/components/Skills';
+import { ethosReadMe, portfolioReadMe, subforumaReadMe } from '@/components/projectReadMe';
 import { SiReact, SiTailwindcss, SiTypescript } from '@icons-pack/react-simple-icons';
-import Landing from './Components/Landing';
-import subforuma from './img/subforuma.png';
-import portfolio from './img/portfolio.png';
-import { ethosReadMe, portfolioReadMe, subforumaReadMe } from './projectReadMe';
-import ethos from './img/ethos.png';
-import Skills from './Components/Skills';
+import subforuma from '@/public/img/subforuma.png';
+import portfolio from '@/public/img/portfolio.png';
+import ethos from '@/public/img/ethos.png';
 
 function App() {
 	return (
@@ -17,7 +19,7 @@ function App() {
 			<div className="min-h-screen snap-y snap-center snap-always pb-36">
 				<Landing />
 			</div>
-
+			{/* <Suspense> */}
 			<div className="my-48 snap-center snap-always">
 				<AboutMe />
 			</div>
@@ -29,7 +31,7 @@ function App() {
 
 				<Projects
 					title={'Subforuma'}
-					img={subforuma}
+					img={subforuma.src}
 					language1Icon={SiTypescript}
 					language1={'TypeScript'}
 					language2Icon={SiReact}
@@ -44,7 +46,7 @@ function App() {
 			<div className="snap-center snap-always py-24">
 				<Projects
 					title={'Ethos'}
-					img={ethos}
+					img={ethos.src}
 					language1Icon={SiTypescript}
 					language1={'TypeScript'}
 					language2Icon={SiReact}
@@ -59,7 +61,7 @@ function App() {
 			<div className="snap-center snap-always py-24">
 				<Projects
 					title={'Portfolio'}
-					img={portfolio}
+					img={portfolio.src}
 					language1Icon={SiTypescript}
 					language1={'TypeScript'}
 					language2Icon={SiReact}
@@ -73,6 +75,7 @@ function App() {
 			</div>
 			<div className=" snap-center snap-always pb-48"></div>
 			<Footer />
+			{/* </Suspense> */}
 		</div>
 	);
 }

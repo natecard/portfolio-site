@@ -1,14 +1,14 @@
 import { ParallaxBanner } from 'react-scroll-parallax';
-import background from '../img/bg-landing.png';
-import foreground from '../img/foreground-landing.png';
+import background from '@/public/img/bg-landing.png';
+import foreground from '@/public/img/foreground-landing.png';
 
-export default function AboutMe() {
+const AboutMe: React.FC = () => {
 	return (
 		<div>
-			{window.innerWidth < 805 ? (
+			{typeof window !== 'undefined' && window.innerWidth < 805 ? (
 				<ParallaxBanner
 					layers={[
-						{ image: background, speed: -40 },
+						{ image: background.src, speed: -40 },
 						{
 							speed: -50,
 							children: (
@@ -19,14 +19,14 @@ export default function AboutMe() {
 								</div>
 							),
 						},
-						{ image: foreground, speed: -25 },
+						{ image: foreground.src, speed: -25 },
 					]}
 					className=" aspect-[5/2]"
 				/>
 			) : (
 				<ParallaxBanner
 					layers={[
-						{ image: background, speed: -40 },
+						{ image: background.src, speed: -40 },
 						{
 							speed: -45,
 							easing: 'easeOutQuad',
@@ -38,7 +38,7 @@ export default function AboutMe() {
 								</div>
 							),
 						},
-						{ image: foreground, speed: -15, easing: 'easeOutCirc' },
+						{ image: foreground.src, speed: -15, easing: 'easeOutCirc' },
 					]}
 					className=" aspect-[5/3]"
 				/>
@@ -66,4 +66,5 @@ export default function AboutMe() {
 			</div>
 		</div>
 	);
-}
+};
+export default AboutMe;

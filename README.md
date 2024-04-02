@@ -1,6 +1,6 @@
 # Portfolio Site
 
-This is a portfolio website that showcases my skills and projects as a web developer. You can visit the live site at https://example.com.
+This is a portfolio website that showcases my skills and projects as a web developer. You can visit the live site at https://natecard.dev.
 
 ## Features
 
@@ -9,14 +9,13 @@ This is a portfolio website that showcases my skills and projects as a web devel
 - Type-safe code using TypeScript
 - Smooth scrolling and parallax effects using React Spring
 - Custom hooks and components for reusability and readability
-- Contact form with validation and email sending functionality using EmailJS
+
 
 ## Technologies
 
+- NextJS
 - TypeScript
-- React
 - TailwindCSS
-- React Router
 - EmailJS
 
 ## Projects

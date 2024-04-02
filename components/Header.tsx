@@ -1,22 +1,34 @@
-import pdf from '../img/Nathan Card Resume.pdf';
-export default function Header() {
-	// function downloadResume() {
-	// 	fetch('../../Nathan Card - Software Engineer.pdf')
-	// 		.then((response) => response.blob())
-	// 		.then((blob) => {
-	// 			console.log('Downloading...');
-	// 			const url = window.URL.createObjectURL(blob);
-	// 			const a = document.createElement('a');
-	// 			a.href = url;
-	// 			a.download = 'Nathan Card - Software Engineer.pdf';
-	// 			document.body.appendChild(a);
-	// 			a.click();
-	// 			a.remove();
-	// 		});
-	// }
+import Link from 'next/link';
+
+const Header: React.FC = () => {
+	const resumeUrl = `${process.env.PUBLIC_URL}/pdf/Nathan_Card_Resume.pdf`;
 	return (
 		<div className="navbar text-background drop-shadow-lg">
-			<div className="navbar-start">
+			<div className="navbar-start pl-3">
+				<Link
+					href="/"
+					className="from-purple-400 to-pink-600 pr-2 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent"
+				>
+					Home
+				</Link>
+				<Link
+					href="/blog"
+					className="from-purple-400 to-pink-600 pr-2 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent"
+				>
+					Blog
+				</Link>
+				<button className="from-purple-400 to-pink-600 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent">
+					<a
+						href={resumeUrl}
+						download="Nathan_Card_Resume.pdf"
+						className="from-purple-400 to-pink-600 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent"
+					>
+						Resume
+					</a>
+				</button>
+			</div>
+
+			<div className="navbar-end pr-3">
 				<a className="flex flex-row items-center p-4" href="http://www.github.com/natecard">
 					<svg
 						className="fill-font hover:scale-125 hover:fill-red-500"
@@ -40,13 +52,7 @@ export default function Header() {
 					</svg>
 				</a>
 			</div>
-			<div className="navbar-end pr-3">
-				<button className="from-purple-400 to-pink-600 text-2xl font-bold text-white hover:scale-105 hover:bg-gradient-to-r hover:bg-clip-text hover:pr-4 hover:text-transparent">
-					<a href={pdf} download="Nathan_Card_Resume.pdf">
-						Resume
-					</a>
-				</button>
-			</div>
 		</div>
 	);
-}
+};
+export default Header;

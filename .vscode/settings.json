@@ -10,5 +10,9 @@
 	"typescript.suggest.includeCompletionsForImportStatements": true,
 	"vsintellicode.typescript.completionsEnabled": true,
 	"path-intellisense.autoTriggerNextSuggestion": true,
-	"typescript.tsdk": "node_modules/typescript/lib"
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"typescript.enablePromptUseWorkspaceTsdk": true,
+	"[postcss]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }
