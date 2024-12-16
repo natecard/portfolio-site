@@ -1,15 +1,10 @@
 import { defineConfig } from 'tinacms';
 
-// Your hosting provider likely exposes this as an environment variable
-const branch =
-	process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || 'v2';
+const branch = process.env.HEAD || 'main';
 
-const config = defineConfig({
+export default defineConfig({
 	branch,
-
-	// Get this from tina.io
 	clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-	// Get this from tina.io
 	token: process.env.TINA_TOKEN,
 
 	build: {
@@ -18,45 +13,17 @@ const config = defineConfig({
 	},
 	media: {
 		tina: {
-			mediaRoot: '',
+			mediaRoot: 'img',
 			publicFolder: 'public',
 		},
 	},
-	// See docs on content modelling for more info on how to setup new content models: https://tina.io/docs/schema/
 	schema: {
 		collections: [
-			// {
-			// 	name: 'page',
-			// 	label: 'Pages',
-			// 	path: 'content/pages',
-			// 	format: 'json',
-			// 	fields: [
-			// 		{
-			// 			type: 'string',
-			// 			name: 'title',
-			// 			label: 'Title',
-			// 			isTitle: true,
-			// 			required: true,
-			// 		},
-			// 		{
-			// 			type: 'string',
-			// 			name: 'heading',
-			// 			label: 'Heading',
-			// 		},
-			// 		{
-			// 			type: 'string',
-			// 			name: 'content',
-			// 			label: 'Content',
-			// 		},
-			// 	],
-			// 	ui: {
-			// 		router: ({ document }) => `/page/${document._sys.basename}`,
-			// 	},
-			// },
 			{
 				name: 'post',
-				label: 'Posts',
+				label: 'Blog Posts',
 				path: 'blog/posts',
+				format: 'md',
 				fields: [
 					{
 						type: 'string',
@@ -80,7 +47,7 @@ const config = defineConfig({
 					{
 						type: 'datetime',
 						name: 'date',
-						label: 'Date',
+						label: 'Published Date',
 						required: true,
 					},
 					{
@@ -92,51 +59,26 @@ const config = defineConfig({
 					{
 						type: 'string',
 						name: 'slug',
-						label: 'slug',
-						required: false,
-					},
-					{
-						type: 'string',
-						name: 'tags',
-						label: 'tags',
-						required: false,
+						label: 'Slug',
+						required: true,
 					},
 					{
 						type: 'rich-text',
 						name: 'body',
-						label: 'Body',
+						label: 'Post Body',
 						isBody: true,
-						templates: [
-							{
-								name: 'paragraph',
-								label: 'Paragraph',
-								fields: [
-									{
-										type: 'string',
-										name: 'text',
-										label: 'Text',
-									},
-								],
-							},
-							{
-								name: 'heading',
-								label: 'Heading',
-								fields: [
-									{
-										type: 'string',
-										name: 'text',
-										label: 'Text',
-									},
-								],
-							},
-						],
 					},
 				],
 				ui: {
-					router: ({ document }) => `/blog/posts/${document._sys.filename}`,
+					router: ({ document }) => `/blog/${document._sys.filename}`,
+					filename: {
+						readonly: true,
+						slugify: (values) => {
+							return `${values?.slug || ''}`;
+						},
+					},
 				},
 			},
 		],
 	},
 });
-export default config;

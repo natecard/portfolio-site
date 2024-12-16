@@ -1,5 +1,5 @@
 import client from '@/tina/__generated__/client';
-import BlogPost from '@/components/BlogPost';
+import BlogPost from '@/src/components/BlogPost';
 import { BlogLayoutProps } from '@/Interfaces';
 
 export default async function DisplayPost({ params }: { params: { slug: string } }) {
