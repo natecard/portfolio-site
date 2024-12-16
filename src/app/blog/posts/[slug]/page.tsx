@@ -1,6 +1,8 @@
 import client from '@/tina/__generated__/client';
 import BlogPost from '@/src/components/BlogPost';
 import { BlogLayoutProps } from '@/Interfaces';
+import { Metadata } from 'next';
+import { ErrorBoundary } from '@/src/components/ErrorBoundary';
 
 export default async function DisplayPost({ params }: { params: { slug: string } }) {
 	const { slug } = params;
@@ -13,20 +15,22 @@ export default async function DisplayPost({ params }: { params: { slug: string }
 	}
 	return (
 		<main>
-			<article>
-				<BlogPost
-					key={post.id}
-					title={post.title}
-					body={post.body}
-					author={post.author}
-					date={post.date}
-					excerpt={post.excerpt}
-					coverImage={post.coverImage}
-					slug={post.slug!}
-					tags={tags.map((tag) => tag || '') || []}
-					id={post.id}
-				/>
-			</article>
+				<ErrorBoundary>
+					<article>
+						<BlogPost
+							key={post.id}
+							title={post.title}
+							body={post.body}
+							author={post.author}
+							date={post.date}
+							excerpt={post.excerpt}
+							coverImage={post.coverImage}
+							slug={post.slug!}
+							tags={tags.map((tag) => tag || '') || []}
+							id={post.id}
+						/>
+					</article>
+				</ErrorBoundary>
 		</main>
 	);
 }
@@ -38,4 +42,27 @@ export async function generateStaticParams() {
 		slug: edge!.node!.slug,
 		tags: edge!.node!.tags,
 	}));
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+	const post = await getPost(params.slug);
+
+	return {
+		title: `${post.title} | Your Blog Name`,
+		description: post.body.substring(0, 160),
+		openGraph: {
+			title: post.title,
+			description: post.body.substring(0, 160),
+			type: 'article',
+			authors: [post.author],
+		},
+	};
+}
+
+async function getPost(slug: string) {
+	const postResponse = await client.queries.post({ relativePath: `${slug}.md` });
+	if (!postResponse.data.post) {
+		throw new Error(`Post not found for slug: ${slug}`);
+	}
+	return postResponse.data.post;
 }
