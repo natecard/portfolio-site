@@ -36,3 +36,9 @@ next-env.d.ts
 
 node_modules
 .env
+
+.next
+.vscode
+.DS_Store
+*.DS_Store
+*.log

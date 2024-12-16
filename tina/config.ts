@@ -1,142 +1,90 @@
 import { defineConfig } from 'tinacms';
 
-// Your hosting provider likely exposes this as an environment variable
-const branch =
-	process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || 'v2';
+const branch = process.env.HEAD || 'main';
 
-const config = defineConfig({
-	branch,
-
-	// Get this from tina.io
-	clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-	// Get this from tina.io
-	token: process.env.TINA_TOKEN,
-
-	build: {
-		outputFolder: 'admin',
-		publicFolder: 'public',
-	},
-	media: {
-		tina: {
-			mediaRoot: '',
-			publicFolder: 'public',
-		},
-	},
-	// See docs on content modelling for more info on how to setup new content models: https://tina.io/docs/schema/
-	schema: {
-		collections: [
-			// {
-			// 	name: 'page',
-			// 	label: 'Pages',
-			// 	path: 'content/pages',
-			// 	format: 'json',
-			// 	fields: [
-			// 		{
-			// 			type: 'string',
-			// 			name: 'title',
-			// 			label: 'Title',
-			// 			isTitle: true,
-			// 			required: true,
-			// 		},
-			// 		{
-			// 			type: 'string',
-			// 			name: 'heading',
-			// 			label: 'Heading',
-			// 		},
-			// 		{
-			// 			type: 'string',
-			// 			name: 'content',
-			// 			label: 'Content',
-			// 		},
-			// 	],
-			// 	ui: {
-			// 		router: ({ document }) => `/page/${document._sys.basename}`,
-			// 	},
-			// },
-			{
-				name: 'post',
-				label: 'Posts',
-				path: 'blog/posts',
-				fields: [
-					{
-						type: 'string',
-						name: 'title',
-						label: 'Title',
-						isTitle: true,
-						required: true,
-					},
-					{
-						type: 'string',
-						name: 'excerpt',
-						label: 'Excerpt',
-						required: true,
-					},
-					{
-						type: 'image',
-						name: 'coverImage',
-						label: 'Cover Image',
-						required: true,
-					},
-					{
-						type: 'datetime',
-						name: 'date',
-						label: 'Date',
-						required: true,
-					},
-					{
-						type: 'string',
-						name: 'author',
-						label: 'Author',
-						required: true,
-					},
-					{
-						type: 'string',
-						name: 'slug',
-						label: 'slug',
-						required: false,
-					},
-					{
-						type: 'string',
-						name: 'tags',
-						label: 'tags',
-						required: false,
-					},
-					{
-						type: 'rich-text',
-						name: 'body',
-						label: 'Body',
-						isBody: true,
-						templates: [
-							{
-								name: 'paragraph',
-								label: 'Paragraph',
-								fields: [
-									{
-										type: 'string',
-										name: 'text',
-										label: 'Text',
-									},
-								],
-							},
-							{
-								name: 'heading',
-								label: 'Heading',
-								fields: [
-									{
-										type: 'string',
-										name: 'text',
-										label: 'Text',
-									},
-								],
-							},
-						],
-					},
-				],
-				ui: {
-					router: ({ document }) => `/blog/posts/${document._sys.filename}`,
-				},
-			},
-		],
-	},
+export default defineConfig({
+  branch,
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
+  token: process.env.TINA_TOKEN,
+  build: {
+    outputFolder: 'public/admin',
+    publicFolder: 'public',
+    basePath: 'src',
+  },
+  media: {
+    tina: {
+      mediaRoot: 'img',
+      publicFolder: 'public',
+    },
+  },
+  schema: {
+    collections: [
+      {
+        name: 'post',
+        label: 'Posts',
+        path: 'content/posts',
+        format: 'md',
+        fields: [
+          {
+            type: 'string',
+            name: 'title',
+            label: 'Title',
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: 'string',
+            name: 'excerpt',
+            label: 'Excerpt',
+            required: true,
+          },
+          {
+            type: 'image',
+            name: 'coverImage',
+            label: 'Cover Image',
+            required: true,
+          },
+          {
+            type: 'datetime',
+            name: 'date',
+            label: 'Published Date',
+            required: true,
+          },
+          {
+            type: 'string',
+            name: 'author',
+            label: 'Author',
+            required: true,
+          },
+          {
+            type: 'string',
+            name: 'slug',
+            label: 'Slug',
+            required: true,
+          },
+          {
+            type: 'rich-text',
+            name: 'body',
+            label: 'Post Body',
+            isBody: true,
+          },
+          {
+            type: 'string',
+            name: 'tags',
+            label: 'Tags',
+            list: true,
+          },
+        ],
+        ui: {
+          router: ({ document }) => `/blog/${document._sys.filename}`,
+          filename: {
+            readonly: true,
+            slugify: (values) => {
+              return `${values?.slug || ''}`;
+            },
+          },
+        },
+      },
+    ],
+  },
 });
-export default config;

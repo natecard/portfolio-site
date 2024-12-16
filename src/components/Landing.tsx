@@ -1,7 +1,6 @@
-/* eslint-disable react/no-unescaped-entities */
-const Landing: React.FC = () => {
+export default function Landing() {
 	return (
-		<div className=" flex min-h-screen items-center justify-center">
+		<div className="relative h-screen">
 			{typeof window !== 'undefined' && window.innerWidth < 805 ? (
 				<h1 className="text-3xl uppercase md:text-4xl">
 					Hi, I'm
@@ -10,8 +9,7 @@ const Landing: React.FC = () => {
 						Nate Card
 					</span>
 					<span className=" text-5xl lg:text-8xl">.</span>
-					<br />
-					I'm a software developer.
+					<br />I am a software developer.
 				</h1>
 			) : (
 				<div className=" absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2">
@@ -29,4 +27,3 @@ const Landing: React.FC = () => {
 		</div>
 	);
 };
-export default Landing;
