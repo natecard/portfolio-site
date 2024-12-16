@@ -7,16 +7,16 @@ import Skills from '@/src/components/Skills';
 
 export default function App() {
 	return (
-		<div className=" max-w-full snap-y">
+		<div className=" max-w-full min-h-screen bg-gradient-to-r from-slate-900 to-slate-600">
 			<Header />
-			<div className="min-h-screen snap-y snap-center snap-always pb-36">
+			<div className="min-h-screen pb-36">
 				<Landing />
 			</div>
 			{/* <Suspense> */}
-			<div className="my-48 snap-center snap-always">
+			<div className="my-48">
 				<AboutMe />
 			</div>
-			<div className="my-48 snap-center snap-always">
+			<div className="my-48">
 				<Skills />
 			</div>
 			<Footer />

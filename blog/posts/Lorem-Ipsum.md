@@ -1,7 +1,7 @@
 ---
 title: Lorem Ipsum
 excerpt: A simple introduction to my blog.
-coverImage: /img/foreground-landing.png
+coverImage: "/public/img/lnsbugm0uzrze5rcdjtu.png"
 date: 2024-03-26T04:00:00.000Z
 author: Nathan Card
 slug: Lorem-Ipsum

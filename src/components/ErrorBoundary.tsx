@@ -1,38 +1,46 @@
-import React from 'react';
+'use client'
+
+import React, { Component, ErrorInfo, ReactNode } from 'react'
 
 interface Props {
-  children: React.ReactNode;
+  children?: ReactNode
 }
 
 interface State {
-  hasError: boolean;
+  hasError: boolean
+  error?: Error
 }
 
-export class ErrorBoundary extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { hasError: false };
+class ErrorBoundary extends Component<Props, State> {
+  public state: State = {
+    hasError: false
   }
 
-  static getDerivedStateFromError(_: Error): State {
-    return { hasError: true };
+  public static getDerivedStateFromError(error: Error): State {
+    return { hasError: true, error }
   }
 
-  render() {
+  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error('Uncaught error:', error, errorInfo)
+  }
+
+  public render() {
     if (this.state.hasError) {
       return (
-        <div className="p-4 bg-red-50 border border-red-200 rounded">
-          <h2>Something went wrong loading this content.</h2>
-          <button 
+        <div className="flex min-h-screen flex-col items-center justify-center">
+          <h1 className="text-2xl font-bold">Sorry.. there was an error</h1>
+          <button
+            className="mt-4 rounded bg-blue-500 px-4 py-2 text-white"
             onClick={() => this.setState({ hasError: false })}
-            className="mt-2 px-4 py-2 bg-red-500 text-white rounded"
           >
             Try again
           </button>
         </div>
-      );
+      )
     }
 
-    return this.props.children;
+    return this.props.children
   }
 }
+
+export default ErrorBoundary

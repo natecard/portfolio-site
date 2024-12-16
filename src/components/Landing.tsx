@@ -1,7 +1,4 @@
-import Image from 'next/image';
-import background from '@/public/img/bg-landing.png';
-
-const Landing = () => {
+export default function Landing() {
 	return (
 		<div className="relative h-screen">
 			{typeof window !== 'undefined' && window.innerWidth < 805 ? (
@@ -30,5 +27,3 @@ const Landing = () => {
 		</div>
 	);
 };
-
-export default Landing;
