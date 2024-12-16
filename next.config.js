@@ -5,8 +5,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'assets.tina.io',
+        hostname: 'natecard.dev',
       },
+      {
+        protocol: 'https',
+        hostname: 'github.com',
+      }
     ],
   },
   async rewrites() {

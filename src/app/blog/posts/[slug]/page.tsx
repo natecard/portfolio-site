@@ -1,28 +1,16 @@
-import client from '../../../../../tina/__generated__/client'
 import BlogPost from '@/components/BlogPost';
-import { getAllPosts } from '@/utils/blog';
+import { getAllPosts, getPostBySlug } from '@/utils/blog';
 import { BlogListProps } from '@/types/Interfaces';
 import { Metadata } from 'next';
 import ErrorBoundary from "@/components/ErrorBoundary";
+import {marked} from 'marked';
 
-export default async function DisplayPost({
-	id,
-	title,
-	coverImage,
-	author,
-	date,
-	excerpt,
-	body,
-	tags,
-	slug
-}: BlogListProps) {
-  const postsResponse = await client.queries.post({ relativePath: `${slug}.md` });
-  const { data } = postsResponse;
-  const post = data.post;
-  const tagList = Array.isArray(tags) 
-  ? tags 
-  : (tags ?? '').split(',').map((tag: string) => tag.trim());
-  tagList.map((tag: string) => (tag.toLowerCase()))
+export default async function DisplayPost({ params }: { params: { slug: string } }) {
+  const post = await getPostBySlug(params.slug);
+  const tagList = Array.isArray(post.tags) 
+    ? post.tags 
+    : (post.tags ?? '').split(',').map((tag: string) => tag.trim());
+
   return (
     <main>
       <ErrorBoundary>
@@ -35,8 +23,8 @@ export default async function DisplayPost({
             date={post.date}
             excerpt={post.excerpt}
             coverImage={post.coverImage}
-            slug={post.slug!}
-            tags={tagList.map((tag: string) => tag || '') || []}
+            slug={post.slug}
+            tags={tagList}
             id={post.id}
           />
         </article>
@@ -53,11 +41,9 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = await getPost(await params.slug);
-  // Get a plain text description from the rich text body
-  const description = typeof post.body === 'string' 
-    ? post.body.substring(0, 160) 
-    : post.excerpt || 'No description available';
+  const post = await getPostBySlug(params.slug);
+  const plainTextBody = post.body ? marked(post.body).replace(/<[^>]*>/g, '') : '';
+  const description = plainTextBody.substring(0, 160) || post.excerpt || 'No description available';
 
   return {
     title: `${post.title} | Your Blog Name`,
@@ -69,12 +55,4 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       authors: [post.author],
     },
   };
-}
-
-async function getPost(slug: string) {
-  const postResponse = await client.queries.post({ relativePath: `${slug}.md` });
-  if (!postResponse.data.post) {
-    throw new Error(`Post not found for slug: ${slug}`);
-  }
-  return postResponse.data.post;
 }

@@ -15,16 +15,8 @@ export default function AboutMe(){
 					Learning at the University of York.
 					<br />
 					<br />
-					My journey began learning Web Development through The Odin Project. I learned the basic
-					skills for Web Development like JavaScript, HTML, CSS, and Node.js. This opened my eyes to
-					the world of software development as a whole. I then decided to pursue a Master&rsquo;s
-					degree in Computer Science to expand on my knowledge, especially in the Machine Learning
-					and AI field.
-					<br />
-					<br />
-					Now my focus is on learning and developing my skills with Python, PyTorch, TensorFlow and
-					other ML related frameworks. I am currently focusing on GNNs and Computer Vision, but I am
-					eager to learn more about other fields in AI and ML.
+					I am working on my thesis project which focuses on reasoning in large language models, the purpose of this 
+					is to develop a small model that can perform reasoning tasks at a greater ability than current models. 
 					<br />
 					<br />
 				</p>
