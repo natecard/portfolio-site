@@ -1,4 +1,4 @@
-import { BlogListProps } from '@/Interfaces';
+import { BlogListProps } from '@/types/Interfaces';
 import Link from 'next/link';
 import Image from 'next/image';
 import { format } from '@formkit/tempo';

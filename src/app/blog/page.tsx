@@ -1,5 +1,5 @@
 import { getAllPosts } from '@/utils/blog';
-import BlogPostList from '@/src/components/BlogPostList';
+import BlogPostList from '@/components/BlogPostList';
 
 export default async function BlogMainPage() {
 	const posts = await getAllPosts();

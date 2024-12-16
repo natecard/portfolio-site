@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
-import { BlogLayoutProps } from '@/Interfaces';
+import { BlogLayoutProps } from '@/types/Interfaces';
 import { format } from '@formkit/tempo';
 import Link from 'next/link';
 
@@ -12,10 +12,12 @@ export default function BlogPost({
 	date,
 	excerpt,
 	body,
-	tags = [],
+	tags,
 }: BlogLayoutProps) {
 	const formattedDate = format(date, { date: 'full' });
-	const tagList = Array.isArray(tags) ? tags : tags.split(',').map((tag) => tag.trim());
+	const tagList = Array.isArray(tags) 
+	? tags 
+	: (tags ?? '').split(',').map((tag: string) => tag.trim());
 
 	return (
 		<article className="prose prose-lg mx-auto max-w-4xl px-4 py-8">
@@ -41,7 +43,7 @@ export default function BlogPost({
 			{tagList.length > 0 && (
 				<footer className="mt-8 border-t pt-4">
 					<div className="flex flex-wrap gap-2">
-						{tagList.map((tag) => (
+						{tagList.map((tag: string) => (
 							<Link
 								key={`${id}-${tag}`}
 								href={`/blog/tag/${tag.toLowerCase()}`}

@@ -5,13 +5,15 @@
 	"scripts": {
 		"devturbo": "next dev --turbo",
 		"dev": "TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"next dev\"",
+		"tbuild": "tinacms build",
+		"nbuild": "next build",
 		"build": "tinacms build && next build",
 		"start": "next start",
 		"lint": "next lint",
-		"fix": "eslint . --ext .ts,.tsx --fix",
+		"fix": "tsc --noEmit && eslint . --fix && prettier --write .",
 		"format": "prettier --write .",
-		"tsc": "tsc"
-	},
+		"tsc": "tsc --noEmit"
+	  },
 	"dependencies": {
 		"@emailjs/browser": "^4.4.1",
 		"@formkit/tempo": "^0.1.2",

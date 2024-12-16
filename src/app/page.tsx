@@ -1,9 +1,9 @@
 'use client';
-import Header from '@/src/components/Header';
-import Landing from '@/src/components/Landing';
-import Footer from '@/src/components/Footer';
-import AboutMe from '@/src/components/AboutMe';
-import Skills from '@/src/components/Skills';
+import Header from '@/components/Header';
+import Landing from '@/components/Landing';
+import Footer from '@/components/Footer';
+import AboutMe from '@/components/AboutMe';
+import Skills from '@/components/Skills';
 
 export default function App() {
 	return (
