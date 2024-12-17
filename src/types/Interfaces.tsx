@@ -24,7 +24,7 @@ export interface BlogLayoutProps {
 	date: string;
 	author: string;
 	excerpt: string;
-	body: [];
+	body: string;
 	tags?: string[];
 	slug: string;
 }
@@ -55,5 +55,5 @@ export interface BlogPostProps {
 	excerpt: string;
 	coverImage: string;
 	slug: string;
-	tags: string[];
+	tags?: string[];
 }
