@@ -1,12 +1,16 @@
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
-export default function BlogLayout({ children }: React.PropsWithChildren<{}>) {
+export default function BlogLayout({
+  children,
+}: React.PropsWithChildren<unknown>) {
   return (
     <>
       <main>
         <Header />
-        <div className="flex min-h-screen flex-col items-center">{children}</div>
+        <div className="flex min-h-screen flex-col items-center">
+          {children}
+        </div>
         <Footer />
       </main>
     </>

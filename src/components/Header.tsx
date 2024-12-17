@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 const Header: React.FC = () => {
   const resumeUrl = `${process.env.PUBLIC_URL}/pdf/Nathan_Card_Resume.pdf`;
@@ -29,7 +29,10 @@ const Header: React.FC = () => {
       </div>
 
       <div className="navbar-end pr-3">
-        <a className="flex flex-row items-center p-4" href="http://www.github.com/natecard">
+        <a
+          className="flex flex-row items-center p-4"
+          href="http://www.github.com/natecard"
+        >
           <svg
             className="fill-font hover:scale-125 hover:fill-red-500"
             xmlns="http://www.w3.org/2000/svg"

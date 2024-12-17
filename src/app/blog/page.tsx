@@ -1,5 +1,6 @@
-import BlogPostList from '@/components/BlogPostList';
-import { getAllPosts } from '@/utils/blog';
+import BlogPostList from "@/components/BlogPostList";
+import type { BlogListProps } from "@/types/Interfaces";
+import { getAllPosts } from "@/utils/blog";
 
 export default async function BlogMainPage() {
   const posts = await getAllPosts();
@@ -9,7 +10,9 @@ export default async function BlogMainPage() {
       <h1 className="mb-8 text-4xl font-bold">Blog Posts</h1>
       <div className="space-y-8">
         {posts.length > 0 ? (
-          posts.map((post: any) => <BlogPostList key={post.id} {...post} />)
+          posts.map((post: BlogListProps) => (
+            <BlogPostList key={post.id} {...post} />
+          ))
         ) : (
           <p>No posts available</p>
         )}

@@ -1,14 +1,25 @@
+# Generated files
+.next/
+build/
+dist/
+coverage/
+
+# Package managers
+node_modules/
+pnpm-lock.yaml
+pnpm-workspace.yaml
+
+# Config files
+*.config.js
+*.config.ts
+
+# Markdown and templates
 **/*.md
 **/*.svg
 **/*.ejs
 **/*.html
 
-
-/node_modules
-
-/config
-/pnpm-lock.yaml
-/pnpm-workspace.yaml
-build
-.next
+# IDE and OS files
+.vscode/
+.vercel/
 .DS_Store

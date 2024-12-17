@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import type { Metadata } from "next";
 
 interface BlogSEOProps {
   title: string;
@@ -7,7 +7,12 @@ interface BlogSEOProps {
   slug: string;
 }
 
-export function generateMetadata({ title, description, image, slug }: BlogSEOProps): Metadata {
+export function generateMetadata({
+  title,
+  description,
+  image,
+  slug,
+}: BlogSEOProps): Metadata {
   return {
     title,
     description,
@@ -16,10 +21,10 @@ export function generateMetadata({ title, description, image, slug }: BlogSEOPro
       description,
       images: image ? [image] : [],
       url: `https://yourdomain.com/blog/posts/${slug}`,
-      type: 'article',
+      type: "article",
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title,
       description,
       images: image ? [image] : [],

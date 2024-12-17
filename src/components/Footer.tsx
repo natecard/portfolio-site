@@ -1,8 +1,11 @@
-import { HeartIcon } from '@heroicons/react/24/solid';
+import { HeartIcon } from "@heroicons/react/24/solid";
 const Footer: React.FC = () => {
   return (
     <div className=" flex flex-row justify-center">
-      <a className="flex flex-row items-center p-4" href="http://www.github.com/natecard">
+      <a
+        className="flex flex-row items-center p-4"
+        href="http://www.github.com/natecard"
+      >
         <p className="">Made With</p>
         <HeartIcon className=" h-8 fill-red-600" />
         <div className="px-2"> by Nate Card</div>

@@ -1,11 +1,17 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import { format } from "@formkit/tempo";
+import Image from "next/image";
+import Link from "next/link";
 
-import { format } from '@formkit/tempo';
+import type { BlogListProps } from "@/types/Interfaces";
 
-import { BlogListProps } from '@/types/Interfaces';
-
-function BlogPostList({ id, title, coverImage, author, excerpt, slug, date }: BlogListProps) {
+function BlogPostList({
+  title,
+  coverImage,
+  author,
+  excerpt,
+  slug,
+  date,
+}: BlogListProps) {
   return (
     <div className="container mx-auto max-w-4xl p-4">
       <article className="group cursor-pointer rounded-lg border border-gray-200 p-6 transition-shadow hover:shadow-lg">
@@ -21,11 +27,13 @@ function BlogPostList({ id, title, coverImage, author, excerpt, slug, date }: Bl
               />
             </div>
           )}
-          <h2 className="mb-2 text-2xl font-bold hover:text-blue-600">{title}</h2>
+          <h2 className="mb-2 text-2xl font-bold hover:text-blue-600">
+            {title}
+          </h2>
           <div className="mb-4 text-sm text-gray-600">
             <span>{author}</span>
             <span className="mx-2">•</span>
-            <time>{format(date, { date: 'medium' })}</time>
+            <time>{format(date, { date: "medium" })}</time>
           </div>
           <p className="text-gray-700">{excerpt}</p>
         </Link>

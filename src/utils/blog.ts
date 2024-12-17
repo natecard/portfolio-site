@@ -1,23 +1,24 @@
-import fs from 'fs';
-import matter from 'gray-matter';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
-import { Post } from '@/types/Interfaces';
+import matter from "gray-matter";
 
-const postsDirectory = path.join(process.cwd(), 'src/app/blog/posts');
+import type { Post } from "@/types/Interfaces";
+
+const postsDirectory = path.join(process.cwd(), "src/app/blog/posts");
 
 export async function getAllPosts(): Promise<Post[]> {
   const fileNames = fs.readdirSync(postsDirectory);
   const posts = fileNames
-    .filter((fileName) => fileName.endsWith('.md'))
+    .filter((fileName) => fileName.endsWith(".md"))
     .map((fileName) => {
       const fullPath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const fileContents = fs.readFileSync(fullPath, "utf8");
       const { data, content } = matter(fileContents);
 
       return {
-        id: fileName.replace(/\.md$/, ''),
-        slug: fileName.replace(/\.md$/, ''),
+        id: fileName.replace(/\.md$/, ""),
+        slug: fileName.replace(/\.md$/, ""),
         title: data.title,
         date: data.date,
         author: data.author,
@@ -25,7 +26,7 @@ export async function getAllPosts(): Promise<Post[]> {
         coverImage: data.coverImage,
         body: content,
         tags: data.tags || [],
-      } as Post;
+      } as unknown as Post;
     });
 
   return posts.sort((a, b) => (a.date > b.date ? -1 : 1));
@@ -33,7 +34,7 @@ export async function getAllPosts(): Promise<Post[]> {
 
 export async function getPostBySlug(slug: string): Promise<Post> {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
   return {
@@ -46,5 +47,5 @@ export async function getPostBySlug(slug: string): Promise<Post> {
     coverImage: data.coverImage,
     body: content,
     tags: data.tags || [],
-  } as Post;
+  } as unknown as Post;
 }

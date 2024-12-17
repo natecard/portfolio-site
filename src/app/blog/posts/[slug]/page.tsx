@@ -1,26 +1,16 @@
-import { marked } from 'marked';
-import { Metadata } from 'next';
+import { marked } from "marked";
+import type { Metadata } from "next";
 
-import BlogPost from '@/components/BlogPost';
-import ErrorBoundary from '@/components/ErrorBoundary';
-import { BlogPostProps } from '@/types/Interfaces';
-import { getAllPosts, getPostBySlug } from '@/utils/blog';
+import BlogPost from "@/components/BlogPost";
+import ErrorBoundary from "@/components/ErrorBoundary";
+import type { BlogPostProps } from "@/types/Interfaces";
+import { getAllPosts, getPostBySlug } from "@/utils/blog";
 
-export default async function DisplayPost({
-  id,
-  title,
-  coverImage,
-  author,
-  date,
-  excerpt,
-  body,
-  tags,
-  slug,
-}: BlogPostProps) {
+export default async function DisplayPost({ tags, slug }: BlogPostProps) {
   const post = await getPostBySlug(slug);
   const tagList = Array.isArray(tags)
     ? tags
-    : (tags ?? '').split(',').map((tag: string) => tag.trim());
+    : (tags ?? "").split(",").map((tag: string) => tag.trim());
 
   return (
     <main>
@@ -29,7 +19,9 @@ export default async function DisplayPost({
           <BlogPost
             key={post.id}
             title={post.title}
-            body={post.body}
+            body={
+              Array.isArray(post.body) ? post.body.join("") : post.body || ""
+            }
             author={post.author}
             date={post.date}
             excerpt={post.excerpt}
@@ -57,8 +49,16 @@ export async function generateMetadata({
   params: { slug: string };
 }): Promise<Metadata> {
   const post = await getPostBySlug(params.slug);
-  const plainTextBody = post.body ? marked(post.body).replace(/<[^>]*>/g, '') : '';
-  const description = plainTextBody.substring(0, 160) || post.excerpt || 'No description available';
+  const plainTextBody = post.body
+    ? marked(Array.isArray(post.body) ? post.body.join("") : post.body).replace(
+        /<[^>]*>/g,
+        "",
+      )
+    : "";
+  const description =
+    plainTextBody.substring(0, 160) ||
+    post.excerpt ||
+    "No description available";
 
   return {
     title: `${post.title} | Your Blog Name`,
@@ -66,7 +66,7 @@ export async function generateMetadata({
     openGraph: {
       title: post.title,
       description: description,
-      type: 'article',
+      type: "article",
       authors: [post.author],
     },
   };

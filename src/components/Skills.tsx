@@ -19,7 +19,7 @@ import {
   SiReact,
   SiTailwindcss,
   SiTypescript,
-} from '@icons-pack/react-simple-icons';
+} from "@icons-pack/react-simple-icons";
 const Skills: React.FC = () => {
   const skillsIcons = {
     Python: SiPython,
@@ -29,12 +29,12 @@ const Skills: React.FC = () => {
     Java: SiOpenjdk,
     React: SiReact,
     Javascript: SiJavascript,
-    'Next.js': SiNextdotjs,
+    "Next.js": SiNextdotjs,
     Tailwindcss: SiTailwindcss,
     git: SiGit,
     Postgresql: SiPostgresql,
     Mongodb: SiMongodb,
-    'Node.js': SiNodedotjs,
+    "Node.js": SiNodedotjs,
     JSON: SiJson,
     Jest: SiJest,
     PyTest: SiPytest,
@@ -52,7 +52,7 @@ const Skills: React.FC = () => {
           const Icon = skillsIcons[skill as keyof typeof skillsIcons];
           return Icon ? (
             <div className="flex flex-col items-center" key={skill}>
-              {' '}
+              {" "}
               <Icon size={54} className="my-5" key={skill} />
               <h3>{skill}</h3>
             </div>

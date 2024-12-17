@@ -1,45 +1,55 @@
 {
-	"name": "portfolio-site",
-	"private": true,
-	"version": "0.0.1",
-	"type": "module",
-	"scripts": {
-		"dev": "next dev --turbo",
-		"build": "next build",
-		"start": "next start",
-		"lint": "eslint .",
-		"fix": "eslint . --fix && prettier --write .",
-		"type-check": "tsc --noEmit",
-		"format": "prettier --write .",
-		"tsc": "tsc --noEmit"
-	},
-	"dependencies": {
-		"@emailjs/browser": "^4.4.1",
-		"@formkit/tempo": "^0.1.2",
-		"@headlessui/react": "^2.2.0",
-		"@heroicons/react": "^2.2.0",
-		"@icons-pack/react-simple-icons": "^10.2.0",
-		"@vercel/analytics": "^1.4.1",
-		"@vercel/speed-insights": "^1.1.0",
-		"daisyui": "^4.12.22",
-		"gray-matter": "^4.0.3",
-		"marked": "^4.0.6",
-		"next": "^15.1.0",
-		"postcss": "^8.4.49",
-		"react": "18.3.1",
-		"react-dom": "^18.3.1",
-		"tailwindcss": "^3.4.16"
-	},
-
-	"devDependencies": {
-		"@tailwindcss/typography": "^0.5.15",
-		"@types/marked": "5.0.2",
-		"@types/node": "^22.10.2",
-		"@types/react": "^18.3.1",
-		"@types/react-dom": "^18.3.1",
-		"autoprefixer": "^10.4.20",
-		"prettier": "^3.4.2",
-		
-		"typescript": "^5.7.2"
-	}
+  "name": "portfolio-site",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --turbo",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write .",
+    "fix": "prettier --write .",
+    "tsc": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@formkit/tempo": "^0.1.2",
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^2.2.0",
+    "@icons-pack/react-simple-icons": "^10.2.0",
+    "@vercel/analytics": "^1.4.1",
+    "@vercel/speed-insights": "^1.1.0",
+    "daisyui": "^4.12.22",
+    "gray-matter": "^4.0.3",
+    "marked": "^4.0.6",
+    "next": "^15.1.0",
+    "postcss": "^8.4.49",
+    "react": "18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.16"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.15",
+    "@types/marked": "5.0.2",
+    "@types/node": "^22.10.2",
+    "@types/prettier": "^3.0.0",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "globals": "^15.0.0",
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "typescript": "^5.6.3"
+  }
 }

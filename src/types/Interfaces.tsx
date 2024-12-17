@@ -12,7 +12,7 @@ export interface BlogListProps {
   date: string;
   author: string;
   excerpt: string;
-  body: [];
+  body?: string[];
   tags?: string[];
   slug: string;
 }
@@ -29,7 +29,7 @@ export interface BlogLayoutProps {
   slug: string;
 }
 export interface Post {
-  __typename: 'Post';
+  __typename: "Post";
   id: string;
   title: string;
   excerpt: string;
@@ -38,9 +38,9 @@ export interface Post {
   author: string;
   slug: string;
   tags: string[];
-  body: any;
+  body?: string[];
   _sys: {
-    __typename?: 'SystemInfo';
+    __typename?: "SystemInfo";
     filename: string;
     extension: string;
   };
@@ -49,7 +49,7 @@ export interface Post {
 export interface BlogPostProps {
   id: string;
   title: string;
-  body: any;
+  body: string;
   author: string;
   date: string;
   excerpt: string;
