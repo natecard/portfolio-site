@@ -12,14 +12,7 @@ const nextConfig = {
         hostname: "github.com",
       },
     ],
-  },
-  async rewrites() {
-    return [
-      {
-        source: "/admin",
-        destination: "/admin/index.html",
-      },
-    ];
+    unoptimized: process.env.NODE_ENV === "development",
   },
   reactStrictMode: true,
 };

@@ -2,6 +2,8 @@ import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
+import { ThemeProvider } from "@/components/theme-provider";
+
 import { Providers } from "./providers";
 export const metadata = {
   title: "Nate Card Portfolio",
@@ -19,13 +21,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-gray-950 text-gray-50">
-        <Providers>
-          {children}
-          <SpeedInsights />
-          <Analytics />
-        </Providers>
+    <html lang="en" suppressHydrationWarning>
+      <head />
+      <body className="bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Providers>
+            {children}
+            <SpeedInsights />
+            <Analytics />
+          </Providers>
+        </ThemeProvider>
       </body>
     </html>
   );

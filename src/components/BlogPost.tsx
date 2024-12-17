@@ -3,8 +3,8 @@ import { marked } from "marked";
 import Image from "next/image";
 import Link from "next/link";
 
-
 import type { BlogLayoutProps } from "@/types/Interfaces";
+import "@/styles/markdown.css";
 
 export default function BlogPost({
   id,
@@ -27,22 +27,25 @@ export default function BlogPost({
         {coverImage && (
           <div className="relative mb-6 h-64 w-full overflow-hidden rounded-lg sm:h-96">
             <Image
-              src={coverImage}
+              src={coverImage.startsWith("http") ? coverImage : coverImage}
               alt={title}
               fill
               className="object-cover"
               priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
         )}
-        <h1 className="mb-4 text-4xl font-bold sm:text-5xl">{title}</h1>
-        <div className="mb-4 text-gray-600">
+        <h1 className="mb-4 text-4xl font-bold text-stone-300 sm:text-5xl">
+          {title}
+        </h1>
+        <div className="mb-4 text-slate-100 ">
           <span>By {author}</span>
           <span className="mx-2">•</span>
           <time>{formattedDate}</time>
         </div>
         {excerpt && (
-          <p className="text-xl font-medium text-gray-700">{excerpt}</p>
+          <p className="text-xl font-medium text-slate-200">{excerpt}</p>
         )}
       </header>
 
@@ -58,9 +61,9 @@ export default function BlogPost({
               <Link
                 key={`${id}-${tag}`}
                 href={`/blog/tag/${tag.toLowerCase()}`}
-                className="rounded-full bg-gray-100 px-3 py-1 text-sm hover:bg-gray-200"
+                className="rounded-full bg-gray-600 px-3 py-1 text-sm hover:text-gray-600 hover:bg-gray-200"
               >
-                #{tag}
+                {tag}
               </Link>
             ))}
           </div>
