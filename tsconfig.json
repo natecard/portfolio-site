@@ -50,7 +50,9 @@
     "postcss.config.mjs",
     "tailwind.config.mjs",
     "eslint.config.mjs",
-    "src/**/*"
+    "src/**/*",
+    "public/worker.mjs",
+    "public/workers"
   ],
   "exclude": [
     "node_modules",
