@@ -1,6 +1,6 @@
 "use client";
 import AboutMe from "@/components/AboutMe";
-import Chat from "@/components/Chat";
+// import Chat from "@/components/Chat";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Landing from "@/components/Landing";
@@ -15,9 +15,7 @@ export default function App() {
       <div className="min-h-screen pb-36">
         <Landing />
       </div>
-      <div>
-        <Chat />
-      </div>
+      <div>{/* <Chat /> */}</div>
       {/* <Suspense> */}
       <div className="my-48">
         <AboutMe />
