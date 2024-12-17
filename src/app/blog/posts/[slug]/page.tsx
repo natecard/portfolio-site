@@ -1,15 +1,26 @@
-import BlogPost from '@/components/BlogPost';
-import { getAllPosts, getPostBySlug } from '@/utils/blog';
-import { BlogListProps } from '@/types/Interfaces';
+import { marked } from 'marked';
 import { Metadata } from 'next';
-import ErrorBoundary from "@/components/ErrorBoundary";
-import {marked} from 'marked';
 
-export default async function DisplayPost({ params }: { params: { slug: string } }) {
-  const post = await getPostBySlug(params.slug);
-  const tagList = Array.isArray(post.tags) 
-    ? post.tags 
-    : (post.tags ?? '').split(',').map((tag: string) => tag.trim());
+import BlogPost from '@/components/BlogPost';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import { BlogPostProps } from '@/types/Interfaces';
+import { getAllPosts, getPostBySlug } from '@/utils/blog';
+
+export default async function DisplayPost({
+  id,
+  title,
+  coverImage,
+  author,
+  date,
+  excerpt,
+  body,
+  tags,
+  slug,
+}: BlogPostProps) {
+  const post = await getPostBySlug(slug);
+  const tagList = Array.isArray(tags)
+    ? tags
+    : (tags ?? '').split(',').map((tag: string) => tag.trim());
 
   return (
     <main>
@@ -40,7 +51,11 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const post = await getPostBySlug(params.slug);
   const plainTextBody = post.body ? marked(post.body).replace(/<[^>]*>/g, '') : '';
   const description = plainTextBody.substring(0, 160) || post.excerpt || 'No description available';

@@ -1,7 +1,6 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['assets.tina.io', 'localhost'],
+    domains:  'localhost',
     remotePatterns: [
       {
         protocol: 'https',
@@ -10,7 +9,7 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'github.com',
-      }
+      },
     ],
   },
   async rewrites() {
@@ -22,6 +21,6 @@ const nextConfig = {
     ];
   },
   reactStrictMode: true,
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

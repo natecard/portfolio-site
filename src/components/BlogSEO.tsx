@@ -7,12 +7,7 @@ interface BlogSEOProps {
   slug: string;
 }
 
-export function generateMetadata({ 
-  title, 
-  description, 
-  image, 
-  slug 
-}: BlogSEOProps): Metadata {
+export function generateMetadata({ title, description, image, slug }: BlogSEOProps): Metadata {
   return {
     title,
     description,

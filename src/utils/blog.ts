@@ -1,6 +1,7 @@
 import fs from 'fs';
-import path from 'path';
 import matter from 'gray-matter';
+import path from 'path';
+
 import { Post } from '@/types/Interfaces';
 
 const postsDirectory = path.join(process.cwd(), 'src/app/blog/posts');
@@ -8,12 +9,12 @@ const postsDirectory = path.join(process.cwd(), 'src/app/blog/posts');
 export async function getAllPosts(): Promise<Post[]> {
   const fileNames = fs.readdirSync(postsDirectory);
   const posts = fileNames
-    .filter(fileName => fileName.endsWith('.md'))
-    .map(fileName => {
+    .filter((fileName) => fileName.endsWith('.md'))
+    .map((fileName) => {
       const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data, content } = matter(fileContents);
-      
+
       return {
         id: fileName.replace(/\.md$/, ''),
         slug: fileName.replace(/\.md$/, ''),
@@ -23,7 +24,7 @@ export async function getAllPosts(): Promise<Post[]> {
         excerpt: data.excerpt,
         coverImage: data.coverImage,
         body: content,
-        tags: data.tags || []
+        tags: data.tags || [],
       } as Post;
     });
 
@@ -44,6 +45,6 @@ export async function getPostBySlug(slug: string): Promise<Post> {
     excerpt: data.excerpt,
     coverImage: data.coverImage,
     body: content,
-    tags: data.tags || []
+    tags: data.tags || [],
   } as Post;
 }
