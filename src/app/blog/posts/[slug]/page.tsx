@@ -3,37 +3,49 @@ import type { Metadata } from "next";
 
 import BlogPost from "@/components/BlogPost";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import type { BlogPostProps } from "@/types/Interfaces";
 import { getAllPosts, getPostBySlug } from "@/utils/blog";
 
-export default async function DisplayPost({ tags, slug }: BlogPostProps) {
-  const post = await getPostBySlug(slug);
-  const tagList = Array.isArray(tags)
-    ? tags
-    : (tags ?? "").split(",").map((tag: string) => tag.trim());
+interface PageParams {
+  params: { slug: string };
+}
 
-  return (
-    <main>
-      <ErrorBoundary>
-        <article>
-          <BlogPost
-            key={post.id}
-            title={post.title}
-            body={
-              Array.isArray(post.body) ? post.body.join("") : post.body || ""
-            }
-            author={post.author}
-            date={post.date}
-            excerpt={post.excerpt}
-            coverImage={post.coverImage}
-            slug={post.slug}
-            tags={tagList}
-            id={post.id}
-          />
-        </article>
-      </ErrorBoundary>
-    </main>
-  );
+export default async function BlogPostPage({ params }: PageParams) {
+  try {
+    const post = await getPostBySlug(params.slug);
+    if (!post) {
+      throw new Error("Post not found");
+    }
+
+    const tagList = Array.isArray(post.tags)
+      ? post.tags
+      : (post.tags ?? "").split(",").map((tag: string) => tag.trim());
+
+    return (
+      <main>
+        <ErrorBoundary>
+          <article>
+            <BlogPost
+              key={post.id}
+              title={post.title}
+              body={
+                Array.isArray(post.body) ? post.body.join("") : post.body || ""
+              }
+              author={post.author}
+              date={post.date}
+              excerpt={post.excerpt}
+              coverImage={post.coverImage}
+              slug={post.slug}
+              tags={tagList}
+              id={post.id}
+            />
+          </article>
+        </ErrorBoundary>
+      </main>
+    );
+  } catch (error) {
+    console.error("Error loading post:", error);
+    return <div>Error loading post</div>;
+  }
 }
 
 export async function generateStaticParams() {
@@ -45,9 +57,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
+}: PageParams): Promise<Metadata> {
   const post = await getPostBySlug(params.slug);
   const plainTextBody = post.body
     ? marked(Array.isArray(post.body) ? post.body.join("") : post.body).replace(

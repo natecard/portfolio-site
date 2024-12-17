@@ -37,7 +37,7 @@ export interface Post {
   date: string;
   author: string;
   slug: string;
-  tags: string[];
+  tags?: string[];
   body?: string[];
   _sys: {
     __typename?: "SystemInfo";

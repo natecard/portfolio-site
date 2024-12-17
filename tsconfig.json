@@ -43,10 +43,17 @@
     "**/*.jsx",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.md",
     "*.js",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "next.config.mjs",
+    "postcss.config.mjs",
+    "tailwind.config.mjs",
+    "eslint.config.mjs",
+    "src/**/*"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    ".next",
   ]
 }
