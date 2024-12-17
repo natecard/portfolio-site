@@ -3,61 +3,91 @@ import globals from 'globals';
 import typescript from '@typescript-eslint/eslint-plugin';
 import typescriptParser from '@typescript-eslint/parser';
 import nextPlugin from '@next/eslint-plugin-next';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
 import importPlugin from 'eslint-plugin-import';
+import { fixupPluginRules } from '@eslint/compat';
 
+/** @type {import('eslint').Linter.Config[]} */
 export default [
+  // Base ESLint config
   {
-    files: ['**/*.{js,jsx,ts,tsx}'],
-    ignores: ['node_modules/**', '.next/**', 'dist/**'],
+    ...js.configs.recommended,
     languageOptions: {
-      parser: typescriptParser,
-      parserOptions: {
-        ecmaVersion: 2024,
-        sourceType: 'module',
-        project: './tsconfig.json',
-        ecmaFeatures: {
-          jsx: true
-        }
-      },
       globals: {
         ...globals.browser,
         ...globals.node,
-        ...globals.es2021,
-        React: true
-      }
+      },
+      parserOptions: {
+        project: './tsconfig.eslint.json',
+      },
+    },
+  },
+
+  // TypeScript config
+  {
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      parser: typescriptParser,
+      parserOptions: {
+        project: './tsconfig.eslint.json',
+      },
     },
     plugins: {
       '@typescript-eslint': typescript,
-      '@next/next': nextPlugin,
-      import: importPlugin
+    },
+    rules: {
+      ...typescript.configs['recommended'].rules,
+      ...typescript.configs['recommended-requiring-type-checking'].rules,
     },
     settings: {
       'import/resolver': {
-        typescript: true,
-        node: true
-      }
+        typescript: {
+          project: './tsconfig.eslint.json',
+        },
+      },
+    },
+  },
+
+  // React and Next.js config
+  {
+    files: ['**/*.{jsx,tsx}'],
+    plugins: {
+      react: react,
+      'react-hooks': reactHooks,
+      '@next/next': nextPlugin,
     },
     rules: {
-      ...js.configs.recommended.rules,
-      ...typescript.configs.recommended.rules,
+      ...react.configs.recommended.rules,
+      ...reactHooks.configs.recommended.rules,
       ...nextPlugin.configs.recommended.rules,
+    },
+  },
+
+  // Import plugin config
+  {
+    files: ['**/*.{js,jsx,ts,tsx}'],
+    plugins: {
+      import: importPlugin,
+    },
+    rules: {
       ...importPlugin.configs.recommended.rules,
+    },
+  },
+
+  // Project-specific overrides
+  {
+    files: ['**/*.{js,jsx,ts,tsx}'],
+    ignores: ['node_modules/**', '.next/**', 'dist/**', '*.config.js'],
+    rules: {
       '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-      'import/order': ['error', {
-        'groups': [['builtin', 'external'], 'internal', ['parent', 'sibling', 'index']],
-        'pathGroups': [
-          { pattern: 'react', group: 'builtin', position: 'before' },
-          { pattern: 'next/**', group: 'builtin', position: 'before' },
-          { pattern: '@/**', group: 'internal' }
-        ],
-        'pathGroupsExcludedImportTypes': ['react', 'next'],
-        'newlines-between': 'always',
-        'alphabetize': { order: 'asc', caseInsensitive: true }
-      }],
-      'sort-imports': ['error', {
-        ignoreDeclarationSort: true
-      }]
-    }
-  }
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+        },
+      ],
+    },
+  },
 ];
