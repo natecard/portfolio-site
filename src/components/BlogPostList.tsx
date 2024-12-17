@@ -14,10 +14,24 @@ function BlogPostList({
 }: BlogListProps) {
   return (
     <div className="container mx-auto max-w-4xl p-4">
-      <article className="group cursor-pointer rounded-lg border border-gray-200 p-6 transition-shadow hover:shadow-lg">
-        <Link href={`/blog/posts/${slug}`} className="block">
+      <article className="group flex flex-row cursor-pointer rounded-xl hover:border-slate-800 hover:dark:text-blue-600 hover:text-slate-800 hover:dark:text-blue-700 border border-gray-200 p-6 transition-shadow hover:shadow-lg">
+        <Link
+          href={`/blog/posts/${slug}`}
+          className="flex flex-row w-full gap-6"
+        >
+          <div className="flex flex-col flex-1">
+            <h2 className="mb-2 text-2xl font-bold hover:dark:text-blue-600 hover:light:text-gray-900">
+              {title}
+            </h2>
+            <div className="mb-4 text-sm">
+              <span>{author}</span>
+              <span className="mx-2">•</span>
+              <time>{format(date, { date: "medium" })}</time>
+            </div>
+            <p className="">{excerpt}</p>
+          </div>
           {coverImage && (
-            <div className="relative mb-4 h-48 overflow-hidden rounded-lg">
+            <div className="relative w-1/2 h-full overflow-hidden rounded-xl">
               <Image
                 src={coverImage}
                 alt={title}
@@ -27,15 +41,6 @@ function BlogPostList({
               />
             </div>
           )}
-          <h2 className="mb-2 text-2xl font-bold hover:text-blue-600">
-            {title}
-          </h2>
-          <div className="mb-4 text-sm text-gray-600">
-            <span>{author}</span>
-            <span className="mx-2">•</span>
-            <time>{format(date, { date: "medium" })}</time>
-          </div>
-          <p className="text-gray-700">{excerpt}</p>
         </Link>
       </article>
     </div>

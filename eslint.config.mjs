@@ -8,7 +8,15 @@ import globals from "globals";
 
 export default [
   {
-    ignores: ["node_modules/**", ".next/**", "dist/**", "build/**"],
+    ignores: [
+      "node_modules/**",
+      ".next/**",
+      "dist/**",
+      "build/**",
+      "public/**",
+      "dist/**",
+      "coverage/**",
+    ],
   },
   {
     files: ["**/*.{js,jsx,ts,tsx}"],

@@ -1,6 +1,6 @@
 ---
 title: Introduction
-excerpt: A simple introduction to my blog.
+excerpt: This is the introduction for personal part of my website. Here you'll find my thoughts and experiences on various topics likely primarily related to software development, technology, entrepreneurship.
 coverImage: "/img/lnsbugm0uzrze5rcdjtu.png"
 date: 2024-12-16T12:00:00.000Z
 author: Nathan Card
@@ -12,7 +12,7 @@ tags: ["introduction", "personal"]
 
 ## Introduction
 
-This is a simple landing page for the personal part of my website. Here you'll find my thoughts and experiences on various topics likely primarily related to software development, technology, entrepreneurship.
+This is the introduction for the personal part of my website. Here you'll find my thoughts and experiences on various topics likely primarily related to software development, technology, entrepreneurship.
 
 ## What to Expect
 

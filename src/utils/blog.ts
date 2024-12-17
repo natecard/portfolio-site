@@ -5,7 +5,7 @@ import matter from "gray-matter";
 
 import type { Post } from "@/types/Interfaces";
 
-const postsDirectory = path.join(process.cwd(), "src/app/blog/posts");
+const postsDirectory = path.join(process.cwd(), "public/lib");
 
 export async function getAllPosts(): Promise<Post[]> {
   const fileNames = fs.readdirSync(postsDirectory);

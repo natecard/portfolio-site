@@ -71,7 +71,7 @@ export async function generateMetadata({
     "No description available";
 
   return {
-    title: `${post.title} | Your Blog Name`,
+    title: `${post.title} | Nate Card Software Developer`,
     description: description,
     openGraph: {
       title: post.title,
