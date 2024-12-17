@@ -1,29 +1,57 @@
+"use client";
+import { TypeAnimation } from "react-type-animation";
+
 export default function Landing() {
   return (
     <div className="relative h-screen">
-      {typeof window !== "undefined" && window.innerWidth < 805 ? (
-        <h1 className="text-3xl uppercase md:text-4xl">
-          Hi, I&apos;m
-          <br />
-          <span className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-5xl font-extrabold text-transparent motion-safe:animate-pulse md:text-7xl lg:text-8xl">
-            Nate Card
-          </span>
-          <span className=" text-5xl lg:text-8xl">.</span>
-          <br />I am a software developer.
-        </h1>
-      ) : (
-        <div className=" absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2">
-          <div className=" w-full animate-typing overflow-hidden whitespace-nowrap border-r-2 border-black font-mono text-xl font-semibold text-white">
-            <h1 className="text-2xl uppercase leading-loose xl:text-4xl">
-              Hi, I&apos;m{" "}
-              <span className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-4xl font-extrabold text-transparent motion-safe:animate-pulse lg:text-5xl xl:text-7xl">
-                Nate Card
-              </span>
-              . I&apos;m a software developer.
-            </h1>
-          </div>
+      <div className="absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2">
+        <div className="w-full font-mono text-xl font-semibold text-white">
+          <h1 className="text-2xl uppercase leading-loose xl:text-4xl">
+            Hi, my name is{" "}
+            <span className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-3xl font-extrabold text-transparent motion-safe:animate-pulse lg:text-4xl xl:text-5xl">
+              Nate
+            </span>
+            .{" "}
+            <TypeAnimation
+              sequence={[
+                "I like to develop software.",
+                2000,
+                "I like to ",
+                500,
+                "I like to .",
+                500,
+                "I like to ..",
+                500,
+                "I like to ...",
+                500,
+                "I like to build apps.",
+                2000,
+                "I like to ",
+                500,
+                "I like to .",
+                500,
+                "I like to ..",
+                500,
+                "I like to ...",
+                500,
+                "I like to code.",
+                2000,
+                "I like to ",
+                500,
+                "I like to .",
+                500,
+                "I like to ..",
+                500,
+                "I like to ...",
+                500,
+              ]}
+              wrapper="span"
+              speed={50}
+              repeat={Infinity}
+            />
+          </h1>
         </div>
-      )}
+      </div>
     </div>
   );
 }
