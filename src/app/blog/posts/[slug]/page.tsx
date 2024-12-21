@@ -6,12 +6,14 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import { getAllPosts, getPostBySlug } from "@/utils/blog";
 
 interface PageParams {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export default async function BlogPostPage({ params }: PageParams) {
   try {
-    const post = await getPostBySlug(params.slug);
+    const resolvedParams = await params;
+    const post = await getPostBySlug(resolvedParams.slug);
+
     if (!post) {
       throw new Error("Post not found");
     }
@@ -21,24 +23,10 @@ export default async function BlogPostPage({ params }: PageParams) {
       : (post.tags ?? "").split(",").map((tag: string) => tag.trim());
 
     return (
-      <main>
+      <main className="container mx-auto py-8">
         <ErrorBoundary>
-          <article>
-            <BlogPost
-              key={post.id}
-              title={post.title}
-              body={
-                Array.isArray(post.body) ? post.body.join("") : post.body || ""
-              }
-              author={post.author}
-              date={post.date}
-              excerpt={post.excerpt}
-              coverImage={post.coverImage}
-              slug={post.slug}
-              tags={tagList}
-              id={post.id}
-            />
-          </article>
+          <h1 className="mb-8 text-4xl font-bold">Blog Posts</h1>
+          <BlogPost {...post} tags={tagList} />
         </ErrorBoundary>
       </main>
     );
@@ -58,7 +46,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageParams): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
+  const resolvedParams = await params;
+  const post = await getPostBySlug(resolvedParams.slug);
+
   const plainTextBody = post.body
     ? marked(Array.isArray(post.body) ? post.body.join("") : post.body).replace(
         /<[^>]*>/g,

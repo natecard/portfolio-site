@@ -52,7 +52,7 @@ const config = {
       },
       colors: {
         light: {
-          background: "rgb(241 245 249)", // slate-150
+          background: "rgb(235, 235, 235)", // gray-200
           text: "rgb(30 41 59)", // slate-800
         },
         dark: {

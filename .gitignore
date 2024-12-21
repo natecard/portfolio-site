@@ -36,9 +36,11 @@ next-env.d.ts
 
 node_modules
 .env
-
+.venv
 .next
 .vscode
+.vscode/*
 .DS_Store
 *.DS_Store
 *.log
+.python-version
