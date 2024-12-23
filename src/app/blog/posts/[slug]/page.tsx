@@ -22,11 +22,14 @@ export default async function BlogPostPage({ params }: PageParams) {
       ? post.tags
       : (post.tags ?? "").split(",").map((tag: string) => tag.trim());
 
+    // Convert post body to string, handling array and undefined cases
+    const postBody = Array.isArray(post.body) ? post.body.join('') : post.body || '';
+
     return (
       <main className="container mx-auto py-8">
         <ErrorBoundary>
           <h1 className="mb-8 text-4xl font-bold">Blog Posts</h1>
-          <BlogPost {...post} tags={tagList} />
+          <BlogPost {...post} body={postBody} tags={tagList} />
         </ErrorBoundary>
       </main>
     );
