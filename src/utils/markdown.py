@@ -1,9 +1,10 @@
 import os
 import re
 from datetime import datetime
-from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler
 from threading import Timer
+
+from watchdog.events import FileSystemEventHandler
+from watchdog.observers import Observer
 
 
 class MarkdownHandler(FileSystemEventHandler):
@@ -22,19 +23,17 @@ class MarkdownHandler(FileSystemEventHandler):
             with open(file_path, "r") as file:
                 content = file.read()
 
-            has_frontmatter = bool(
-                re.search(r"^---\s*[\s\S]*?^---\s*$", content, re.MULTILINE)
-            )
+            has_frontmatter = bool(re.search(r"^---\s*[\s\S]*?^---\s*$", content, re.MULTILINE))
 
             if not content or not has_frontmatter:
                 frontmatter = f"""---
 title: {os.path.splitext(file_name)[0].replace("-", " ").title()}
-excerpt: 
-coverImg: 
+excerpt:
+coverImg:
 date: {datetime.now().isoformat()}
 author: Nathan Card
 slug: {os.path.splitext(file_name)[0]}
-tags: 
+tags:
 ---
 
 {content}"""
@@ -43,9 +42,7 @@ tags:
                 print(f"Added frontmatter to: {file_name}")
 
             # Remove from processed set after delay
-            Timer(
-                self.debounce_time, lambda: self.recently_processed.remove(file_path)
-            ).start()
+            Timer(self.debounce_time, lambda: self.recently_processed.remove(file_path)).start()
         except (IOError, OSError) as e:
             print(f"Error processing {file_name}: {str(e)}")
 

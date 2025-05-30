@@ -10,15 +10,15 @@ const postsDirectory = path.join(process.cwd(), "public/lib");
 export async function getAllPosts(): Promise<Post[]> {
   const fileNames = fs.readdirSync(postsDirectory);
   const posts = fileNames
-    .filter((fileName) => fileName.endsWith(".md"))
+    .filter((fileName) => fileName.endsWith(".mdx"))
     .map((fileName) => {
       const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
       const { data, content } = matter(fileContents);
 
       return {
-        id: fileName.replace(/\.md$/, ""),
-        slug: fileName.replace(/\.md$/, ""),
+        id: fileName.replace(/\.mdx$/, ""),
+        slug: fileName.replace(/\.mdx$/, ""),
         title: data.title,
         date: data.date,
         author: data.author,
@@ -33,7 +33,7 @@ export async function getAllPosts(): Promise<Post[]> {
 }
 
 export async function getPostBySlug(slug: string): Promise<Post> {
-  const fullPath = path.join(postsDirectory, `${slug}.md`);
+  const fullPath = path.join(postsDirectory, `${slug}.mdx`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 

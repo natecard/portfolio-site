@@ -1,8 +1,7 @@
-import { marked } from "marked";
 import type { Metadata } from "next";
 
-import BlogPost from "@/components/BlogPost";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import MDXBlogPost from "@/components/MDXBlogPost";
 import { getAllPosts, getPostBySlug } from "@/utils/blog";
 
 interface PageParams {
@@ -23,13 +22,15 @@ export default async function BlogPostPage({ params }: PageParams) {
       : (post.tags ?? "").split(",").map((tag: string) => tag.trim());
 
     // Convert post body to string, handling array and undefined cases
-    const postBody = Array.isArray(post.body) ? post.body.join('') : post.body || '';
+    const postBody = Array.isArray(post.body)
+      ? post.body.join("")
+      : post.body || "";
 
     return (
       <main className="container mx-auto py-8">
         <ErrorBoundary>
           <h1 className="mb-8 text-4xl font-bold">Blog Posts</h1>
-          <BlogPost {...post} body={postBody} tags={tagList} />
+          <MDXBlogPost {...post} body={postBody} tags={tagList} />
         </ErrorBoundary>
       </main>
     );
@@ -52,12 +53,14 @@ export async function generateMetadata({
   const resolvedParams = await params;
   const post = await getPostBySlug(resolvedParams.slug);
 
-  const plainTextBody = post.body
-    ? marked(Array.isArray(post.body) ? post.body.join("") : post.body).replace(
-        /<[^>]*>/g,
-        "",
-      )
-    : "";
+  // Simple text extraction from markdown - remove markdown syntax
+  const bodyText = Array.isArray(post.body)
+    ? post.body.join("")
+    : post.body || "";
+  const plainTextBody = bodyText
+    .replace(/[#*`_~\[\]()]/g, "") // Remove basic markdown characters
+    .replace(/\n/g, " ") // Replace newlines with spaces
+    .trim();
   const description =
     plainTextBody.substring(0, 160) ||
     post.excerpt ||

@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/theme-provider";
 
 import { Providers } from "./providers";
+
 export const metadata = {
   title: "Nate Card Portfolio",
   description: "A collection of projects and blog posts by Nate Card",
