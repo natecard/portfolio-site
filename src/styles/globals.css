@@ -1,65 +1,128 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  /* Custom CSS variables for colors */
+  --color-light-background: #ebebeb; /* gray-200 */
+  --color-light-text: #1e293b; /* slate-800 */
+  --color-dark-background: #374151; /* gray-700 */
+  --color-dark-text: #e7e5e4; /* stone-200 */
+
+  /* Theme colors using light-dark() */
+  --color-background: light-dark(
+    var(--color-light-background),
+    var(--color-dark-background)
+  );
+  --color-foreground: light-dark(
+    var(--color-light-text),
+    var(--color-dark-text)
+  );
+
+  /* Border radius */
+  --radius: 0.5rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Extend existing colors */
+  --color-card: light-dark(#ffffff, #1f2937);
+  --color-card-foreground: var(--color-foreground);
+  --color-popover: var(--color-card);
+  --color-popover-foreground: var(--color-card-foreground);
+  --color-primary: light-dark(#0f172a, #f1f5f9);
+  --color-primary-foreground: light-dark(#f1f5f9, #0f172a);
+  --color-secondary: light-dark(#f1f5f9, #1e293b);
+  --color-secondary-foreground: light-dark(#0f172a, #f1f5f9);
+  --color-muted: light-dark(#f1f5f9, #1e293b);
+  --color-muted-foreground: light-dark(#64748b, #94a3b8);
+  --color-accent: light-dark(#f1f5f9, #1e293b);
+  --color-accent-foreground: light-dark(#0f172a, #f1f5f9);
+  --color-destructive: light-dark(#ef4444, #dc2626);
+  --color-destructive-foreground: light-dark(#fef2f2, #fef2f2);
+  --color-border: light-dark(#e2e8f0, #334155);
+  --color-input: var(--color-border);
+  --color-ring: light-dark(#94a3b8, #64748b);
+
+  /* Font family */
+  --font-family-sans: "Inter var", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* Apply theme colors to Tailwind utilities */
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+}
 
 .boxsvg {
   filter: drop-shadow(2px 7px 3px #00171f);
 }
+
 rect {
   filter: drop-shadow(0px 4px 4px #00171f);
 }
+
 .grecaptcha-badge {
   visibility: hidden;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background dark:bg-background text-foreground dark:text-foreground;
-  }
-  .markdown-content {
-    @apply text-foreground dark:text-foreground;
-  }
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-family-sans);
+}
 
-  .markdown-content h1 {
-    @apply text-4xl font-bold text-foreground dark:text-foreground mb-6;
-  }
+.markdown-content {
+  color: var(--color-foreground);
+}
 
-  .markdown-content h2 {
-    @apply text-3xl font-bold text-foreground dark:text-foreground mb-4 mt-8;
-  }
+.markdown-content h1 {
+  @apply text-4xl font-bold mb-6;
+  color: var(--color-foreground);
+}
 
-  .markdown-content h3 {
-    @apply text-2xl font-bold text-foreground dark:text-foreground mb-3 mt-6;
-  }
+.markdown-content h2 {
+  @apply text-3xl font-bold mb-4 mt-8;
+  color: var(--color-foreground);
+}
 
-  .markdown-content p {
-    @apply text-foreground dark:text-foreground mb-4 leading-relaxed;
-  }
+.markdown-content h3 {
+  @apply text-2xl font-bold mb-3 mt-6;
+  color: var(--color-foreground);
+}
 
-  .markdown-content a {
-    @apply text-blue-400 hover:text-blue-500 underline;
-  }
+.markdown-content p {
+  @apply mb-4 leading-relaxed;
+  color: var(--color-foreground);
+}
 
-  .markdown-content ul {
-    @apply list-disc list-inside mb-4 text-foreground dark:text-foreground;
-  }
+.markdown-content a {
+  @apply text-blue-400 hover:text-blue-500 underline;
+}
 
-  .markdown-content ol {
-    @apply list-decimal list-inside mb-4 text-foreground dark:text-foreground;
-  }
+.markdown-content ul {
+  @apply list-disc list-inside mb-4;
+  color: var(--color-foreground);
+}
 
-  .markdown-content code {
-    @apply bg-background dark:bg-background rounded px-1 py-0.5 text-foreground dark:text-foreground;
-  }
+.markdown-content ol {
+  @apply list-decimal list-inside mb-4;
+  color: var(--color-foreground);
+}
 
-  .markdown-content pre {
-    @apply bg-background dark:bg-background rounded p-4 mb-4 overflow-x-auto;
-  }
+.markdown-content code {
+  @apply rounded px-1 py-0.5;
+  background-color: var(--color-muted);
+  color: var(--color-foreground);
+}
 
-  .markdown-content blockquote {
-    @apply border-l-4 border-slate-500 pl-4 italic text-foreground dark:text-foreground my-4;
-  }
+.markdown-content pre {
+  @apply rounded p-4 mb-4 overflow-x-auto;
+  background-color: var(--color-muted);
+}
+
+.markdown-content blockquote {
+  @apply border-l-4 border-slate-500 pl-4 italic my-4;
+  color: var(--color-foreground);
 }

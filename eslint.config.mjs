@@ -1,38 +1,26 @@
 import next from "@next/eslint-plugin-next";
 import typescript from "@typescript-eslint/eslint-plugin";
-import typescriptParser from "@typescript-eslint/parser";
+import parser from "@typescript-eslint/parser";
 import importPlugin from "eslint-plugin-import";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
+import { FlatCompat } from "@eslint/eslintrc";
 
-export default [
-  {
-    ignores: [
-      "node_modules/**",
-      ".next/**",
-      "dist/**",
-      "build/**",
-      "public/**",
-      "dist/**",
-      "coverage/**",
-    ],
-  },
+const compat = new FlatCompat({
+  // import.meta.dirname is available after Node.js v20.11.0
+  baseDirectory: import.meta.dirname,
+});
+
+const eslintConfig = [
+  ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
   {
     files: ["**/*.{js,jsx,ts,tsx}"],
-    plugins: {
-      "@typescript-eslint": typescript,
-      react: react,
-      "react-hooks": reactHooks,
-      import: importPlugin,
-      "@next/next": next,
-    },
     languageOptions: {
-      parser: typescriptParser,
+      parser: parser,
       parserOptions: {
         ecmaVersion: 2024,
         sourceType: "module",
-        project: "./tsconfig.json",
         ecmaFeatures: {
           jsx: true,
         },
@@ -45,8 +33,12 @@ export default [
         JSX: true,
       },
     },
-    linterOptions: {
-      reportUnusedDisableDirectives: true,
+    plugins: {
+      "@typescript-eslint": typescript,
+      react: react,
+      "react-hooks": reactHooks,
+      import: importPlugin,
+      "@next/next": next,
     },
     settings: {
       react: {
@@ -58,28 +50,45 @@ export default [
       },
     },
     rules: {
-      ...typescript.configs.recommended.rules,
-      ...typescript.configs.strict.rules,
-      ...react.configs.recommended.rules,
-      ...reactHooks.configs.recommended.rules,
-      ...next.configs.recommended.rules,
-      ...next.configs["core-web-vitals"].rules,
+      // TypeScript rules
+      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/no-explicit-any": "warn",
+
+      // React rules
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
-      "@typescript-eslint/consistent-type-imports": "error",
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        { argsIgnorePattern: "^_" },
-      ],
-      "@typescript-eslint/no-explicit-any": "warn",
+
+      // React Hooks rules
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+
+      // Import rules
       "import/order": [
         "error",
         {
-          groups: ["builtin", "external", "internal"],
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index",
+          ],
           "newlines-between": "always",
-          alphabetize: { order: "asc", caseInsensitive: true },
         },
       ],
     },
   },
+  {
+    ignores: [
+      "node_modules/**",
+      ".next/**",
+      "dist/**",
+      "build/**",
+      "public/**",
+      "coverage/**",
+    ],
+  },
 ];
+
+export default eslintConfig;
