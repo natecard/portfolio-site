@@ -1,6 +1,6 @@
 # Portfolio/Personal Site
 
-This is my personal site, where I post about my current research, projects I am working on and some blog posts. 
+This is my personal site, where I post about my current research, projects I am working on and some blog posts.
 
 ## Features
 
@@ -13,7 +13,7 @@ This is my personal site, where I post about my current research, projects I am 
 - TypeScript
 - TailwindCSS
 - Framer Motion
-  
+
 ## Installation
 
 To build this project locally, you need to have Node.js and npm installed on your machine.

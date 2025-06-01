@@ -15,10 +15,11 @@ The deeper I got, the more cryptic other programming languages seemed, with thei
 I admittedly knew less than others who were championing Typescript at the time. There had to be a reason it was being pushed by developers at large tech companies, but building a weather app or simple web site you never really come across the need for it because most developers can hold all of the context required when developing something that simple. There isn't an issue with values that might be returned in a type that was unexpected, and even if there is JavaScript is very forgiving, sometimes a little too forgiving (insert 1 == "1" meme).
 
 It wasn't until I started going deep into Python that I realized two things:
+
 1. The languages viewed as beginner-friendly and therefore pushed on new developers are not typesafe by default, because they are "easier" to learn and use.
-	- You don't need to know what `Parameter<T>` does or the differences between `BigInt` and `Number`, in order to build a basic calculator app in JavaScript or Python.
+   - You don't need to know what `Parameter<T>` does or the differences between `BigInt` and `Number`, in order to build a basic calculator app in JavaScript or Python.
 2. When learning a new language, understanding and leveraging its type system is one of the easiest ways to learn the language quickly and effectively.
-	- Taking a Python repo you want to refactor into Rust, throwing into Cursor/Copilot and *vibecoding* it into submission might not be the best way to learn Rust.
+   - Taking a Python repo you want to refactor into Rust, throwing into Cursor/Copilot and _vibecoding_ it into submission might not be the best way to learn Rust.
 
 When working on any TypeScript projects, I used to think about types and/or interfaces as I was coding, no planning, no foresight, just raw dogging the code. Constraining myself in new and idiotic ways to avoid writing more type definitions, trying to fit similar data styles into existing types that were inevitably wrong.
 
@@ -29,11 +30,18 @@ When you write any code the way that you write it might not matter, if it is onl
 What started me thinking deeper about types has been recent discourse on X. The idea that if your code has comments, especially over commented code, then it is likely written by AI. This feels like it is partly meme, partly the idea of "self-documenting code", which in theory is great but in practice the only person that code is self documenting for is the developer who wrote it.
 
 <div className="flex justify-center">
-<img src="/img/63hule73jam01.jpg.webp" alt="Self documenting code meme" width="200" className="justify-center"/>
+  <img
+    src="/img/63hule73jam01.jpg.webp"
+    alt="Self documenting code meme"
+    width="200"
+    className="justify-center"
+  />
 </div>
-
 
 But the focus of this is not on whether to comment in your code or not, but rather how to think about types and why if used correctly they can make a codebase more maintainable, easier to understand and learn from, but if used incorrectly they can be footguns; over, and over, and over.
 
 ## Types, God Types, and why nesting types can get out of hand real quick
+
 As a developer, types are not just used to catch compiler errors and prevent incorrect values from being handled incorrectly. Some of their greatest benefit is in their self documenting nature.
+
+With good documentation

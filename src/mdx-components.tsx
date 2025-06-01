@@ -2,6 +2,8 @@ import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Link from "next/link";
 
+import Skills from "@/components/Skills";
+
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     // Override the default heading components with custom styling
@@ -79,6 +81,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     li: ({ children }) => (
       <li className="text-slate-700 dark:text-slate-200">{children}</li>
     ),
+    // Custom components
+    Skills,
     ...components,
   };
 }

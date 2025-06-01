@@ -1,6 +1,6 @@
 "use client";
 import { format } from "@formkit/tempo";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -79,26 +79,15 @@ function BlogPostList({
                 initial={false}
                 className="flex flex-col flex-1"
               >
-                <motion.h2
-                  layout
-                  initial={false}
-                  className="mb-2 font-bold"
-                >
+                <motion.h2 layout initial={false} className="mb-2 font-bold">
                   {title}
                 </motion.h2>
-                <motion.div
-                  layout
-                  initial={false}
-                  className="mb-4"
-                >
+                <motion.div layout initial={false} className="mb-4">
                   <span>{author}</span>
                   <span className="mx-2">•</span>
                   <time>{format(date, { date: "full" })}</time>
                 </motion.div>
-                <motion.p
-                  layout
-                  initial={false}
-                >
+                <motion.p layout initial={false}>
                   {excerpt}
                 </motion.p>
               </motion.div>

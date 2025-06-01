@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
+import Skills from "@/components/Skills";
 import type { BlogLayoutProps } from "@/types/Interfaces";
 import "@/styles/markdown.css";
 
@@ -106,6 +107,8 @@ const components: MDXComponents = {
       {props.children}
     </li>
   ),
+  // Custom components
+  Skills,
 };
 
 export default function MDXBlogPost({
