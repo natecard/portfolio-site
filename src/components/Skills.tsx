@@ -1,19 +1,11 @@
 import {
-  SiCss3,
   SiDjango,
-  SiGit,
   SiGooglecloud,
-  SiHtml5,
   SiJavascript,
-  SiJest,
-  SiJson,
-  SiJupyter,
-  SiMongodb,
   SiNextdotjs,
   SiNodedotjs,
-  SiOpenjdk,
+  SiSwift,
   SiPostgresql,
-  SiPytest,
   SiPython,
   SiPytorch,
   SiReact,
@@ -22,26 +14,18 @@ import {
 } from "@icons-pack/react-simple-icons";
 const Skills: React.FC = () => {
   const skillsIcons = {
-    Python: SiPython,
-    Pytorch: SiPytorch,
-    Django: SiDjango,
-    Typescript: SiTypescript,
-    Java: SiOpenjdk,
-    React: SiReact,
-    Javascript: SiJavascript,
-    "Next.js": SiNextdotjs,
-    Tailwindcss: SiTailwindcss,
-    git: SiGit,
-    Postgresql: SiPostgresql,
-    Mongodb: SiMongodb,
-    "Node.js": SiNodedotjs,
-    JSON: SiJson,
-    Jest: SiJest,
-    PyTest: SiPytest,
-    Jupyter: SiJupyter,
-    Googlecloud: SiGooglecloud,
-    CSS3: SiCss3,
-    HTML5: SiHtml5,
+    PYTHON: SiPython,
+    SWIFT: SiSwift,
+    TYPESCRIPT: SiTypescript,
+    REACT: SiReact,
+    "NEXT.JS": SiNextdotjs,
+    JAVASCRIPT: SiJavascript,
+    "NODE.JS": SiNodedotjs,
+    TAILWINDCSS: SiTailwindcss,
+    POSTGRESQL: SiPostgresql,
+    PYTORCH: SiPytorch,
+    DJANGO: SiDjango,
+    GOOGLECLOUD: SiGooglecloud,
   };
   const skills = Object.keys(skillsIcons);
   return (
@@ -53,7 +37,7 @@ const Skills: React.FC = () => {
           return Icon ? (
             <div className="flex flex-col items-center" key={skill}>
               {" "}
-              <Icon size={54} className="my-5" key={skill} />
+              <Icon size={54} className="my-4" key={skill} />
               <h3>{skill}</h3>
             </div>
           ) : null;

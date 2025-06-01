@@ -16,6 +16,11 @@ export async function getAllPosts(): Promise<Post[]> {
       const fileContents = fs.readFileSync(fullPath, "utf8");
       const { data, content } = matter(fileContents);
 
+      // Skip draft posts
+      if (data.draft === true) {
+        return null;
+      }
+
       return {
         id: fileName.replace(/\.mdx$/, ""),
         slug: fileName.replace(/\.mdx$/, ""),
@@ -27,7 +32,8 @@ export async function getAllPosts(): Promise<Post[]> {
         body: content,
         tags: data.tags || [],
       } as unknown as Post;
-    });
+    })
+    .filter((post): post is Post => post !== null);
 
   return posts.sort((a, b) => (a.date > b.date ? -1 : 1));
 }
