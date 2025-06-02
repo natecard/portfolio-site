@@ -5,6 +5,7 @@ const config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'class',
   // In Tailwind v4, most configuration is moved to CSS
   // Only content and essential JS config remains here
 };
