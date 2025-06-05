@@ -55,3 +55,19 @@ export async function getPostBySlug(slug: string): Promise<Post> {
     tags: data.tags || [],
   } as unknown as Post;
 }
+
+export async function getPostsByTag(tag: string): Promise<Post[]> {
+	const allPosts = await getAllPosts();
+  const posts = allPosts.filter((post) => post.tags?.includes(tag));
+  return posts.map((post) => ({
+    id: post.id,
+    slug: post.slug,
+    title: post.title,
+    date: post.date,
+    author: post.author,
+    excerpt: post.excerpt,
+    coverImage: post.coverImage,
+    body: post.body,
+    tags: post.tags,
+  })) as unknown[] as Post[];
+}

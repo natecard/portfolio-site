@@ -27,9 +27,11 @@ export default async function BlogPostPage({ params }: PageParams) {
       : post.body || "";
 
     return (
-      <main className="container mx-auto py-8">
+      <main className="container mx-auto">
         <ErrorBoundary>
-          <h1 className="mb-8 text-4xl font-bold">Blog Posts</h1>
+          {/* <h1 className="mx-auto text-5xl text-center font-bold">
+            {post.title}
+          </h1> */}
           <MDXBlogPost {...post} body={postBody} tags={tagList} />
         </ErrorBoundary>
       </main>

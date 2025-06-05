@@ -1,49 +1,201 @@
 ---
-draft: true
+draft: false
 title: Types as anti-Footguns
 excerpt: How to think about types? If used correctly they can make a codebase more maintainable, easier to understand, and easier to reason about but if used incorrectly they can be footguns.
 coverImage: "/img/footguns.png"
-date: 2025-05-30T10:06:35.644950
+date: 2025-06-05T4:16:35.644950
 author: Nathan Card
 slug: types-as-footguns
-tags:
+tags: typescript, javascript, refactoring, learning
 ---
-## How I Got Here
+## How I Arrived Here
 
 Lately I have found myself thinking about types more frequently than before. I began my programming journey when Typescript was really hitting its stride in the JavaScript ecosystem. I learned JavaScript because that was what was at the time and still is one of, if not the most popular language. I didn't need to use a framework like React or Vue to do what I was trying to learn, and type annotation was a foreign concept to me.
 
-The deeper I got, the more cryptic other programming languages seemed, with their @ or : in the middle of a function declaration. I had heard the term Typescript, but it wasn't seen as the necessity to learn that it is today. Most frameworks had some level of support for it but it wasn't fully integrated. During this time the more I built the less I understood why Typescript was even a thing, I was siloed in JS and learning React I hated trying to work in Typescript because I didn't understand the difference in types for components or nodes. Every project I would start with Typescript ended in frustration, and a half-built concept that failed because I felt like Typescript just got in my way.
+The deeper I got, the more cryptic other programming languages seemed, with their @ or : in the middle of a function declaration. I had heard the term Typescript, but it wasn't seen as the necessity to learn that it is today. Most frameworks had some level of support for it but it wasn't fully integrated. During this time the more I built the less I understood why Typescript was even a thing, I was siloed in JS and learning React I hated trying to work in Typescript because I didn't understand the difference in types for React components or React nodes. Every project I would start with Typescript ended in frustration, and a half-built concept that failed because I felt like Typescript just got in my way.
 
-I admittedly knew less than others who were championing Typescript at the time. There had to be a reason it was being pushed by developers at large tech companies, but building a weather app or simple web site you never really come across the need for it because most developers can hold all of the context required when developing something that simple. There isn't an issue with values that might be returned in a type that was unexpected, and even if there is JavaScript is very forgiving, sometimes a little too forgiving (insert 1 == "1" meme).
+I admittedly knew less than others who championed Typescript. There had to be a reason it was being pushed by developers at large tech companies, but building a weather app or simple web site you never really come across the need for it. Most developers can hold all of the context required when developing something that simple. There typically isn't an issue with values that might be returned in a type that is unexpected, and even if there is JavaScript is very forgiving, sometimes a little too forgiving (insert 1 == "1" returns true, 1 === "1" returns false meme).
 
 It wasn't until I started going deep into Python that I realized two things:
 
-1. The languages viewed as beginner-friendly and therefore pushed on new developers are not typesafe by default, because they are "easier" to learn and use.
-   - You don't need to know what `Parameter<T>` does or the differences between `BigInt` and `Number`, in order to build a basic calculator app in JavaScript or Python.
+1. The languages viewed as beginner-friendly and therefore pushed on new developers are not typesafe by default, because of this they are "easier" to learn and use.
+   - You don't need to know what `Parameters<T>` does or the differences between `BigInt` and `Number`, in order to build a basic calculator app in JavaScript.
 2. When learning a new language, understanding and leveraging its type system is one of the easiest ways to learn the language quickly and effectively.
-   - Taking a Python repo you want to refactor into Rust, throwing into Cursor/Copilot and _vibecoding_ it into submission might not be the best way to learn Rust.
+   - Taking a Python program you want to refactor into Rust, throwing into Cursor/Copilot and _vibecoding_ it into submission might not be the best way to learn Rust.
 
-When working on any TypeScript projects, I used to think about types and/or interfaces as I was coding, no planning, no foresight, just raw dogging the code. Constraining myself in new and idiotic ways to avoid writing more type definitions, trying to fit similar data styles into existing types that were inevitably wrong.
+## Learning to Use Types
 
-This led to a lot of code that was hard to maintain and understand, and led to issues that were caused by incorrect types or nested types until the data couldn't be reasoned about. To take a moment and reflect I think that this is the part that as developers, especially early career developers, we tend to overlook this.
+When working on any TypeScript projects, I used to think about types and/or interfaces as I was coding, no planning, no foresight, just raw dogging the code. Constraining myself in new and idiotic ways to avoid writing more type definitions, trying to fit similar data styles into existing types that would inevitably be the wrong way to handle the data.
+
+This led to a lot of code that was hard to maintain and understand, and led to issues that were caused by incorrect or nested types until the data couldn't be reasoned about. To take a moment and reflect I think that this is the part that as developers, especially early career developers, we tend to overlook this.
 
 When you write any code the way that you write it might not matter, if it is only going to be used by yourself. I am guilty of writing things in a manner that is entirely not maintainable and barely functional because I knew it was going to live on my own machine and not be used by anyone but myself. This isn't a mistake per se but it leads to the issue when you drop a project for a few months then forget about it and come back to work on it again.
 
-What started me thinking deeper about types has been recent discourse on X. The idea that if your code has comments, especially over commented code, then it is likely written by AI. This feels like it is partly meme, partly the idea of "self-documenting code", which in theory is great but in practice the only person that code is self documenting for is the developer who wrote it.
+What started me thinking deeper about types has been recent discourse on X. The idea that if your code has comments, especially over commented code, then it is likely written by AI. This feels like it is partly meme, partly the idea of "self-documenting code", which in theory is great but in practice the only person that code is actually self documenting for is the developer who wrote it and even then that can be a stretch.
 
-<div className="flex justify-center">
+<div className="flex justify-center py-8">
   <img
     src="/img/63hule73jam01.jpg.webp"
     alt="Self documenting code meme"
-    width="200"
+    width="400"
     className="justify-center"
   />
 </div>
 
-But the focus of this is not on whether to comment in your code or not, but rather how to think about types and why if used correctly they can make a codebase more maintainable, easier to understand and learn from, but if used incorrectly they can be footguns; over, and over, and over.
+But the focus of this is not on whether to comment in your code or not, but rather how types can act as a form of documentation, how to think about type schemas, and why if used correctly typed data can make a codebase more maintainable, easier to understand and learn from, but if used incorrectly they can be footguns; over, and over, and over.
 
 ## Types, God Types, and why nesting types can get out of hand real quick
 
-As a developer, types are not just used to catch compiler errors and prevent incorrect values from being handled incorrectly. Some of their greatest benefit is in their self documenting nature.
+As a developer, types are not just used to catch compiler errors and prevent incorrect values from being handled incorrectly. Some of their greatest benefit is in their self documenting nature. With a well commented and named type definition, your code can be understood by any developer who reads it. Consider a simple example of a function that appends a string to a string. JavaScript offer a couple of ways to do this:
 
-With good documentation
+```javascript
+// if a, b are both strings, they will  combined using the + operator
+	function add(a, b) {
+		return a + b;
+	}
+// a and b are concatened using the concat method
+	function add(a, b) {
+		return a.concat(b);
+	}
+```
+
+If a developer isn't careful with the first example, they might make an incorrect assumption. Without type annotations or commments, someone looking at function add(a, b) might assume a and b are numbers and that the function returns a number. However, if a and b are strings, it performs concatenation and returns a string. This obviously can lead to unexpected behaviour and unintentional values being passed to other functions. This is the basic point where types can help clarify the intent of the code and prevent errors. To get all on the same page here is the TypeScript version of the first example function:
+
+```typescript
+	function add(a: string, b: string): string {
+		return a + b;
+	}
+```
+
+These toy examples are extremely simple but they illustrate where built in types can help developers avoid basic errors. However it isn't until we get into larger examples where types can really be beneficial.
+
+Recently I have been working on a project where a user can select document, create an audio file about that document, the file gets stored on the server and is accessed by its unique `id`. This is a simplified example for this write ups purposes, but initially the types I had were roughly as follows:
+
+```typescript
+	type Document = {
+		id: string;
+		fileName: string;
+		content: string;
+		userId: string;
+	};
+
+	type AudioFile = {
+		id: string;
+		fileName: string;
+		url: string;
+		userId: string;
+		document: Document;
+		duration: number;
+	};
+```
+
+But what happens when you want to extend this to include a new file type, such as a `VideoFile` or `ImageFile`?
+
+```typescript
+type VideoFile = {
+	id: string;
+	fileName: string;
+	url: string;
+	userId: string;
+	document: Document;
+	duration: number;
+};
+
+type ImageFile = {
+	id: string;
+	fileName: string;
+	url: string;
+	userId: string;
+	document: Document;
+	width: number;
+	height: number;
+};
+```
+Or a new feature is built that allows folders to be used instead of just a single file?
+
+```typescript
+type Folder = {
+	id: string;
+	folderName: string;
+	url: string;
+	userId: string;
+	children: (AudioFile | ImageFile | VideoFile | Document | Folder)[];
+};
+```
+
+Looking at each variant of a file, I have repeated properties: `id`, `fileName`, `url`, `userId`, `document`, while video and audio share `duration`.
+
+Herein lies the footguns of types, if the types are not designed with the idea of being extensible, you can end up with tons of repeated code within each type. When I decided to add an extra feature, I hit the wall of duplicating a ton of code and overlap within the types. This resulted in a terrible experience as a developer, constantly having to look back and see if I was using the `AudioFile` or `AudioFolder`. But I wasn't finished there, I continued adding more complexity and extending those types to add more data for storage in the database.
+
+Eventually I ended up with multiple types that overlapped so much that I could nearly use them interchangeably, which led to a lot of confusion and bugs cropping up. Obviously this was all self-inflicted, I was the only person writing in this codebase, and I hadn't mapped out a clear idea of the types and their relationships especially in conjunction with the database schema.
+
+I tried to extend the types from one of the more common base types but as I was writing more complex code I came to the realization that I barely used any types in order to handle the data I had created a single God Type that was holding so many parent types that it was a monolithic mess.
+
+```typescript
+type File = (AudioFile | ImageFile | VideoFile | Document) & {
+    gcpUrl: string;
+    user: User;
+    creationDate: Date;
+    updateDate: Date;
+    duration?: number;
+    width?: number;
+    height?: number;
+    content?: string;
+	};
+```
+I could use this single type for any file type, but I couldn't handle the underlying data properly without writing an immense amount of code to handle the different types of files and encoding possibilities. Creating a slew of functions that would continually repeat the same logic of type handling that TypeScript can do for me.
+
+The only way to dig myself out and allow for the project to not collapse under the weight of the types was to refactor the entire project.
+
+```typescript
+type File = {
+	id: string;
+	name: string; // Standardized from fileName
+	url: string;
+	encoding: string; // e.g. 'mp3', 'jpeg', 'txt'
+	userId: string; // Linked to a User by their ID
+	documentId: string; // Link to a document by its ID
+	createdAt: Date;
+	updatedAt: Date;
+};
+
+type AudioFile = File & {
+	type: 'audio';
+	duration: number;
+};
+
+type VideoFile = File & {
+	type: 'video';
+	duration: number;
+};
+
+type ImageFile = File & {
+	type: 'image';
+	width: number;
+	height: number;
+};
+
+type Folder = {
+	id: string;
+	title: string;
+	userId: string;
+	children: (File | Folder)[];
+	createdAt: Date;
+	updatedAt: Date;
+};
+```
+
+These simplified and more precise types not only made it easier to write the functions to handle the data but also provided a clearer picture for me as a developer to understand what data structures were interacting with each other and how. Now, when I am writing any logic that handles a user's files, if I have an item of type `File`, my IDE and the TypeScript compiler will help me correctly access properties based on its type discriminant (e.g., `duration` is only available if `file.type === 'audio'` or `'video'`).
+
+All of this is even before diving deep into generic types and functions to handle different types of data more abstractly, which is leaving out a large piece of what makes TypeScript great. But that is a discussion for another time.
+
+## Takeaways
+
+There are a few takeaways from working with TypeScript that I have learned:
+
+- Think about the types you are using, and what the data actually represents.
+- Design your database schema with your application types in mind (and vice versa) Using libraries like Zod for schema definition and validation can be a great way to ensure data integrity and consistency between your db and code).
+- Leverage TypeScript's type system to not only make the code more readable but enhance IDE assistance (like auto complete and error checking) when you are working with those types.
+- Don't be afraid to refactor your code. Do it consistently, and this might be a little controversial, do it often. No one's first iteration of code is the best version, if you want to write better code, revisiting and refactoring it will only make it better.
+
+Lastly one of the best sources for learning how to use the most powerful pieces of TypeScript is Matt Pocock's Total TypeScript course, [book](https://www.totaltypescript.com/books/total-typescript-essentials) or [articles](https://www.totaltypescript.com/articles).

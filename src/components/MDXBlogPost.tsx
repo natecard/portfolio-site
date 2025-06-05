@@ -42,13 +42,15 @@ export default function MDXBlogPost({
         <h1 className="mb-4 text-4xl font-bold text-foreground sm:text-5xl">
           {title}
         </h1>
-        <div className="mb-4 text-muted-foreground">
+        <div className="mb-4 text-secondary">
           <span>By {author}</span>
           <span className="mx-2">•</span>
           <time>{formattedDate}</time>
         </div>
         {excerpt && (
-          <p className="text-center text-2xl mx-auto max-w-3/5">{excerpt}</p>
+          <p className="text-center text-2xl mx-auto text-muted-foreground max-w-3/5">
+            {excerpt}
+          </p>
         )}
       </header>
 
