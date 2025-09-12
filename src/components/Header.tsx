@@ -5,7 +5,7 @@ import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
 
 const Header = () => {
-  const resumeUrl = `${process.env.PUBLIC_URL}/pdf/Nathan_Card_Resume.pdf`;
+  const resumeUrl = `${process.env.PUBLIC_URL}/pdf/Resume_Nathan_Card.pdf`;
 
   return (
     <header className="border-b">
@@ -23,9 +23,15 @@ const Header = () => {
           >
             Blog
           </Link>
+          <Link
+            href="/apps"
+            className="text-sm font-medium transition-colors hover:text-primary"
+          >
+            Apps
+          </Link>
           <a
             href={resumeUrl}
-            download="Nathan_Card_Resume.pdf"
+            download="Resume_Nathan_Card.pdf"
             className="text-sm font-medium transition-colors hover:text-primary"
           >
             Resume
