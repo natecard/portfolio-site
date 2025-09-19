@@ -53,6 +53,7 @@ const eslintConfig = [
       // TypeScript rules
       "@typescript-eslint/no-unused-vars": "error",
       "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/triple-slash-reference": "off",
 
       // React rules
       "react/react-in-jsx-scope": "off",
@@ -87,6 +88,7 @@ const eslintConfig = [
       "build/**",
       "public/**",
       "coverage/**",
+      "next-env.d.ts",
     ],
   },
 ];
