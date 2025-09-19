@@ -5,7 +5,7 @@ import { createAppStoreToken } from "@/lib/appstore/createAppStoreToken";
 
 export const runtime = "nodejs";
 
-const routeTag = "[iap.validate.prod]";
+const routeTag = "[iap.validate.sand]";
 function logInfo(message: string, meta?: Record<string, unknown>) {
   // eslint-disable-next-line no-console
   console.log(routeTag, message, meta ?? {});
@@ -21,26 +21,21 @@ type ValidateBody = {
   appAccountToken?: string;
 };
 
-async function fetchTransactionFromApple(transactionId: string, bearer: string) {
-  const prod = `https://api.storekit.itunes.apple.com/inApps/v1/transactions/${transactionId}`;
+async function fetchTransactionFromAppleSandbox(transactionId: string, bearer: string) {
   const san = `https://api.storekit-sandbox.itunes.apple.com/inApps/v1/transactions/${transactionId}`;
 
   const headers = { Authorization: `Bearer ${bearer}` } as const;
-  let res = await fetch(prod, { headers });
-  if (res.status === 404) {
-    logInfo("prod returned 404, falling back to sandbox", { transactionId });
-    res = await fetch(san, { headers });
-  }
+  const res = await fetch(san, { headers });
 
   if (!res.ok) {
     const text = await res.text();
-    logError("apple api responded non-ok", {
+    logError("apple sandbox api responded non-ok", {
       transactionId,
       status: res.status,
       body: text,
       url: res.url,
     });
-    throw new Error(`Apple API ${res.status}: ${text}`);
+    throw new Error(`Apple Sandbox API ${res.status}: ${text}`);
   }
   return res.json() as Promise<{ signedTransactionInfo: string; environment: string }>;
 }
@@ -64,10 +59,9 @@ export async function POST(req: Request) {
     }
 
     const token = await createAppStoreToken();
-    logInfo("fetching transaction from apple", { transactionId, productId });
-    const tx = await fetchTransactionFromApple(transactionId, token);
+    logInfo("fetching transaction from apple sandbox", { transactionId, productId });
+    const tx = await fetchTransactionFromAppleSandbox(transactionId, token);
 
-    // NOTE: For production, verify the JWS signature (use app-store-server-library).
     const payload = decodeJWSPayload<JWSTransactionDecodedPayload>(
       tx.signedTransactionInfo
     );
@@ -98,7 +92,7 @@ export async function POST(req: Request) {
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : "unknown";
     const stack = err instanceof Error ? err.stack : undefined;
-    logError("unhandled error in validate handler", { message, stack });
+    logError("unhandled error in validate sandbox handler", { message, stack });
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }
