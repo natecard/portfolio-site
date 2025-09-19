@@ -7,17 +7,18 @@ export const runtime = "nodejs";
 
 const routeTag = "[iap.validate.sand]";
 function logInfo(message: string, meta?: Record<string, unknown>) {
-  // eslint-disable-next-line no-console
+   
   console.log(routeTag, message, meta ?? {});
 }
 function logError(message: string, meta?: Record<string, unknown>) {
-  // eslint-disable-next-line no-console
+   
   console.error(routeTag, message, meta ?? {});
 }
 
 type ValidateBody = {
   transactionId: string;
-  productId: string;
+  productId?: string;
+  revoked?: boolean;
   appAccountToken?: string;
 };
 
@@ -48,25 +49,25 @@ function decodeJWSPayload<T>(jws: string): T {
 
 export async function POST(req: Request) {
   try {
-    const { transactionId, productId }: ValidateBody = await req.json();
+    const { transactionId, productId, revoked: clientRevoked }: ValidateBody = await req.json();
 
-    if (!transactionId || !productId) {
+    if (!transactionId) {
       logError("missing required fields", { transactionId, productId });
       return NextResponse.json(
-        { error: "transactionId and productId required" },
+        { error: "transactionId required" },
         { status: 400 }
       );
     }
 
     const token = await createAppStoreToken();
-    logInfo("fetching transaction from apple sandbox", { transactionId, productId });
+    logInfo("fetching transaction from apple sandbox", { transactionId, productId, clientRevoked });
     const tx = await fetchTransactionFromAppleSandbox(transactionId, token);
 
     const payload = decodeJWSPayload<JWSTransactionDecodedPayload>(
       tx.signedTransactionInfo
     );
 
-    const matchesProduct = payload.productId === productId;
+    const matchesProduct = typeof productId === "string" ? payload.productId === productId : true;
     const revoked = !!payload.revocationDate;
 
     const isUnlocked = matchesProduct && !revoked;
@@ -78,6 +79,7 @@ export async function POST(req: Request) {
       env: tx.environment,
       matchesProduct,
       revoked,
+      clientRevoked,
       isUnlocked,
     });
 
