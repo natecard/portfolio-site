@@ -49,7 +49,7 @@ tags:
     def on_created(self, event):
         from pathlib import Path
 
-        if event.is_directory or Path(event.src_path).suffix != ".md":
+        if event.is_directory or Path(event.src_path).suffix != ".mdx":
             return
         Timer(0.5, lambda: self.process_file(event.src_path)).start()
 
@@ -59,7 +59,7 @@ def watch_directory():
     Watches the specified directory for new markdown files and processes them.
 
     This function sets up a watchdog observer to monitor the "./public/lib" directory
-    for the creation of new markdown (.md) files. When a new markdown file is detected,
+    for the creation of new markdown (.mdx) files. When a new markdown file is detected,
     it triggers the MarkdownHandler to add frontmatter to the file.
 
     Usage:
