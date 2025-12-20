@@ -20,12 +20,12 @@ export default function MDXBlogPost({
   // Use the shared MDX components from mdx-components.tsx
   const components = useMDXComponents({});
 
-  const formattedDate = format(date, { date: "full" });
+  const formattedDate = date ? format(date, { date: "full" }) : "No date";
   const tagList = Array.isArray(tags)
     ? tags
     : (tags ?? "").split(",").map((tag: string) => tag.trim());
   return (
-    <article className="mx-auto max-w-7xl px-4 py-8">
+    <article className="mx-auto max-w-4xl px-4 py-8">
       <header className="mb-8 text-center">
         {coverImage && (
           <div className="relative mb-6 h-64 w-full overflow-hidden rounded-lg sm:h-96">
@@ -45,16 +45,16 @@ export default function MDXBlogPost({
         <div className="mb-4 text-secondary">
           <span>By {author}</span>
           <span className="mx-2">•</span>
-          <time>{formattedDate}</time>
+          <time suppressHydrationWarning>{formattedDate}</time>
         </div>
         {excerpt && (
-          <p className="text-center text-2xl mx-auto text-muted-foreground max-w-3/5">
+          <p className="text-center text-2xl mx-auto text-muted-foreground max-w-2xl">
             {excerpt}
           </p>
         )}
       </header>
 
-      <div className="markdown-content mx-auto max-w-5xl">
+      <div className="markdown-content mx-auto max-w-3xl">
         <MDXRemote source={body} components={components} />
       </div>
 

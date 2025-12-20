@@ -85,7 +85,9 @@ function BlogPostList({
                 <motion.div layout initial={false} className="mb-4">
                   <span>{author}</span>
                   <span className="mx-2">•</span>
-                  <time>{format(date, { date: "full" })}</time>
+                  <time suppressHydrationWarning>
+                    {date ? format(date, { date: "full" }) : "No date"}
+                  </time>
                 </motion.div>
                 <motion.p layout initial={false}>
                   {excerpt}

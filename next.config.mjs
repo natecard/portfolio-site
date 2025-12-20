@@ -4,6 +4,7 @@ import createMDX from "@next/mdx";
 const nextConfig = {
   experimental: {
     mdxRs: true,
+    allowedDevOrigins: ["localhost"],
   },
   turbopack: {
     resolveExtensions: [".ts", ".tsx", ".js", ".jsx", ".md", ".mdx", ".css"],
